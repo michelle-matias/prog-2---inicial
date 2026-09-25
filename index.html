@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Portal Académico | Instituto Politécnico de Tomar</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#3f6900",
+            "primary-container": "#74b816",
+            "on-primary": "#ffffff",
+            "on-primary-container": "#264300",
+            "primary-fixed": "#aef756",
+            "secondary": "#182230",
+            "secondary-container": "#d6e0f3",
+            "tertiary": "#006398",
+            "tertiary-container": "#4eadf3",
+            "background": "#f4f6f8",
+            "surface": "#ffffff",
+            "on-background": "#191c1e",
+            "on-surface": "#191c1e",
+            "outline": "#727a65",
+            "ipt-red": "#E11D48",
+            "ipt-green": "#059669",
+            "ipt-blue": "#0284C7",
+            "ipt-amber": "#D97706",
+            "ipt-lime": "#74B816",
+            "ipt-violet": "#7C3AED"
+          },
+          fontFamily: {
+            "headline": ["Plus Jakarta Sans", "sans-serif"],
+            "body": ["Public Sans", "sans-serif"]
+          },
+          boxShadow: {
+            "card": "0 1px 3px rgba(24, 34, 48, 0.05)",
+            "card-hover": "0 12px 32px -4px rgba(24, 34, 48, 0.12)"
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    
+    body {
+      background-image: radial-gradient(circle at 100% 0%, #f4fce8 0%, #f4f6f8 30%);
+    }
+
+    .service-card {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .service-card:hover {
+      transform: translateY(-4px);
+    }
+    .service-card:hover .service-icon {
+      transform: scale(1.1) rotate(5deg);
+    }
+    .service-icon {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body antialiased min-h-screen flex flex-col selection:bg-ipt-lime selection:text-white">
+
+  <!-- IPT Brand Strip -->
+  <div aria-hidden="true" class="h-[4px] w-full grid grid-cols-6 sticky top-0 z-50">
+    <div class="bg-ipt-red"></div>
+    <div class="bg-ipt-green"></div>
+    <div class="bg-ipt-blue"></div>
+    <div class="bg-ipt-amber"></div>
+    <div class="bg-ipt-lime"></div>
+    <div class="bg-ipt-violet"></div>
+  </div>
+
+  <main class="flex-1 max-w-[1320px] w-full mx-auto px-4 sm:px-8 py-12 flex flex-col items-center">
+    
+    <!-- Hero Section -->
+    <div class="text-center mb-16 max-w-2xl mt-8">
+      <div class="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-white shadow-card mb-6 border border-slate-100">
+        <span class="material-symbols-outlined text-[40px] text-primary-container">account_balance</span>
+      </div>
+      <h1 class="font-headline font-extrabold text-4xl sm:text-5xl tracking-tight text-secondary mb-4">
+        Portal Académico
+      </h1>
+      <p class="text-lg text-slate-500">
+        Bem-vindo ao seu ecossistema digital do Instituto Politécnico de Tomar. Aceda rapidamente a todos os serviços essenciais num único local.
+      </p>
+    </div>
+
+    <!-- Grid of Services -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
+      
+      <!-- 1. Hub -->
+      <a href="/hub.html" class="service-card group bg-surface rounded-xl p-6 border border-slate-200 shadow-card hover:shadow-card-hover flex flex-col gap-4 relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-1 bg-ipt-lime transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+        <div class="w-12 h-12 rounded-lg bg-ipt-lime/10 flex items-center justify-center text-primary-container service-icon">
+          <span class="material-symbols-outlined text-[28px]">hub</span>
+        </div>
+        <div>
+          <h2 class="font-headline font-bold text-xl text-secondary mb-1">IPT Hub</h2>
+          <p class="text-sm text-slate-500">O seu ponto central para integração de serviços e visão global do ecossistema.</p>
+        </div>
+        <div class="mt-auto flex items-center text-sm font-semibold text-primary-container group-hover:text-primary transition-colors">
+          <span>Aceder ao Hub</span>
+          <span class="material-symbols-outlined text-[18px] ml-1 group-hover:translate-x-1 transition-transform">arrow_forward</span>
+        </div>
+      </a>
+
+      <!-- 2. Dashboard NETPA -->
+      <a href="/dashboard.html" class="service-card group bg-surface rounded-xl p-6 border border-slate-200 shadow-card hover:shadow-card-hover flex flex-col gap-4 relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-1 bg-ipt-blue transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+        <div class="w-12 h-12 rounded-lg bg-ipt-blue/10 flex items-center justify-center text-ipt-blue service-icon">
+          <span class="material-symbols-outlined text-[28px]">dashboard</span>
+        </div>
+        <div>
+          <h2 class="font-headline font-bold text-xl text-secondary mb-1">NETPA Dashboard</h2>
+          <p class="text-sm text-slate-500">Gestão académica, pautas, inscrições e documentação administrativa.</p>
+        </div>
+        <div class="mt-auto flex items-center text-sm font-semibold text-ipt-blue group-hover:text-blue-700 transition-colors">
+          <span>Aceder ao NETPA</span>
+          <span class="material-symbols-outlined text-[18px] ml-1 group-hover:translate-x-1 transition-transform">arrow_forward</span>
+        </div>
+      </a>
+
+      <!-- 3. Balcão Único -->
+      <a href="/balcao-unico.html" class="service-card group bg-surface rounded-xl p-6 border border-slate-200 shadow-card hover:shadow-card-hover flex flex-col gap-4 relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-1 bg-ipt-red transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+        <div class="w-12 h-12 rounded-lg bg-ipt-red/10 flex items-center justify-center text-ipt-red service-icon">
+          <span class="material-symbols-outlined text-[28px]">support_agent</span>
+        </div>
+        <div>
+          <h2 class="font-headline font-bold text-xl text-secondary mb-1">Balcão Único</h2>
+          <p class="text-sm text-slate-500">Atendimento simplificado, submissão de requerimentos e pedidos de suporte.</p>
+        </div>
+        <div class="mt-auto flex items-center text-sm font-semibold text-ipt-red group-hover:text-red-700 transition-colors">
+          <span>Abrir Balcão</span>
+          <span class="material-symbols-outlined text-[18px] ml-1 group-hover:translate-x-1 transition-transform">arrow_forward</span>
+        </div>
+      </a>
+
+      <!-- 4. Diretório -->
+      <a href="/diretorio.html" class="service-card group bg-surface rounded-xl p-6 border border-slate-200 shadow-card hover:shadow-card-hover flex flex-col gap-4 relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-1 bg-ipt-violet transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+        <div class="w-12 h-12 rounded-lg bg-ipt-violet/10 flex items-center justify-center text-ipt-violet service-icon">
+          <span class="material-symbols-outlined text-[28px]">contacts</span>
+        </div>
+        <div>
+          <h2 class="font-headline font-bold text-xl text-secondary mb-1">Diretório</h2>
+          <p class="text-sm text-slate-500">Pesquisa de contactos institucionais, docentes e funcionários do ecossistema.</p>
+        </div>
+        <div class="mt-auto flex items-center text-sm font-semibold text-ipt-violet group-hover:text-violet-700 transition-colors">
+          <span>Pesquisar Contactos</span>
+          <span class="material-symbols-outlined text-[18px] ml-1 group-hover:translate-x-1 transition-transform">arrow_forward</span>
+        </div>
+      </a>
+
+      <!-- 5. Refeitório -->
+      <a href="/refeitorio.html" class="service-card group bg-surface rounded-xl p-6 border border-slate-200 shadow-card hover:shadow-card-hover flex flex-col gap-4 relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-1 bg-ipt-amber transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+        <div class="w-12 h-12 rounded-lg bg-ipt-amber/10 flex items-center justify-center text-ipt-amber service-icon">
+          <span class="material-symbols-outlined text-[28px]">restaurant</span>
+        </div>
+        <div>
+          <h2 class="font-headline font-bold text-xl text-secondary mb-1">SAS Alimentação</h2>
+          <p class="text-sm text-slate-500">Portal Unicard SIGE para ementas, carregamentos e gestão de refeições.</p>
+        </div>
+        <div class="mt-auto flex items-center text-sm font-semibold text-ipt-amber group-hover:text-amber-700 transition-colors">
+          <span>Ver Ementas</span>
+          <span class="material-symbols-outlined text-[18px] ml-1 group-hover:translate-x-1 transition-transform">arrow_forward</span>
+        </div>
+      </a>
+
+      <!-- 6. Prova de Vida -->
+      <a href="/prova-vida.html" class="service-card group bg-surface rounded-xl p-6 border border-slate-200 shadow-card hover:shadow-card-hover flex flex-col gap-4 relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-1 bg-ipt-green transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+        <div class="w-12 h-12 rounded-lg bg-ipt-green/10 flex items-center justify-center text-ipt-green service-icon">
+          <span class="material-symbols-outlined text-[28px]">fact_check</span>
+        </div>
+        <div>
+          <h2 class="font-headline font-bold text-xl text-secondary mb-1">Prova de Vida SAS</h2>
+          <p class="text-sm text-slate-500">Validação e renovação de estatutos para os Serviços de Ação Social.</p>
+        </div>
+        <div class="mt-auto flex items-center text-sm font-semibold text-ipt-green group-hover:text-green-700 transition-colors">
+          <span>Realizar Prova</span>
+          <span class="material-symbols-outlined text-[18px] ml-1 group-hover:translate-x-1 transition-transform">arrow_forward</span>
+        </div>
+      </a>
+      
+    </div>
+  </main>
+
+  <footer class="mt-auto border-t border-slate-200 bg-white py-6">
+    <div class="max-w-[1320px] mx-auto px-4 sm:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-500">
+      <div class="flex items-center gap-2">
+        <span class="material-symbols-outlined text-[20px] text-primary-container">school</span>
+        <span class="font-semibold text-secondary">Instituto Politécnico de Tomar</span>
+      </div>
+      <p>© 2026 Serviços de Informática do IPT. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

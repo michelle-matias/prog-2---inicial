@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+
+<html lang="pt"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SAS-IPT — Prova de Vida &amp; Confirmação de Matrícula</title>
+<!-- Fonts: Plus Jakarta Sans & Public Sans & JetBrains Mono -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS with Forms and Container Queries -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-error": "#ffffff",
+            "on-surface": "#191c1e",
+            "tertiary-fixed-dim": "#93ccff",
+            "secondary-container": "#d6e0f3",
+            "surface-container": "#eceef0",
+            "primary-fixed-dim": "#93da3c",
+            "secondary": "#555f6f",
+            "on-primary-fixed-variant": "#2e4f00",
+            "primary-fixed": "#aef756",
+            "surface-bright": "#f8f9fb",
+            "surface": "#f8f9fb",
+            "on-error-container": "#93000a",
+            "secondary-fixed-dim": "#bdc7da",
+            "on-tertiary-fixed-variant": "#004b73",
+            "background": "#f8f9fb",
+            "primary": "#3f6900",
+            "primary-dark": "#2d4d00",
+            "primary-container": "#74b816",
+            "primary-light": "#88c82d",
+            "ipt-green": "#74b816",
+            "ipt-darkgreen": "#3f6900",
+            "surface-container-lowest": "#ffffff",
+            "on-secondary-fixed": "#121c2a",
+            "inverse-on-surface": "#eff1f3",
+            "secondary-fixed": "#d9e3f6",
+            "error-container": "#ffdad6",
+            "on-tertiary": "#ffffff",
+            "surface-container-low": "#f2f4f6",
+            "surface-tint": "#3f6900",
+            "on-secondary-container": "#596374",
+            "on-primary": "#ffffff",
+            "on-background": "#191c1e",
+            "tertiary": "#006398",
+            "surface-container-high": "#e6e8ea",
+            "tertiary-fixed": "#cce5ff",
+            "error": "#ba1a1a",
+            "on-secondary-fixed-variant": "#3d4757",
+            "outline": "#727a65",
+            "inverse-surface": "#2d3133",
+            "on-tertiary-container": "#003f62",
+            "tertiary-container": "#4eadf3",
+            "on-secondary": "#ffffff",
+            "surface-variant": "#e0e3e5",
+            "inverse-primary": "#93da3c",
+            "on-primary-container": "#1d3600",
+            "on-surface-variant": "#424937",
+            "on-primary-fixed": "#0f2000",
+            "surface-dim": "#d8dadc",
+            "surface-container-highest": "#e0e3e5",
+            "on-tertiary-fixed": "#001d31",
+            "outline-variant": "#d0d7c7"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "space-lg": "1.5rem",
+            "margin": "1rem",
+            "space-md": "1rem",
+            "gutter-lg": "2rem",
+            "margin-lg": "4rem",
+            "space-xl": "2.5rem",
+            "space-xs": "0.25rem",
+            "gutter-sm": "1rem",
+            "gutter": "1.5rem",
+            "margin-md": "2rem",
+            "space-sm": "0.5rem"
+          },
+          "fontFamily": {
+            "display-lg": ["Plus Jakarta Sans"],
+            "label-lg": ["Public Sans"],
+            "body-sm": ["Public Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "body-lg": ["Public Sans"],
+            "title-md": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "label-sm": ["Public Sans"],
+            "body-md": ["Public Sans"],
+            "label-mono": ["JetBrains Mono"]
+          },
+          "fontSize": {
+            "body-sm": ["13px", {"lineHeight": "20px", "fontWeight": "400"}],
+            "label-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+            "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "600"}],
+            "title-md": ["16px", {"lineHeight": "24px", "fontWeight": "600"}],
+            "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+            "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+            "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+            "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+            "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+            "label-mono": ["12px", {"lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "500"}]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-outlined.fill {
+      font-variation-settings: 'FILL' 1;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body-md antialiased min-h-screen flex flex-col">
+<!-- ========================================================================= -->
+<!-- SHARED COMPONENT 1: TopNavBar (Web Header with Multi-Color Ribbon)        -->
+<!-- ========================================================================= -->
+<header class="docked full-width top-0 sticky z-40 bg-surface-container-lowest border-b border-outline-variant shadow-xs w-full">
+<div class="flex justify-between items-center w-full px-6 py-3 max-w-full">
+<!-- Brand & Search cluster -->
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-3 pl-0 md:pl-64 transition-all">
+<div class="w-8 h-8 rounded-full bg-[#74b816] flex items-center justify-center text-white shadow-xs">
+<span class="material-symbols-outlined text-xl" data-icon="school">school</span>
+</div>
+<a class="text-title-md font-bold text-[#191c1e] hover:text-[#3f6900] tracking-tight flex items-center gap-1.5" href="#">
+<span class="font-extrabold text-[#74b816]">IPT</span>
+<span class="text-on-surface-variant font-normal">|</span>
+<span>SAS Portal</span>
+</a>
+</div>
+<!-- Search bar on left -->
+<div class="hidden lg:flex items-center relative w-80">
+<span class="material-symbols-outlined absolute left-3 text-on-surface-variant text-lg" data-icon="search">search</span>
+<input class="w-full pl-9 pr-4 py-1.5 text-body-sm bg-surface-container-low border border-outline-variant rounded text-on-surface focus:ring-2 focus:ring-[#74b816] focus:border-[#74b816] focus:outline-none transition-all duration-150" placeholder="Pesquisar serviços, apoios ou regulamentos..." type="text"/>
+</div>
+</div>
+<!-- Navigation Links -->
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-[#3f6900] font-title-md font-semibold border-b-2 border-[#74b816] pb-1" href="#inicio">Portal Académico</a>
+<a class="text-on-surface-variant font-body-md hover:text-[#3f6900] transition-colors" href="#servicos">Serviços SAS</a>
+<a class="text-on-surface-variant font-body-md hover:text-[#3f6900] transition-colors" href="#ajuda">Ajuda &amp; FAQs</a>
+</nav>
+<!-- Trailing Primary Actions, Icons & Profile -->
+<div class="flex items-center gap-4">
+<button class="hidden sm:inline-flex items-center gap-2 bg-[#74b816] hover:bg-[#689f38] text-white px-3.5 py-1.5 rounded text-label-sm font-label-sm font-semibold shadow-xs transition-all duration-150">
+<span class="material-symbols-outlined text-base" data-icon="upload_file">upload_file</span>
+          Submeter Prova
+        </button>
+<div class="flex items-center gap-1">
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-low rounded-full relative transition-colors" title="Notificações">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 bg-[#ba1a1a] rounded-full ring-2 ring-surface-container-lowest"></span>
+</button>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-low rounded-full transition-colors" title="Ajuda SAS">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+</button>
+</div>
+<div class="h-6 w-px bg-outline-variant mx-1"></div>
+<!-- Student Profile Avatar -->
+<div class="flex items-center gap-3">
+<div class="text-right hidden sm:block">
+<p class="text-label-sm font-label-sm text-[#191c1e] font-semibold leading-tight">Michelle Gomes</p>
+<p class="text-[11px] text-on-surface-variant font-label-mono">Nº 24891 • ESTT</p>
+</div>
+<img class="w-9 h-9 rounded-full object-cover border-2 border-[#74b816]/40 shadow-xs" data-alt="Fotografia de perfil formal da aluna universitária Michelle Gomes com fundo neutro suave em tom azul acinzentado, trajando vestuário académico sóbrio e transmitindo profissionalismo e serenidade institucional num estilo corporativo limpo e contemporâneo." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmopj36GmzqD8Fh7JE0QMptipozQ2_x3SlvCMna3V2C0GrFkGB8FMlIZtaAQfZNt6zRKXvy5hPuQ4lC2O5IHZeOcHo0WpRSBrSlsm27a2bPr1zDrJyRV60yxeRfbjaADkZ6HjLPfTTNNoUo3fZVse1ptmElqggH_9O6XWNToI8XzG2OiGQYyMZBoef6M6VskIeJj-RkLZBcUTdG1Tvt2XL-Z_sHkWzawmdXILMKrE1NnCo-I6FQnXoJQ"/>
+</div>
+</div>
+</div>
+<!-- Official IPT Multi-Color Ribbon Accent Strip -->
+<div class="w-full flex h-1.5 overflow-hidden">
+<div class="flex-1 bg-[#e40046]"></div>
+<div class="flex-1 bg-[#2ea2dc]"></div>
+<div class="flex-1 bg-[#27408b]"></div>
+<div class="flex-1 bg-[#2d68c4]"></div>
+<div class="flex-1 bg-[#8c1d40]"></div>
+<div class="flex-1 bg-[#f39200]"></div>
+<div class="flex-1 bg-[#74b816]"></div>
+<div class="flex-1 bg-[#d81b60]"></div>
+<div class="flex-1 bg-[#7b1fa2]"></div>
+<div class="flex-1 bg-[#00897b]"></div>
+<div class="flex-1 bg-[#fdd835]"></div>
+<div class="flex-1 bg-[#43a047]"></div>
+<div class="flex-1 bg-[#039be5]"></div>
+<div class="flex-1 bg-[#3949ab]"></div>
+<div class="flex-1 bg-[#e53935]"></div>
+<div class="flex-1 bg-[#8e24aa]"></div>
+</div>
+</header>
+<!-- ========================================================================= -->
+<!-- SHARED COMPONENT 2: SideNavBar (Institutional Drawer)                      -->
+<!-- ========================================================================= -->
+<aside class="h-screen w-64 flex flex-col fixed left-0 top-0 z-50 bg-surface-container-lowest border-r border-outline-variant shadow-sm">
+<div class="w-64 h-full flex flex-col justify-between p-4 overflow-x-auto">
+<!-- Drawer Header with IPT Identity -->
+<div>
+<div class="flex items-center gap-3 px-2 py-3 border-b border-outline-variant mb-4">
+<div class="w-10 h-10 rounded bg-[#74b816] flex items-center justify-center text-white shadow-xs">
+<span class="material-symbols-outlined text-2xl font-bold" data-icon="school">school</span>
+</div>
+<div>
+<span class="text-title-md font-headline-sm font-bold text-[#191c1e] block leading-tight">SAS-IPT</span>
+<span class="text-[11px] text-on-surface-variant block font-medium">Politécnico de Tomar</span>
+</div>
+</div>
+<!-- Dedicated CTA with IPT Vibrant Green -->
+<div class="mb-4">
+<a class="flex items-center justify-between w-full bg-[#74b816] text-white hover:bg-[#689f38] px-3.5 py-2.5 rounded font-semibold text-label-sm shadow-xs transition-all duration-150" href="#fazer-prova">
+<span class="">Renovar Prova 2024/25</span>
+<span class="material-symbols-outlined text-base" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+<!-- Drawer Navigation Tabs (Prova de Vida active in IPT Apple Green) -->
+<nav class="space-y-1"><a class="flex items-center gap-3 px-3 py-2 rounded text-on-surface-variant font-body-md hover:bg-surface-container-low hover:text-on-surface transition-colors" href="#inicio">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="">Início</span>
+</a>
+<div class="space-y-1">
+<a class="flex items-center justify-between px-3 py-2 rounded bg-[#74b816]/10 text-[#3f6900] font-title-md font-semibold border-l-4 border-[#74b816]" href="#inicio">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined fill text-[#74b816]" data-icon="verified_user">verified_user</span>
+<span class="">Prova de Vida</span>
+</div>
+<span class="material-symbols-outlined text-sm text-[#74b816]" data-icon="expand_more">expand_more</span>
+</a>
+<div class="pl-8 pr-2 py-1 space-y-1 border-l-2 border-[#74b816]/20 ml-4 my-1">
+<a class="block py-1 text-body-sm text-on-surface-variant hover:text-[#3f6900] transition-colors" href="#o-que-e">O que é?</a>
+<a class="block py-1 text-body-sm text-on-surface-variant hover:text-[#3f6900] transition-colors" href="#prazos">Prazos</a>
+<a class="block py-1 text-body-sm text-on-surface-variant hover:text-[#3f6900] transition-colors" href="#fazer-prova">Fazer Prova de Vida</a>
+<a class="block py-1 text-body-sm text-on-surface-variant hover:text-[#3f6900] transition-colors" href="#consultar-estado">Consultar Estado</a>
+<a class="block py-1 text-body-sm text-on-surface-variant hover:text-[#3f6900] transition-colors" href="#comprovativo">Comprovativo</a>
+<a class="block py-1 text-body-sm text-on-surface-variant hover:text-[#3f6900] transition-colors" href="#faq">Perguntas Frequentes</a>
+<a class="block py-1 text-body-sm text-on-surface-variant hover:text-[#3f6900] transition-colors" href="#contactos">Contactos</a>
+</div>
+</div>
+<a class="flex items-center gap-3 px-3 py-2 rounded text-on-surface-variant font-body-md hover:bg-surface-container-low hover:text-on-surface transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="">Bolsas &amp; Apoios</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded text-on-surface-variant font-body-md hover:bg-surface-container-low hover:text-on-surface transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="home_work">home_work</span>
+<span class="">Alojamento</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded text-on-surface-variant font-body-md hover:bg-surface-container-low hover:text-on-surface transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="restaurant">restaurant</span>
+<span class="">Alimentação &amp; Cantinas</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded text-on-surface-variant font-body-md hover:bg-surface-container-low hover:text-on-surface transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="medical_services">medical_services</span>
+<span class="">Saúde &amp; Bem-Estar</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded text-on-surface-variant font-body-md hover:bg-surface-container-low hover:text-on-surface transition-colors" href="#contactos">
+<span class="material-symbols-outlined" data-icon="support_agent">support_agent</span>
+<span class="">Atendimento SAS</span>
+</a></nav>
+</div>
+<!-- Drawer Footer Action Tabs -->
+<div class="pt-4 border-t border-outline-variant space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 rounded text-on-surface-variant font-body-md hover:bg-surface-container-low hover:text-on-surface transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="">Definições de Conta</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded text-error font-body-md hover:bg-error-container hover:text-on-error-container transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="">Terminar Sessão</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- ========================================================================= -->
+<!-- MAIN CONTENT CANVAS (Offset by SideNav w-64)                               -->
+<!-- ========================================================================= -->
+<main class="md:ml-64 flex-1 pb-16">
+<!-- MAIN CONTAINER -->
+<div class="px-6 md:px-8 py-8 max-w-7xl mx-auto space-y-12">
+<!-- 1. HERO & INSTITUTIONAL INTRO -->
+<section class="relative rounded-xl bg-surface-container-lowest p-8 border border-outline-variant shadow-sm overflow-hidden" id="inicio">
+<div class="absolute top-0 right-0 -mt-10 -mr-10 w-72 h-72 bg-[#74b816]/10 rounded-full blur-3xl pointer-events-none"></div>
+<div class="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
+<div class="space-y-3 max-w-3xl">
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-[#74b816]/15 text-[#3f6900] text-caption font-label-mono font-semibold border border-[#74b816]/30">
+<span class="material-symbols-outlined text-xs fill text-[#74b816]" data-icon="school">school</span>
+                Ano Letivo 2024/2025
+              </span>
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-surface-container-lowest text-on-surface-variant text-caption font-label-mono border border-outline-variant">
+                IPT • ESTT • ESGT
+              </span>
+</div>
+<h1 class="text-headline-lg font-headline-lg text-[#191c1e] tracking-tight">
+              Prova de Vida &amp; Confirmação de Matrícula <span class="text-[#74b816]">SAS-IPT</span>
+</h1>
+<p class="text-body-lg font-body-lg text-on-surface-variant leading-relaxed">
+              Procedimento regulamentar obrigatório para a manutenção contínua e sem interrupções das bolsas de estudo DGES, benefícios de alojamento nas residências universitárias e apoios sociais ativos no <strong class="text-[#3f6900] font-semibold">Instituto Politécnico de Tomar</strong>.
+            </p>
+</div>
+<!-- Alert Badge Card -->
+<div class="flex-shrink-0 bg-surface-container-low border-2 border-[#74b816]/30 rounded-lg p-4 w-full md:w-72 shadow-xs">
+<div class="flex items-start gap-3">
+<div class="w-9 h-9 rounded-full bg-[#74b816] text-white flex items-center justify-center flex-shrink-0 mt-0.5 shadow-xs">
+<span class="material-symbols-outlined text-lg" data-icon="alarm">alarm</span>
+</div>
+<div>
+<p class="text-caption font-caption text-[#3f6900] font-bold uppercase tracking-wider">Período de Renovação</p>
+<p class="text-title-md font-title-md text-[#191c1e] font-extrabold">14 Dias Restantes</p>
+<p class="text-caption font-caption text-on-surface-variant mt-1 font-label-mono">Prazo limite: 31 Outubro 2024</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 2. SECTION: O QUE É A PROVA DE VIDA? -->
+<section class="space-y-4" id="o-que-e">
+<div class="flex items-center justify-between border-b border-outline-variant pb-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#74b816] text-2xl" data-icon="info">info</span>
+<h2 class="text-headline-sm font-headline-sm text-[#191c1e]">O que é a Prova de Vida?</h2>
+</div>
+<span class="text-caption font-caption text-outline font-label-mono">SAS-IPT REG. ART. 14º</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+<!-- Card 1: O que comprova -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-lg p-6 flex flex-col justify-between shadow-sm hover:border-[#74b816]/60 transition-colors">
+<div class="space-y-3">
+<div class="w-10 h-10 rounded bg-[#74b816]/10 text-[#3f6900] flex items-center justify-center">
+<span class="material-symbols-outlined text-2xl text-[#74b816]" data-icon="fact_check">fact_check</span>
+</div>
+<h3 class="text-title-md font-title-md text-[#191c1e]">O que comprova?</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+                Comprova formalmente a manutenção da frequência letiva regular no IPT, verificação de aproveitamento escolar, endereço de residência efetiva e preservação dos pressupostos socioeconómicos sem interrupções não declaradas.
+              </p>
+</div>
+<div class="pt-4 border-t border-surface-container-low mt-4 flex items-center text-caption font-caption text-[#3f6900] font-semibold">
+<span class="material-symbols-outlined text-sm mr-1 text-[#74b816]" data-icon="check_circle">check_circle</span>
+              Conformidade DGES / MCTES
+            </div>
+</div>
+<!-- Card 2: Quem deve realizar -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-lg p-6 flex flex-col justify-between shadow-sm hover:border-[#74b816]/60 transition-colors">
+<div class="space-y-3">
+<div class="w-10 h-10 rounded bg-[#74b816]/10 text-[#3f6900] flex items-center justify-center">
+<span class="material-symbols-outlined text-2xl text-[#74b816]" data-icon="groups">groups</span>
+</div>
+<h3 class="text-title-md font-title-md text-[#191c1e]">Quem deve realizar?</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+                Todos os estudantes com bolsa de estudo DGES atribuída, beneficiários de subsídios de alimentação, residentes nas Residências Maria de Lurdes (Tomar) e Abrantes, bem como requerentes de auxílios de emergência social.
+              </p>
+</div>
+<div class="pt-4 border-t border-surface-container-low mt-4 flex items-center text-caption font-caption text-[#3f6900] font-semibold">
+<span class="material-symbols-outlined text-sm mr-1 text-[#74b816]" data-icon="assignment_ind">assignment_ind</span>
+              Aplicável a 1º, 2º Ciclo e CTeSP
+            </div>
+</div>
+<!-- Card 3: Métodos disponíveis -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-lg p-6 flex flex-col justify-between shadow-sm hover:border-[#74b816]/60 transition-colors">
+<div class="space-y-3">
+<div class="w-10 h-10 rounded bg-[#74b816]/10 text-[#3f6900] flex items-center justify-center">
+<span class="material-symbols-outlined text-2xl text-[#74b816]" data-icon="fingerprint">fingerprint</span>
+</div>
+<h3 class="text-title-md font-title-md text-[#191c1e]">Métodos Disponíveis</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+                Três canais autorizados: <strong>Chave Móvel Digital</strong> (validação instantânea 100% digital), submissão de Certidão de Matrícula gerada no NETPA com código de verificação ativa, ou agendamento presencial no balcão SAS.
+              </p>
+</div>
+<div class="pt-4 border-t border-surface-container-low mt-4 flex items-center text-caption font-caption text-[#3f6900] font-semibold">
+<span class="material-symbols-outlined text-sm mr-1 text-[#74b816]" data-icon="verified">verified</span>
+              Autenticação Segura gov.pt
+            </div>
+</div>
+</div>
+</section>
+<!-- 3. SECTION: PRAZOS & CALENDÁRIO OFICIAL -->
+<section class="space-y-4" id="prazos">
+<div class="flex items-center justify-between border-b border-outline-variant pb-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#74b816] text-2xl" data-icon="calendar_month">calendar_month</span>
+<h2 class="text-headline-sm font-headline-sm text-[#191c1e]">Prazos &amp; Calendário Oficial 2024/2025</h2>
+</div>
+<span class="text-caption font-caption text-outline font-label-mono">DESPACHO SAS-IPT Nº 08/2024</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch">
+<!-- Main Timeline Card (span 8) -->
+<div class="md:col-span-8 bg-surface-container-lowest border border-outline-variant rounded-lg p-6 space-y-6 shadow-sm">
+<h3 class="text-title-md font-title-md text-[#191c1e]">Calendário Semestral de Apresentação</h3>
+<!-- Timeline item 1: 1º Semestre -->
+<div class="relative pl-8 pb-6 border-l-2 border-[#74b816]">
+<div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-[#74b816] ring-4 ring-[#74b816]/20"></div>
+<div class="flex flex-wrap items-center justify-between gap-2 mb-1">
+<span class="text-title-md font-title-md text-[#191c1e] font-semibold">1º Semestre Letivo</span>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-caption font-label-mono font-semibold bg-amber-50 text-amber-800 border border-amber-200">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-500 mr-1.5 animate-pulse"></span>
+                  A decorrer • Restam 14 dias
+                </span>
+</div>
+<p class="text-body-md font-body-md text-on-surface">Data Limite: <strong class="font-semibold text-[#3f6900]">31 de Outubro de 2024</strong></p>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1">
+                Confirmação de matrícula no curso regular e validação dos dados de contacto institucional e NIB para desembolso das prestações de Outubro a Fevereiro.
+              </p>
+</div>
+<!-- Timeline item 2: 2º Semestre -->
+<div class="relative pl-8 border-l-2 border-outline-variant">
+<div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-surface-container-lowest border-2 border-outline"></div>
+<div class="flex flex-wrap items-center justify-between gap-2 mb-1">
+<span class="text-title-md font-title-md text-on-surface-variant font-semibold">2º Semestre Letivo (Renovação)</span>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-caption font-label-mono bg-surface-container-low text-on-surface-variant border border-outline-variant">
+                  Agendado
+                </span>
+</div>
+<p class="text-body-md font-body-md text-on-surface">Período: <strong class="font-semibold text-[#3f6900]">1 a 28 de Fevereiro de 2025</strong></p>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1">
+                Verificação da manutenção das condições de elegibilidade e inscrição curricular ativa no segundo semestre letivo.
+              </p>
+</div>
+</div>
+<!-- Consequences & Warning Card (span 4) -->
+<div class="md:col-span-4 bg-error-container/30 border border-error/30 rounded-lg p-6 flex flex-col justify-between shadow-sm">
+<div class="space-y-3">
+<div class="flex items-center gap-2 text-error font-semibold text-title-md">
+<span class="material-symbols-outlined text-2xl" data-icon="warning">warning</span>
+                Consequências da Não Submissão
+              </div>
+<p class="text-body-sm font-body-sm text-on-surface-variant leading-relaxed">
+                De acordo com o Regulamento de Atribuição de Bolsas a Estudantes do Ensino Superior:
+              </p>
+<ul class="space-y-2 text-body-sm font-body-sm text-on-surface">
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-error text-base mt-0.5" data-icon="close">close</span>
+<span class=""><strong>Suspensão preventiva</strong> do pagamento da prestação mensal da bolsa DGES a partir de 1 de Novembro.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-error text-base mt-0.5" data-icon="close">close</span>
+<span class="">Perda transitória da prioridade no alojamento das Residências Universitárias.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-error text-base mt-0.5" data-icon="close">close</span>
+<span class="">Cancelamento de tarifas sociais no refeitório e cantinas centrais.</span>
+</li>
+</ul>
+</div>
+<p class="text-caption font-caption text-error font-semibold mt-4 border-t border-error/20 pt-3">
+              Evite bloqueios automáticos no sistema financeiro institucional.
+            </p>
+</div>
+</div>
+</section>
+<!-- 4. SECTION: FAZER PROVA DE VIDA (ONLINE SUBMISSION) -->
+<section class="space-y-6" id="fazer-prova">
+<div class="flex items-center justify-between border-b border-outline-variant pb-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#74b816] text-2xl" data-icon="edit_document">edit_document</span>
+<h2 class="text-headline-sm font-headline-sm text-[#191c1e]">Fazer Prova de Vida (Submissão Online)</h2>
+</div>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-caption font-label-mono bg-[#74b816]/15 text-[#3f6900] border border-[#74b816]/30 font-semibold">
+            Sessão Autenticada
+          </span>
+</div>
+<!-- Submission Options Bento Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+<!-- Option 1: Chave Móvel Digital / Autenticação Rápida (col-span-5) -->
+<div class="lg:col-span-5 bg-surface-container-lowest border-2 border-[#74b816] rounded-lg p-6 flex flex-col justify-between shadow-sm relative overflow-hidden">
+<div class="absolute top-0 right-0 bg-[#74b816] text-white px-3 py-1 rounded-bl text-caption font-label-mono font-bold tracking-wide">
+              Recomendado
+            </div>
+<div class="space-y-4">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-lg bg-[#74b816]/10 flex items-center justify-center text-[#74b816]">
+<span class="material-symbols-outlined text-3xl" data-icon="shield">shield</span>
+</div>
+<div>
+<h3 class="text-title-lg font-title-lg text-[#191c1e] font-bold">Opção 1: Chave Móvel Digital</h3>
+<p class="text-caption font-caption text-on-surface-variant font-label-mono">Validação Automática Oficial gov.pt</p>
+</div>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant leading-relaxed">
+                Ao autenticar-se através do fornecedor de identidade governamental, os seus dados civis, fiscais e estatuto de estudante são cruzados diretamente em tempo real com a base de dados da DGES e da Segurança Social.
+              </p>
+<div class="bg-surface-container-low rounded p-3.5 space-y-2 text-body-sm font-body-sm">
+<div class="flex items-center gap-2 text-on-surface font-semibold">
+<span class="material-symbols-outlined text-[#74b816] text-base" data-icon="bolt">bolt</span>
+                  Vantagens do método direto:
+                </div>
+<ul class="text-caption font-caption text-on-surface-variant space-y-1 pl-6 list-disc">
+<li class="">Sem necessidade de anexar ficheiros ou certidões manuais.</li>
+<li class="">Aprovação técnica imediata sem tempo de espera.</li>
+<li class="">Emissão instantânea do comprovativo com carimbo eletrónico.</li>
+</ul>
+</div>
+</div>
+<div class="pt-6">
+<button class="w-full flex items-center justify-center gap-3 bg-[#74b816] hover:bg-[#689f38] text-white py-3 px-4 rounded-lg font-title-md text-body-md font-bold transition-all shadow-sm focus:ring-2 focus:ring-[#74b816] focus:outline-none">
+<span class="material-symbols-outlined text-xl" data-icon="fingerprint">fingerprint</span>
+                Autenticar com Chave Móvel Digital
+              </button>
+<p class="text-center text-caption font-caption text-outline-variant mt-2">
+                Redirecionamento cifrado para autenticacao.gov.pt
+              </p>
+</div>
+</div>
+<!-- Option 2: Manual Upload Form (col-span-7) -->
+<div class="lg:col-span-7 bg-surface-container-lowest border border-outline-variant rounded-lg p-6 shadow-sm">
+<div class="flex items-center justify-between mb-4">
+<div>
+<h3 class="text-title-lg font-title-lg text-[#191c1e] font-bold">Opção 2: Formulário Manual com Documentação</h3>
+<p class="text-caption font-caption text-on-surface-variant">Para submissão via Certidão de Matrícula emitida no portal NETPA</p>
+</div>
+<span class="text-caption font-caption text-outline font-label-mono">PASSO A PASSO</span>
+</div>
+<form class="space-y-4">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Field 1: Estudante / Nº -->
+<div>
+<label class="block text-caption font-caption text-on-surface-variant uppercase tracking-wider mb-1 font-semibold">
+                    Estudante &amp; Número Mecanográfico
+                  </label>
+<input class="w-full bg-surface-container-low border border-outline-variant rounded px-3 py-2 text-body-sm font-label-mono text-primary font-semibold cursor-not-allowed" readonly="" type="text" value="Michelle Gomes — Nº 24891"/>
+</div>
+<!-- Field 2: Curso e Escola -->
+<div>
+<label class="block text-caption font-caption text-on-surface-variant uppercase tracking-wider mb-1 font-semibold">
+                    Curso &amp; Unidade Orgânica
+                  </label>
+<input class="w-full bg-surface-container-low border border-outline-variant rounded px-3 py-2 text-body-sm text-[#191c1e] font-medium cursor-not-allowed" readonly="" type="text" value="Lic. Engenharia Informática (ESTT)"/>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Field 3: Benefício Associado -->
+<div>
+<label class="block text-caption font-caption text-on-surface-variant uppercase tracking-wider mb-1 font-semibold">
+                    Tipo de Benefício Principal
+                  </label>
+<select class="w-full bg-surface-container-lowest border border-outline-variant rounded px-3 py-2 text-body-sm text-[#191c1e] focus:ring-2 focus:ring-[#74b816] focus:border-[#74b816] focus:outline-none">
+<option selected="">Bolsa de Estudo DGES (Ref. 984210)</option>
+<option>Alojamento Residência Maria de Lurdes</option>
+<option>Bolsa de Estudo + Quarto Residência</option>
+<option>Auxílio Social de Emergência</option>
+</select>
+</div>
+<!-- Field 4: Código NETPA -->
+<div>
+<label class="block text-caption font-caption text-on-surface-variant uppercase tracking-wider mb-1 font-semibold">
+                    Código de Validação da Certidão NETPA
+                  </label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded px-3 py-2 text-body-sm font-label-mono text-[#191c1e] focus:ring-2 focus:ring-[#74b816] focus:border-[#74b816] focus:outline-none" placeholder="Ex: IPT-2024-NETPA-89412" type="text"/>
+</div>
+</div>
+<!-- Upload Drag and Drop Area -->
+<div>
+<label class="block text-caption font-caption text-on-surface-variant uppercase tracking-wider mb-1 font-semibold">
+                  Carregar Certidão de Matrícula 2024/2025 (PDF)
+                </label>
+<div class="border-2 border-dashed border-outline-variant hover:border-[#74b816] rounded-lg p-5 text-center bg-surface-container-lowest transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-[#74b816] text-3xl group-hover:scale-110 transition-transform" data-icon="cloud_upload">cloud_upload</span>
+<p class="text-body-sm font-body-sm font-semibold text-[#191c1e] mt-1">
+                    Arraste e solte o ficheiro PDF aqui, ou <span class="text-[#74b816] underline font-bold">procure no seu dispositivo</span>
+</p>
+<p class="text-caption font-caption text-on-surface-variant font-label-mono mt-1">
+                    Ficheiro PDF oficial emitido pela Secretaria IPT com assinatura digital (Máx: 5MB)
+                  </p>
+</div>
+</div>
+<!-- Checkbox Compromisso de Honra -->
+<div class="flex items-start gap-2.5 pt-1">
+<input class="mt-1 w-4 h-4 text-[#74b816] border-outline-variant rounded focus:ring-[#74b816] cursor-pointer" id="compromisso" type="checkbox"/>
+<label class="text-body-sm font-body-sm text-on-surface-variant cursor-pointer" for="compromisso">
+                  Declaro sob <strong>compromisso de honra</strong> a veracidade integral das informações prestadas, confirmando a frequência efetiva das atividades letivas na ESTT e a não alteração dos pressupostos sociofamiliares declarados à DGES.
+                </label>
+</div>
+<!-- Submit Button in Vibrant IPT Green -->
+<div class="pt-2 flex justify-end">
+<button class="bg-[#74b816] hover:bg-[#689f38] text-white font-title-md text-body-md font-bold px-6 py-2.5 rounded-lg shadow-sm flex items-center gap-2 transition-all" type="button">
+<span class="material-symbols-outlined text-lg" data-icon="send">send</span>
+                  Submeter Prova de Vida 2024/2025
+                </button>
+</div>
+</form>
+</div>
+</div>
+</section>
+<!-- 5. SECTION: CONSULTAR ESTADO DA PROVA DE VIDA -->
+<section class="space-y-4" id="consultar-estado">
+<div class="flex items-center justify-between border-b border-outline-variant pb-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#74b816] text-2xl" data-icon="manage_search">manage_search</span>
+<h2 class="text-headline-sm font-headline-sm text-[#191c1e]">Consultar Estado da Prova de Vida</h2>
+</div>
+<button class="text-[#3f6900] hover:text-[#74b816] text-body-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-base" data-icon="history">history</span>
+            Ver Histórico de Provas Anteriores
+          </button>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant rounded-lg p-6 space-y-6 shadow-sm">
+<!-- Summary Student Status Header -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-surface-container-low p-4 rounded-lg border border-outline-variant">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-[#74b816] text-white flex items-center justify-center font-bold text-title-lg shadow-xs">
+                MG
+              </div>
+<div>
+<div class="flex items-center gap-2">
+<h3 class="text-title-md font-title-md text-[#191c1e] font-bold">Michelle Gomes</h3>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-caption font-label-mono bg-amber-50 text-amber-800 border border-amber-200 font-semibold">
+                    Pendente de Renovação 2024/25
+                  </span>
+</div>
+<p class="text-caption font-caption text-on-surface-variant font-label-mono mt-0.5">
+                  ID DGES: 984210 • Mecanográfico IPT: 24891 • ESTT
+                </p>
+</div>
+</div>
+<div class="text-left md:text-right border-t md:border-t-0 pt-2 md:pt-0 border-outline-variant">
+<p class="text-caption font-caption text-on-surface-variant">Última Prova Aprovada</p>
+<p class="text-body-md font-body-md text-[#3f6900] font-bold">Ano Letivo 2023/2024 (Homologado)</p>
+</div>
+</div>
+<!-- Process Timeline / Stepper (4 Steps) -->
+<div class="pt-2">
+<h4 class="text-caption font-caption text-on-surface-variant uppercase tracking-wider font-semibold mb-4">
+              Progresso do Processo de Renovação
+            </h4>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-4 relative">
+<!-- Step 1: Submissão do Pedido (Em espera) -->
+<div class="bg-surface-container-low border-2 border-[#74b816] rounded-lg p-4 space-y-2 relative">
+<div class="flex items-center justify-between">
+<span class="w-6 h-6 rounded-full bg-[#74b816] text-white flex items-center justify-center text-xs font-bold">1</span>
+<span class="material-symbols-outlined text-[#74b816] text-base" data-icon="edit">edit</span>
+</div>
+<h5 class="text-body-md font-title-md text-[#191c1e] font-semibold">Submissão do Pedido</h5>
+<p class="text-caption font-caption text-on-surface-variant">
+                  Aguardando submissão pelo estudante através do formulário ou CMD.
+                </p>
+<div class="text-caption font-caption text-[#3f6900] font-bold font-label-mono pt-1">
+                  Etapa Atual
+                </div>
+</div>
+<!-- Step 2: Validação Automática OIDC/DGES -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-lg p-4 space-y-2 opacity-75">
+<div class="flex items-center justify-between">
+<span class="w-6 h-6 rounded-full bg-surface-container-high text-on-surface flex items-center justify-center text-xs font-bold">2</span>
+<span class="material-symbols-outlined text-outline text-base" data-icon="sync_alt">sync_alt</span>
+</div>
+<h5 class="text-body-md font-title-md text-on-surface font-semibold">Validação DGES / NETPA</h5>
+<p class="text-caption font-caption text-on-surface-variant">
+                  Cruzamento automatizado com a base de dados do Ministério.
+                </p>
+<div class="text-caption font-caption text-outline font-label-mono pt-1">
+                  Pendente
+                </div>
+</div>
+<!-- Step 3: Análise Técnica SAS -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-lg p-4 space-y-2 opacity-75">
+<div class="flex items-center justify-between">
+<span class="w-6 h-6 rounded-full bg-surface-container-high text-on-surface flex items-center justify-center text-xs font-bold">3</span>
+<span class="material-symbols-outlined text-outline text-base" data-icon="rate_review">rate_review</span>
+</div>
+<h5 class="text-body-md font-title-md text-on-surface font-semibold">Análise Técnica SAS</h5>
+<p class="text-caption font-caption text-on-surface-variant">
+                  Verificação documental pelo gestor setorial dos SAS-IPT.
+                </p>
+<div class="text-caption font-caption text-outline font-label-mono pt-1">
+                  Pendente
+                </div>
+</div>
+<!-- Step 4: Homologado & Concluído -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-lg p-4 space-y-2 opacity-75">
+<div class="flex items-center justify-between">
+<span class="w-6 h-6 rounded-full bg-surface-container-high text-on-surface flex items-center justify-center text-xs font-bold">4</span>
+<span class="material-symbols-outlined text-outline text-base" data-icon="check_circle">check_circle</span>
+</div>
+<h5 class="text-body-md font-title-md text-on-surface font-semibold">Homologado &amp; Concluído</h5>
+<p class="text-caption font-caption text-on-surface-variant">
+                  Emissão de comprovativo oficial com hash criptográfica.
+                </p>
+<div class="text-caption font-caption text-outline font-label-mono pt-1">
+                  Pendente
+                </div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 6. SECTION: COMPROVATIVO & CERTIFICADO DIGITAL -->
+<section class="space-y-4" id="comprovativo">
+<div class="flex items-center justify-between border-b border-outline-variant pb-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#74b816] text-2xl" data-icon="description">description</span>
+<h2 class="text-headline-sm font-headline-sm text-[#191c1e]">Comprovativo &amp; Certificado Digital</h2>
+</div>
+<span class="text-caption font-caption text-outline font-label-mono">DOCUMENTO AUTÊNTICO DIGITAL</span>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+<!-- Certificate Preview Mockup (span 8) -->
+<div class="lg:col-span-8 bg-surface-container-lowest border border-outline-variant rounded-lg p-6 md:p-8 shadow-sm relative overflow-hidden">
+<!-- Decorative watermark seal -->
+<div class="absolute right-4 bottom-4 opacity-5 pointer-events-none">
+<span class="material-symbols-outlined text-[180px] text-[#74b816]" data-icon="school">school</span>
+</div>
+<div class="border-b-2 border-[#74b816] pb-4 mb-6 flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 bg-[#74b816] text-white rounded flex items-center justify-center font-extrabold text-xl shadow-xs">
+                  IPT
+                </div>
+<div>
+<h4 class="text-title-md font-title-md text-[#191c1e] font-bold tracking-tight">INSTITUTO POLITÉCNICO DE TOMAR</h4>
+<p class="text-caption font-caption text-on-surface-variant uppercase tracking-wider">SERVIÇOS DE AÇÃO SOCIAL (SAS-IPT) • QUINTA DO CONTADOR</p>
+</div>
+</div>
+<div class="text-right">
+<span class="inline-flex items-center gap-1 text-caption font-label-mono font-semibold px-2 py-0.5 rounded bg-emerald-50 text-emerald-800 border border-emerald-200">
+<span class="material-symbols-outlined text-xs fill text-emerald-600" data-icon="verified">verified</span>
+                  VÁLIDO
+                </span>
+<p class="text-caption font-caption text-outline font-label-mono mt-1">CERT-IPT-2024-PV8821</p>
+</div>
+</div>
+<!-- Certificate Body -->
+<div class="space-y-4 text-body-sm font-body-sm text-on-surface">
+<p class="italic text-on-surface-variant leading-relaxed">
+                Certifica-se, para os devidos efeitos legais e institucionais junto da Direção-Geral do Ensino Superior (DGES) e entidades de suporte social, que a estudante identificada completou com sucesso a Prova de Vida anual e Confirmação de Matrícula:
+              </p>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-3 bg-surface-container-low p-4 rounded border border-outline-variant text-body-sm">
+<div>
+<span class="text-caption font-caption text-on-surface-variant block font-semibold">Titular:</span>
+<span class="font-bold text-[#191c1e]">Michelle Gomes</span>
+</div>
+<div>
+<span class="text-caption font-caption text-on-surface-variant block font-semibold">Nº Aluna IPT:</span>
+<span class="font-label-mono font-semibold text-[#3f6900]">24891</span>
+</div>
+<div>
+<span class="text-caption font-caption text-on-surface-variant block font-semibold">NIF:</span>
+<span class="font-label-mono text-[#191c1e]">254 *** 891</span>
+</div>
+<div>
+<span class="text-caption font-caption text-on-surface-variant block font-semibold">Unidade Orgânica:</span>
+<span class="text-[#191c1e] font-medium">ESTT — Tomar</span>
+</div>
+<div>
+<span class="text-caption font-caption text-on-surface-variant block font-semibold">Ciclo de Estudos:</span>
+<span class="text-[#191c1e] font-medium">Licenciatura Informática</span>
+</div>
+<div>
+<span class="text-caption font-caption text-on-surface-variant block font-semibold">Ano Letivo Homologado:</span>
+<span class="font-bold text-[#3f6900] font-label-mono">2024 / 2025</span>
+</div>
+</div>
+<!-- Security Hash & Seal -->
+<div class="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-outline-variant">
+<div class="space-y-1 text-left w-full sm:w-auto">
+<span class="text-caption font-caption text-outline block font-semibold">Chave de Validação Criptográfica (SHA-256):</span>
+<span class="text-caption font-label-mono text-[#3f6900] block bg-surface-container-high px-2 py-1 rounded select-all break-all font-semibold">
+                    a7f92b41c0e84b8d9630ea2849204859aef8273b01934c9d72
+                  </span>
+</div>
+<div class="flex items-center gap-3 self-end sm:self-center">
+<!-- QR Code Mockup -->
+<div class="w-16 h-16 bg-surface-container-lowest border-2 border-[#74b816] p-1 flex items-center justify-center text-center rounded">
+<span class="material-symbols-outlined text-4xl text-[#74b816]" data-icon="qr_code_2">qr_code_2</span>
+</div>
+<div class="text-caption font-caption text-outline font-label-mono leading-tight">
+                    Carimbo Digital SAS<br/>Assinatura Qualificada<br/>Decreto-Lei 12/2021
+                  </div>
+</div>
+</div>
+</div>
+</div>
+<!-- Actions Column (span 4) -->
+<div class="lg:col-span-4 space-y-4">
+<div class="bg-surface-container-lowest border border-outline-variant rounded-lg p-6 space-y-4 shadow-sm">
+<h4 class="text-title-md font-title-md text-[#191c1e] font-bold">Ações sobre o Certificado</h4>
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+                O certificado emitido contém assinatura eletrónica qualificada do Administrador dos Serviços de Ação Social e possui valor probatório pleno perante quaisquer entidades públicas ou privadas.
+              </p>
+<div class="space-y-2.5 pt-2">
+<button class="w-full flex items-center justify-center gap-2 bg-[#74b816] hover:bg-[#689f38] text-white py-2.5 px-4 rounded text-body-md font-title-md font-bold transition-all shadow-sm">
+<span class="material-symbols-outlined text-lg" data-icon="download">download</span>
+                  Descarregar Certificado (PDF)
+                </button>
+<button class="w-full flex items-center justify-center gap-2 bg-surface-container-lowest hover:bg-surface-container-low text-[#3f6900] border border-outline-variant py-2.5 px-4 rounded text-body-md font-title-md font-semibold transition-all">
+<span class="material-symbols-outlined text-lg" data-icon="mail">mail</span>
+                  Enviar por Email Institucional
+                </button>
+<button class="w-full flex items-center justify-center gap-2 text-[#74b816] hover:text-[#3f6900] py-2 px-4 rounded text-caption font-label-mono font-bold transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="open_in_new">open_in_new</span>
+                  Verificar Autenticidade no Portal NETPA
+                </button>
+</div>
+</div>
+<div class="bg-surface-container-low rounded-lg p-4 border border-outline-variant text-caption font-caption text-on-surface-variant flex items-center gap-3">
+<span class="material-symbols-outlined text-[#74b816] text-2xl flex-shrink-0" data-icon="lock">lock</span>
+<span class="">Documento cifrado em conformidade com o Regulamento Geral sobre a Proteção de Dados (RGPD).</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 7. SECTION: PERGUNTAS FREQUENTES (FAQ) -->
+<section class="space-y-4" id="faq">
+<div class="flex items-center justify-between border-b border-outline-variant pb-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#74b816] text-2xl" data-icon="quiz">quiz</span>
+<h2 class="text-headline-sm font-headline-sm text-[#191c1e]">Perguntas Frequentes (FAQ)</h2>
+</div>
+<span class="text-caption font-caption text-outline font-label-mono">DÚVIDAS FREQUENTES</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- FAQ 1 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-lg p-5 space-y-2 shadow-sm">
+<h3 class="text-title-md font-title-md text-[#191c1e] flex items-start gap-2">
+<span class="material-symbols-outlined text-[#74b816] text-lg mt-0.5" data-icon="help">help</span>
+              Se não fizer a prova de vida dentro do prazo, perco a bolsa definitivamente?
+            </h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant pl-7 leading-relaxed">
+              Não imediatamente. Ocorre uma <strong>suspensão preventiva</strong> dos pagamentos a partir de 1 de Novembro. Se a situação for regularizada nos 30 dias subsequentes com justificação atendível, os pagamentos retroativos serão processados no ciclo seguinte da DGES.
+            </p>
+</div>
+<!-- FAQ 2 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-lg p-5 space-y-2 shadow-sm">
+<h3 class="text-title-md font-title-md text-[#191c1e] flex items-start gap-2">
+<span class="material-symbols-outlined text-[#74b816] text-lg mt-0.5" data-icon="help">help</span>
+              A Chave Móvel Digital substitui a entrega de papéis?
+            </h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant pl-7 leading-relaxed">
+<strong>Sim, a 100%.</strong> A autenticação pela Chave Móvel Digital (gov.pt) valida por interoperabilidade direta a sua identidade civil e o estatuto de inscrição no Ensino Superior, dispensando o upload de certidões e idas presenciais aos SAS.
+            </p>
+</div>
+<!-- FAQ 3 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-lg p-5 space-y-2 shadow-sm">
+<h3 class="text-title-md font-title-md text-[#191c1e] flex items-start gap-2">
+<span class="material-symbols-outlined text-[#74b816] text-lg mt-0.5" data-icon="help">help</span>
+              Estudantes em programa Erasmus ou mobilidade internacional precisam de fazer?
+            </h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant pl-7 leading-relaxed">
+              Sim. Os estudantes em mobilidade internacional devem realizar a prova de vida através do portal online ou por Chave Móvel Digital, anexando, no caso de submissão manual, a declaração de chegada (Certificate of Arrival) emitida pela universidade de acolhimento.
+            </p>
+</div>
+<!-- FAQ 4 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-lg p-5 space-y-2 shadow-sm">
+<h3 class="text-title-md font-title-md text-[#191c1e] flex items-start gap-2">
+<span class="material-symbols-outlined text-[#74b816] text-lg mt-0.5" data-icon="help">help</span>
+              Quanto tempo demora a validação pelos SAS-IPT?
+            </h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant pl-7 leading-relaxed">
+              Pela Chave Móvel Digital o processo é <strong>imediato (em segundos)</strong>. Para submissões manuais com upload de ficheiros no formulário, a análise pelos técnicos de ação social é concluída num prazo médio de <strong>48 a 72 horas úteis</strong>.
+            </p>
+</div>
+</div>
+</section>
+<!-- 8. SECTION: CONTACTOS & SUPORTE DEDICADO SAS -->
+<section class="space-y-4" id="contactos">
+<div class="flex items-center justify-between border-b border-outline-variant pb-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#74b816] text-2xl" data-icon="call">call</span>
+<h2 class="text-headline-sm font-headline-sm text-[#191c1e]">Contactos &amp; Suporte Dedicado SAS</h2>
+</div>
+<span class="text-caption font-caption text-outline font-label-mono">ATENDIMENTO AO ESTUDANTE</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+<!-- Box 1: Atendimento Presencial -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-lg p-6 space-y-3 shadow-sm">
+<div class="w-10 h-10 rounded bg-[#74b816]/10 text-[#74b816] flex items-center justify-center">
+<span class="material-symbols-outlined text-2xl" data-icon="location_on">location_on</span>
+</div>
+<h3 class="text-title-md font-title-md text-[#191c1e]">Balcão Único SAS-IPT</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+              Campus do IPT — Quinta do Contador, Estrada da Serra, 2300-313 Tomar.
+            </p>
+<div class="pt-2 text-caption font-caption text-on-surface space-y-1 font-label-mono">
+<p class="">Segunda a Sexta: 09h00 - 12h30 | 14h00 - 17h00</p>
+<p class="text-[#3f6900] font-bold">Tirar Senha Virtual no Portal SAS</p>
+</div>
+</div>
+<!-- Box 2: Email Dedicado -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-lg p-6 space-y-3 shadow-sm">
+<div class="w-10 h-10 rounded bg-[#74b816]/10 text-[#74b816] flex items-center justify-center">
+<span class="material-symbols-outlined text-2xl" data-icon="alternate_email">alternate_email</span>
+</div>
+<h3 class="text-title-md font-title-md text-[#191c1e]">Email de Apoio Direto</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+              Canal prioritário para esclarecimento de impedimentos técnicos e dúvidas de elegibilidade:
+            </p>
+<div class="pt-2">
+<a class="text-[#3f6900] hover:text-[#74b816] font-bold font-label-mono text-body-sm underline" href="mailto:provadevida@sas.ipt.pt">
+                provadevida@sas.ipt.pt
+              </a>
+<p class="text-caption font-caption text-outline mt-1 font-label-mono">Resposta em menos de 24h úteis</p>
+</div>
+</div>
+<!-- Box 3: Atendimento Telefónico & Emergência -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-lg p-6 space-y-3 shadow-sm">
+<div class="w-10 h-10 rounded bg-[#74b816]/10 text-[#74b816] flex items-center justify-center">
+<span class="material-symbols-outlined text-2xl" data-icon="phone_in_talk">phone_in_talk</span>
+</div>
+<h3 class="text-title-md font-title-md text-[#191c1e]">Linha Telefónica SAS</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+              Gabinete de Apoio a Bolsas de Estudo e Alojamento Estudantil:
+            </p>
+<div class="pt-2">
+<p class="text-[#191c1e] font-bold font-label-mono text-title-md">
+                +351 249 328 100
+              </p>
+<p class="text-caption font-caption text-outline mt-1 font-label-mono">Extensão direta: 2150 / 2152</p>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- ========================================================================= -->
+<!-- SHARED COMPONENT 3: Footer (Institutional Footer)                         -->
+<!-- ========================================================================= -->
+<footer class="w-full docked bottom-0 bg-surface-container-lowest border-t border-outline-variant">
+<!-- Multi-color Ribbon Line Top Border -->
+<div class="w-full flex h-1 overflow-hidden">
+<div class="flex-1 bg-[#e40046]"></div>
+<div class="flex-1 bg-[#2ea2dc]"></div>
+<div class="flex-1 bg-[#27408b]"></div>
+<div class="flex-1 bg-[#2d68c4]"></div>
+<div class="flex-1 bg-[#8c1d40]"></div>
+<div class="flex-1 bg-[#f39200]"></div>
+<div class="flex-1 bg-[#74b816]"></div>
+<div class="flex-1 bg-[#d81b60]"></div>
+<div class="flex-1 bg-[#7b1fa2]"></div>
+<div class="flex-1 bg-[#00897b]"></div>
+<div class="flex-1 bg-[#fdd835]"></div>
+<div class="flex-1 bg-[#43a047]"></div>
+<div class="flex-1 bg-[#039be5]"></div>
+<div class="flex-1 bg-[#3949ab]"></div>
+<div class="flex-1 bg-[#e53935]"></div>
+<div class="flex-1 bg-[#8e24aa]"></div>
+</div>
+<div class="w-full py-8 px-8 flex flex-col md:flex-row justify-between items-center gap-4 ml-0 md:ml-64">
+<!-- Brand & Copyright -->
+<div class="space-y-1 text-center md:text-left">
+<span class="text-title-md font-bold text-[#191c1e] block">SAS-IPT — Instituto Politécnico de Tomar</span>
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+          © 2024 Instituto Politécnico de Tomar. Serviços de Ação Social (SAS-IPT). Todos os direitos reservados.
+        </p>
+</div>
+<!-- Institutional Links -->
+<div class="flex flex-wrap items-center justify-center gap-6">
+<a class="text-on-surface-variant hover:text-[#3f6900] transition-colors text-caption font-caption" href="#">Política de Privacidade</a>
+<a class="text-on-surface-variant hover:text-[#3f6900] transition-colors text-caption font-caption" href="#">RGPD SAS-IPT</a>
+<a class="text-on-surface-variant hover:text-[#3f6900] transition-colors text-caption font-caption" href="#">Regulamentos de Bolsas</a>
+<a class="text-on-surface-variant hover:text-[#3f6900] transition-colors text-caption font-caption" href="#">Contactos Institucionais</a>
+<a class="text-on-surface-variant hover:text-[#3f6900] transition-colors text-caption font-caption" href="#">Acessibilidade</a>
+</div>
+</div>
+</footer>
+<!-- Micro-interactions Script -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Smooth navigation active indicator update
+      const navLinks = document.querySelectorAll('div.sticky a');
+      navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          navLinks.forEach(l => {
+            l.classList.remove('bg-[#74b816]', 'text-white', 'shadow-xs');
+            l.classList.add('text-on-surface-variant');
+          });
+          this.classList.add('bg-[#74b816]', 'text-white', 'shadow-xs');
+          this.classList.remove('text-on-surface-variant');
+        });
+      });
+    });
+  </script>
+</body></html>

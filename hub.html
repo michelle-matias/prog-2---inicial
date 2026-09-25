@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+
+<html lang="pt"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>IPT Hub — O Meu Ecossistema Digital</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Public+Sans:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-error": "#ffffff",
+            "on-surface": "#191c1e",
+            "tertiary-fixed-dim": "#93ccff",
+            "secondary-container": "#e8f5d3",
+            "surface-container": "#eceef0",
+            "primary-fixed-dim": "#93da3c",
+            "secondary": "#555f6f",
+            "on-primary-fixed-variant": "#2e4f00",
+            "primary-fixed": "#aef756",
+            "surface-bright": "#f8f9fb",
+            "surface": "#f8f9fb",
+            "on-error-container": "#93000a",
+            "secondary-fixed-dim": "#bdc7da",
+            "on-tertiary-fixed-variant": "#004b73",
+            "background": "#f8f9fb",
+            "primary": "#335500",
+            "primary-container": "#74b816",
+            "primary-dark": "#254100",
+            "surface-container-lowest": "#ffffff",
+            "on-secondary-fixed": "#121c2a",
+            "inverse-on-surface": "#eff1f3",
+            "secondary-fixed": "#d9e3f6",
+            "error-container": "#ffdad6",
+            "on-tertiary": "#ffffff",
+            "surface-container-low": "#f2f4f6",
+            "surface-tint": "#74b816",
+            "on-secondary-container": "#243c04",
+            "on-primary": "#ffffff",
+            "on-background": "#191c1e",
+            "tertiary": "#006398",
+            "surface-container-high": "#e6e8ea",
+            "tertiary-fixed": "#cce5ff",
+            "error": "#ba1a1a",
+            "on-secondary-fixed-variant": "#3d4757",
+            "outline": "#727a65",
+            "inverse-surface": "#2d3133",
+            "on-tertiary-container": "#003f62",
+            "tertiary-container": "#4eadf3",
+            "on-secondary": "#ffffff",
+            "surface-variant": "#e0e3e5",
+            "inverse-primary": "#93da3c",
+            "on-primary-container": "#183200",
+            "on-surface-variant": "#495057",
+            "on-primary-fixed": "#0f2000",
+            "surface-dim": "#d8dadc",
+            "surface-container-highest": "#e0e3e5",
+            "on-tertiary-fixed": "#001d31",
+            "outline-variant": "#d9ded2"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "space-md": "1rem",
+            "space-sm": "0.5rem",
+            "space-xs": "0.25rem",
+            "space-xl": "2.25rem",
+            "gutter": "1.25rem",
+            "margin-mobile": "1rem",
+            "gutter-mobile": "0.75rem",
+            "margin": "2rem",
+            "space-lg": "1.5rem"
+          },
+          "fontFamily": {
+            "title-md": ["Plus Jakarta Sans", "sans-serif"],
+            "body-sm": ["Public Sans", "sans-serif"],
+            "label-sm": ["Public Sans", "sans-serif"],
+            "body-lg": ["Public Sans", "sans-serif"],
+            "label-mono": ["JetBrains Mono", "monospace"],
+            "display-lg": ["Plus Jakarta Sans", "sans-serif"],
+            "body-md": ["Public Sans", "sans-serif"],
+            "headline-lg": ["Plus Jakarta Sans", "sans-serif"],
+            "headline-sm": ["Plus Jakarta Sans", "sans-serif"],
+            "caption": ["Public Sans", "sans-serif"],
+            "headline-md": ["Plus Jakarta Sans", "sans-serif"],
+            "headline-lg-mobile": ["Plus Jakarta Sans", "sans-serif"],
+            "title-lg": ["Plus Jakarta Sans", "sans-serif"]
+          },
+          "fontSize": {
+            "title-md": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "label-mono": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "500" }],
+            "display-lg": ["44px", { "lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "caption": ["11px", { "lineHeight": "14px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "title-lg": ["18px", { "lineHeight": "26px", "fontWeight": "600" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .custom-scroll::-webkit-scrollbar {
+      height: 6px;
+      width: 6px;
+    }
+    .custom-scroll::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background antialiased min-h-screen flex flex-col font-body-md text-body-md selection:bg-primary-container selection:text-on-primary">
+<!-- TOP APP BAR -->
+<header class="bg-surface-container-lowest text-on-surface docked full-width top-0 w-full border-b border-outline-variant shadow-xs sticky z-40">
+<div class="flex items-center justify-between px-gutter md:px-margin h-16 w-full max-w-full gap-space-md">
+<!-- Brand & Subtitle -->
+<div class="flex items-center space-x-space-md shrink-0">
+<a class="flex items-center gap-space-sm group" href="#">
+<!-- IPT Official Style Symbol -->
+<div class="w-10 h-10 rounded-lg bg-primary-container text-on-primary flex items-center justify-center shadow-sm font-bold relative overflow-hidden group-hover:bg-[#689f38] transition-colors">
+<svg class="w-6 h-6 fill-current" viewbox="0 0 24 24">
+<circle cx="6" cy="6" r="3"></circle>
+<circle cx="18" cy="6" r="3"></circle>
+<circle cx="6" cy="18" r="3"></circle>
+<circle cx="18" cy="18" r="3"></circle>
+<circle cx="12" cy="12" r="3.5"></circle>
+</svg>
+</div>
+<div class="flex flex-col">
+<div class="flex items-baseline gap-1.5">
+<span class="text-title-lg font-title-lg text-[#1e293b] tracking-tight font-extrabold group-hover:text-primary transition-colors">IPT Hub</span>
+<span class="text-[10px] font-bold text-primary tracking-wide uppercase px-1.5 py-0.5 bg-[#f0f9e8] border border-[#d2ebb0] rounded">Oficial</span>
+</div>
+<span class="text-caption font-caption text-on-surface-variant">Universidade Politécnica de Tomar</span>
+</div>
+</a>
+</div>
+<!-- Federated Search Bar -->
+<div class="hidden lg:flex flex-1 max-w-2xl mx-space-lg">
+<div class="relative w-full">
+<div class="absolute inset-y-0 left-0 pl-space-sm flex items-center pointer-events-none text-outline">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</div>
+<input class="w-full pl-9 pr-14 py-2 text-body-sm font-body-sm bg-surface-container-low border border-outline-variant rounded focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container text-on-surface placeholder:text-on-surface-variant transition-all duration-150" placeholder="Pesquisar em todo o ecossistema (NETPA, SAS, Refeitório, Balcão Único, Moodle)..." type="text"/>
+<div class="absolute inset-y-0 right-0 pr-2.5 flex items-center">
+<kbd class="px-1.5 py-0.5 text-label-mono font-label-mono text-caption text-on-surface-variant bg-surface-container border border-outline-variant rounded shadow-xs">⌘K</kbd>
+</div>
+</div>
+</div>
+<!-- Navigation Links with IPT Official Green Highlights -->
+<nav class="hidden xl:flex items-center space-x-1 shrink-0">
+<a class="text-primary font-bold bg-[#f0f9e8] text-primary border-b-2 border-primary-container px-3 py-1.5 rounded-t text-label-sm font-label-sm transition-colors duration-150" href="#netpa">NETPA</a>
+<a class="text-on-surface-variant hover:text-primary hover:bg-[#f4faee] px-3 py-1.5 rounded text-label-sm font-label-sm transition-colors duration-150" href="#sas">SAS</a>
+<a class="text-on-surface-variant hover:text-primary hover:bg-[#f4faee] px-3 py-1.5 rounded text-label-sm font-label-sm transition-colors duration-150" href="#moodle">Moodle</a>
+<a class="text-on-surface-variant hover:text-primary hover:bg-[#f4faee] px-3 py-1.5 rounded text-label-sm font-label-sm transition-colors duration-150" href="#balcao">Balcão Único</a>
+<a class="text-on-surface-variant hover:text-primary hover:bg-[#f4faee] px-3 py-1.5 rounded text-label-sm font-label-sm transition-colors duration-150" href="#refeitorio">Refeitório</a>
+</nav>
+<!-- Trailing Actions & Profile -->
+<div class="flex items-center space-x-space-xs md:space-x-space-sm shrink-0">
+<!-- App Switcher (Waffle Menu) -->
+<div class="relative group">
+<button class="p-2 rounded hover:bg-[#f0f9e8] text-on-surface hover:text-primary transition-colors duration-150 active:scale-95 flex items-center justify-center" title="Lançador de Aplicações">
+<span class="material-symbols-outlined" data-icon="apps">apps</span>
+</button>
+<div class="hidden group-hover:flex flex-col absolute right-0 top-full mt-2 w-64 p-space-sm bg-surface-container-lowest border border-outline-variant rounded-xl shadow-lg z-50">
+<div class="px-2 py-1 mb-1 text-label-mono font-label-mono text-caption text-on-surface-variant">SERVIÇOS INTEGRADOS IPT</div>
+<div class="grid grid-cols-3 gap-1">
+<a class="p-2 flex flex-col items-center justify-center text-center rounded hover:bg-[#f0f9e8] group/item" href="#netpa">
+<span class="material-symbols-outlined text-primary-container group-hover/item:text-primary" data-icon="school">school</span>
+<span class="text-caption font-caption mt-1 font-semibold">NETPA</span>
+</a>
+<a class="p-2 flex flex-col items-center justify-center text-center rounded hover:bg-[#f0f9e8] group/item" href="#sas">
+<span class="material-symbols-outlined text-primary-container group-hover/item:text-primary" data-icon="volunteer_activism">volunteer_activism</span>
+<span class="text-caption font-caption mt-1 font-semibold">SAS</span>
+</a>
+<a class="p-2 flex flex-col items-center justify-center text-center rounded hover:bg-[#f0f9e8] group/item" href="#moodle">
+<span class="material-symbols-outlined text-primary-container group-hover/item:text-primary" data-icon="laptop_chromebook">laptop_chromebook</span>
+<span class="text-caption font-caption mt-1 font-semibold">Moodle</span>
+</a>
+<a class="p-2 flex flex-col items-center justify-center text-center rounded hover:bg-[#f0f9e8] group/item" href="#refeitorio">
+<span class="material-symbols-outlined text-primary-container group-hover/item:text-primary" data-icon="restaurant">restaurant</span>
+<span class="text-caption font-caption mt-1 font-semibold">Unicard</span>
+</a>
+<a class="p-2 flex flex-col items-center justify-center text-center rounded hover:bg-[#f0f9e8] group/item" href="#balcao">
+<span class="material-symbols-outlined text-primary-container group-hover/item:text-primary" data-icon="account_balance">account_balance</span>
+<span class="text-caption font-caption mt-1 font-semibold">SPOC</span>
+</a>
+<a class="p-2 flex flex-col items-center justify-center text-center rounded hover:bg-[#f0f9e8] group/item" href="#">
+<span class="material-symbols-outlined text-primary-container group-hover/item:text-primary" data-icon="wifi">wifi</span>
+<span class="text-caption font-caption mt-1 font-semibold">Eduroam</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Notification Bell with Badge -->
+<button class="relative p-2 rounded hover:bg-[#f0f9e8] text-on-surface hover:text-primary transition-colors duration-150 active:scale-95 flex items-center justify-center" title="Notificações Federadas">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-4 h-4 bg-error text-on-error text-caption font-label-mono font-bold rounded-full flex items-center justify-center leading-none ring-2 ring-surface-container-lowest">3</span>
+</button>
+<!-- Help Action -->
+<button class="p-2 rounded hover:bg-[#f0f9e8] text-on-surface hover:text-primary transition-colors duration-150 active:scale-95 flex items-center justify-center" title="Ajuda e Suporte SPOC">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+</button>
+<!-- Trailing Primary Action / Profile -->
+<div class="h-6 w-px bg-outline-variant mx-1 hidden sm:block"></div>
+<button class="flex items-center gap-space-sm pl-2 pr-3 py-1.5 rounded-lg border border-outline-variant bg-surface-container-lowest hover:bg-[#f4faee] hover:border-primary-container transition-all duration-150 active:scale-95 group text-left">
+<div class="relative">
+<img alt="Fotografia de perfil do estudante IPT ID com número mecanográfico" class="w-8 h-8 rounded object-cover border border-[#c1cab2]" data-alt="Official high-resolution academic student identification portrait showing Michelle Gomes against a soft architectural campus backdrop at Instituto Politécnico de Tomar, featuring sharp studio lighting and an authoritative institutional presence with navy and cool tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCg_vlbveu9MNIJqtDF7-lbMaZPa5lEHB5WmyKUEHpuYZp7F21myPcOQqlpNh26kNtlLOcutsuOGrdqher9bvOHsYSl14WN7yBD2ZqZAp3ZzbpIUFKa0WXnh_HHWmv6YlU593ykUqADEJLdYpdfzYZ6oXW2B-d8Ce84YsuaTf7KOHzYDSki7unVjRE5BuUa4Yl-Jav8qf9_5lkNI5WxPBK8KosCUjbsbLsGjescUtvwHAkPQ0F64-86rg"/>
+<span class="absolute -bottom-1 -right-1 flex h-3 w-3">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-container opacity-75"></span>
+<span class="relative inline-flex rounded-full h-3 w-3 bg-primary-container"></span>
+</span>
+</div>
+<div class="hidden sm:flex flex-col">
+<div class="flex items-center gap-1">
+<span class="text-label-sm font-label-sm text-on-surface font-bold truncate max-w-[140px] group-hover:text-primary">Michelle Gomes</span>
+<span class="px-1 py-0.2 text-[10px] font-label-mono bg-[#f0f9e8] text-primary border border-[#d2ebb0] rounded font-bold">IPT ID</span>
+</div>
+<span class="text-caption font-caption text-on-surface-variant font-label-mono">Nº 24891 • Eng. Informática</span>
+</div>
+</button>
+</div>
+</div>
+<!-- Characteristic IPT Multi-Color Ribbon Accent Strip from Official Branding -->
+<div class="w-full flex h-1.5 overflow-hidden">
+<span class="flex-1 bg-[#d81b60]"></span>
+<span class="flex-1 bg-[#74b816]"></span>
+<span class="flex-1 bg-[#00897b]"></span>
+<span class="flex-1 bg-[#0288d1]"></span>
+<span class="flex-1 bg-[#1e88e5]"></span>
+<span class="flex-1 bg-[#3949ab]"></span>
+<span class="flex-1 bg-[#8e24aa]"></span>
+<span class="flex-1 bg-[#e53935]"></span>
+<span class="flex-1 bg-[#fb8c00]"></span>
+<span class="flex-1 bg-[#fdd835]"></span>
+<span class="flex-1 bg-[#8bc34a]"></span>
+<span class="flex-1 bg-[#43a047]"></span>
+<span class="flex-1 bg-[#00acc1]"></span>
+<span class="flex-1 bg-[#29b6f6]"></span>
+</div>
+</header>
+<!-- MAIN CANVAS -->
+<main class="flex-1 w-full max-w-7xl mx-auto px-gutter md:px-margin py-space-lg space-y-space-lg">
+<!-- WELCOME GREETING & INSTITUTIONAL FEDERATED BANNER -->
+<section class="space-y-space-md">
+<div class="flex flex-col md:flex-row md:items-center md:justify-between gap-space-sm pb-space-xs border-b border-outline-variant">
+<div>
+<h1 class="text-headline-lg font-headline-lg text-[#1e293b] tracking-tight flex items-center gap-2">
+            Bom dia, Michelle <span class="inline-block animate-bounce text-headline-sm">👋</span>
+</h1>
+<p class="text-body-md font-body-md text-on-surface-variant flex items-center gap-2 mt-0.5">
+<span class="material-symbols-outlined text-caption text-primary" data-icon="calendar_today">calendar_today</span>
+            Quinta-feira, 12 de Outubro de 2024 • Ano Letivo 2024/2025 • Semestre Ímpar
+          </p>
+</div>
+<div class="flex items-center gap-2 self-start md:self-auto">
+<span class="px-2.5 py-1 text-label-mono font-label-mono text-caption rounded-full bg-[#f0f9e8] border border-[#d2ebb0] text-[#2e4f00] flex items-center gap-1.5 font-semibold">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+            Sessão Federada Ativa (SAML2 SSO)
+          </span>
+</div>
+</div>
+<!-- Federated Priority Feed (3 Alert Cards) -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+<!-- Urgent Alert 1: SAS-IPT -->
+<div class="p-space-md bg-surface-container-lowest border border-outline-variant rounded-xl shadow-sm hover:shadow-md transition-shadow relative overflow-hidden flex flex-col justify-between">
+<div class="absolute top-0 left-0 w-1.5 h-full bg-error"></div>
+<div>
+<div class="flex items-center justify-between gap-2 mb-2">
+<span class="inline-flex items-center gap-1 text-label-mono font-label-mono text-caption px-2 py-0.5 rounded-full bg-error-container text-on-error-container font-semibold">
+<span class="material-symbols-outlined text-caption" data-icon="priority_high">priority_high</span>
+                SAS-IPT • Urgente
+              </span>
+<span class="text-caption font-label-mono text-on-surface-variant">Termina em 3 dias</span>
+</div>
+<h2 class="text-title-md font-title-md text-[#1e293b] font-bold mb-1">Candidatura à Bolsa DGES</h2>
+<p class="text-body-sm font-body-sm text-on-surface-variant mb-space-md">
+              A submissão do comprovativo de IRS do agregado familiar caduca no próximo dia 30 de Setembro.
+            </p>
+</div>
+<a class="inline-flex items-center justify-between w-full px-3 py-1.5 rounded-lg bg-error-container hover:bg-error hover:text-on-error text-on-error-container text-label-sm font-label-sm transition-colors duration-150 font-semibold" href="#sas">
+<span>Completar no SAS</span>
+<span class="material-symbols-outlined text-label-sm" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+<!-- Alert 2: NETPA -->
+<div class="p-space-md bg-surface-container-lowest border border-outline-variant rounded-xl shadow-sm hover:shadow-md transition-shadow relative overflow-hidden flex flex-col justify-between">
+<div class="absolute top-0 left-0 w-1.5 h-full bg-primary-container"></div>
+<div>
+<div class="flex items-center justify-between gap-2 mb-2">
+<span class="inline-flex items-center gap-1 text-label-mono font-label-mono text-caption px-2 py-0.5 rounded-full bg-[#f0f9e8] text-primary font-semibold border border-[#d2ebb0]">
+<span class="material-symbols-outlined text-caption text-primary" data-icon="grading">grading</span>
+                NETPA • Avaliação
+              </span>
+<span class="text-caption font-label-mono text-on-surface-variant">Hoje, 09:15</span>
+</div>
+<h2 class="text-title-md font-title-md text-[#1e293b] font-bold mb-1">Pauta Provisória Publicada</h2>
+<p class="text-body-sm font-body-sm text-on-surface-variant mb-space-md">
+              Redes de Computadores I (Frequência Teórica). Nota obtida: <strong class="text-primary font-label-mono text-title-md">16 val.</strong>
+</p>
+</div>
+<a class="inline-flex items-center justify-between w-full px-3 py-1.5 rounded-lg bg-[#f0f9e8] hover:bg-primary-container hover:text-on-primary text-primary text-label-sm font-label-sm transition-colors duration-150 font-semibold border border-[#d2ebb0]" href="#netpa">
+<span>Ver Pauta &amp; Detalhes</span>
+<span class="material-symbols-outlined text-label-sm" data-icon="visibility">visibility</span>
+</a>
+</div>
+<!-- Alert 3: Refeitório Unicard -->
+<div class="p-space-md bg-surface-container-lowest border border-outline-variant rounded-xl shadow-sm hover:shadow-md transition-shadow relative overflow-hidden flex flex-col justify-between">
+<div class="absolute top-0 left-0 w-1.5 h-full bg-[#fb8c00]"></div>
+<div>
+<div class="flex items-center justify-between gap-2 mb-2">
+<span class="inline-flex items-center gap-1 text-label-mono font-label-mono text-caption px-2 py-0.5 rounded-full bg-amber-50 text-amber-800 border border-amber-200 font-semibold">
+<span class="material-symbols-outlined text-caption text-amber-700" data-icon="account_balance_wallet">account_balance_wallet</span>
+                Refeitório • Saldo Baixo
+              </span>
+<span class="text-caption font-label-mono text-error font-bold">3,20 €</span>
+</div>
+<h2 class="text-title-md font-title-md text-[#1e293b] font-bold mb-1">Saldo Unicard Insuficiente</h2>
+<p class="text-body-sm font-body-sm text-on-surface-variant mb-space-md">
+              O seu saldo atual não cobre o menu de almoço completo de hoje na Cantina Central (3,90 €).
+            </p>
+</div>
+<a class="inline-flex items-center justify-between w-full px-3 py-1.5 rounded-lg bg-surface-container-low hover:bg-primary-container hover:text-on-primary text-[#1e293b] text-label-sm font-label-sm transition-colors duration-150 font-semibold" href="#refeitorio">
+<span>Carregar Saldo via MBWay</span>
+<span class="material-symbols-outlined text-label-sm" data-icon="add_card">add_card</span>
+</a>
+</div>
+</div>
+</section>
+<!-- SECTION 3: CENTRAL ECOSYSTEM PORTAL LAUNCHERS -->
+<section class="space-y-space-md">
+<div class="flex items-center justify-between">
+<div>
+<h2 class="text-headline-sm font-headline-sm text-[#1e293b] tracking-tight">Plataformas Nucleares do IPT</h2>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Lançadores diretos federados com estado operacional em tempo real</p>
+</div>
+<span class="text-label-mono font-label-mono text-caption text-primary font-semibold bg-[#f0f9e8] px-2 py-1 rounded border border-[#d2ebb0]">5 de 5 Serviços Conectados</span>
+</div>
+<!-- 5 Bento Style Large Interactive Cards -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-md">
+<!-- CARD 1: NETPA (Span 7) -->
+<div class="lg:col-span-7 bg-surface-container-lowest border border-outline-variant rounded-xl p-space-md shadow-sm hover:border-primary-container hover:shadow-md transition-all flex flex-col justify-between group" id="netpa">
+<div>
+<div class="flex items-start justify-between pb-space-sm border-b border-surface-container">
+<div class="flex items-center gap-space-sm">
+<div class="p-2.5 rounded-lg bg-[#f0f9e8] text-primary group-hover:bg-primary-container group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-headline-sm" data-icon="school">school</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h3 class="text-title-lg font-title-lg text-[#1e293b] font-bold">NETPA</h3>
+<span class="px-2 py-0.5 text-caption font-label-mono bg-surface-container rounded font-bold text-on-surface">v3.8.4</span>
+</div>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Secretaria Virtual &amp; Gestão Académica Integral</span>
+</div>
+</div>
+<span class="inline-flex items-center gap-1 text-label-mono font-label-mono text-caption px-2 py-0.5 rounded-full bg-[#f0f9e8] text-primary border border-[#d2ebb0] font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+                Autenticado
+              </span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-3">
+              Matrículas, inscrições anuais, consulta de notas, marcação de exames, registo de faltas e pagamento de propinas.
+            </p>
+<!-- NETPA Live Dynamic Widget -->
+<div class="mt-space-md p-space-sm bg-[#f9fbf6] rounded-lg border border-[#e1eccf] space-y-2">
+<div class="flex items-center justify-between text-caption font-label-mono">
+<span class="text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-caption text-primary" data-icon="schedule">schedule</span>
+                  PRÓXIMA SESSÃO LECTIVA
+                </span>
+<span class="px-2 py-0.5 bg-primary-container text-on-primary rounded font-bold text-caption">SALA B204</span>
+</div>
+<div class="flex items-center justify-between">
+<div>
+<h4 class="text-title-md font-title-md text-[#1e293b] font-bold">Sistemas Distribuídos (T)</h4>
+<p class="text-caption font-caption text-on-surface-variant">Prof. Doutor Fernando Albuquerque • 14:00 - 16:00</p>
+</div>
+<div class="text-right">
+<span class="px-2 py-1 text-caption font-label-mono bg-surface-container-lowest border border-[#d2ebb0] text-primary rounded font-semibold block">Propinas: Em dia</span>
+<span class="text-caption font-caption text-on-surface-variant block mt-0.5">Próxima a 31/Out</span>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-space-md pt-3 border-t border-surface-container flex items-center justify-between">
+<div class="flex gap-2">
+<a class="text-caption font-label-mono text-on-surface-variant hover:text-primary underline" href="#">Histórico Escolar</a>
+<span class="text-outline-variant">•</span>
+<a class="text-caption font-label-mono text-on-surface-variant hover:text-primary underline" href="#">Declarações</a>
+</div>
+<a class="inline-flex items-center gap-1 text-title-md font-title-md text-primary hover:text-primary-dark font-bold group-hover:translate-x-1 transition-transform" href="#">
+              Entrar no NETPA
+              <span class="material-symbols-outlined text-title-md text-primary-container" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- CARD 2: SAS-IPT (Span 5) -->
+<div class="lg:col-span-5 bg-surface-container-lowest border border-outline-variant rounded-xl p-space-md shadow-sm hover:border-primary-container hover:shadow-md transition-all flex flex-col justify-between group" id="sas">
+<div>
+<div class="flex items-start justify-between pb-space-sm border-b border-surface-container">
+<div class="flex items-center gap-space-sm">
+<div class="p-2.5 rounded-lg bg-[#f0f9e8] text-primary group-hover:bg-primary-container group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-headline-sm" data-icon="volunteer_activism">volunteer_activism</span>
+</div>
+<div>
+<h3 class="text-title-lg font-title-lg text-[#1e293b] font-bold">SAS-IPT</h3>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Ação Social &amp; Apoio ao Estudante</span>
+</div>
+</div>
+<span class="px-2 py-0.5 text-caption font-label-mono bg-[#f0f9e8] text-primary border border-[#d2ebb0] rounded font-bold">SAS Portal</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-3">
+              Gestão de bolsas DGES, alojamento em residências universitárias, consultas de saúde e apoio desportivo.
+            </p>
+<!-- SAS Live Dynamic Widget -->
+<div class="mt-space-md p-space-sm bg-surface-container-low rounded-lg border border-outline-variant/60 space-y-2">
+<div class="flex items-center justify-between text-caption font-label-mono">
+<span class="text-on-surface-variant">ESTADO DE BENEFÍCIOS</span>
+<span class="text-caption text-primary font-bold">2024/25</span>
+</div>
+<div class="space-y-1.5">
+<div class="flex items-center justify-between text-body-sm">
+<span class="text-on-surface font-medium">Bolsa DGES 24/25:</span>
+<span class="text-caption font-label-mono px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-semibold">Em Análise Técnica</span>
+</div>
+<div class="flex items-center justify-between text-body-sm">
+<span class="text-on-surface font-medium">Residência D. Maria Lurdes:</span>
+<span class="text-caption font-label-mono px-2 py-0.5 rounded bg-surface-container-lowest text-primary border border-[#d2ebb0] font-semibold">Vaga Deferida (Q. 214)</span>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-space-md pt-3 border-t border-surface-container flex items-center justify-between">
+<span class="text-caption font-label-mono text-on-surface-variant">Gabinete Médico: Aberto</span>
+<a class="inline-flex items-center gap-1 text-title-md font-title-md text-primary hover:text-primary-dark font-bold group-hover:translate-x-1 transition-transform" href="#">
+              Entrar no SAS-IPT
+              <span class="material-symbols-outlined text-title-md text-primary-container" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- CARD 3: Refeitório & Bares (Span 4) -->
+<div class="lg:col-span-4 bg-surface-container-lowest border border-outline-variant rounded-xl p-space-md shadow-sm hover:border-primary-container hover:shadow-md transition-all flex flex-col justify-between group" id="refeitorio">
+<div>
+<div class="flex items-start justify-between pb-space-sm border-b border-surface-container">
+<div class="flex items-center gap-space-sm">
+<div class="p-2.5 rounded-lg bg-[#f0f9e8] text-primary group-hover:bg-primary-container group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-headline-sm" data-icon="restaurant">restaurant</span>
+</div>
+<div>
+<h3 class="text-title-lg font-title-lg text-[#1e293b] font-bold">Refeitório &amp; Bares</h3>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Sistema Integrado Unicard SIGE</span>
+</div>
+</div>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-3">
+              Ementa diária, carregamento de saldo virtual, histórico de consumos e afluência às cantinas.
+            </p>
+<!-- Refeitório Live Dynamic Widget -->
+<div class="mt-space-md p-space-sm bg-surface-container-low rounded-lg border border-outline-variant/60 space-y-2">
+<div class="flex items-center justify-between text-caption font-label-mono">
+<span class="text-on-surface-variant">CANTINA CENTRAL • HOJE</span>
+<span class="text-caption font-label-mono text-primary font-semibold">Lotação: 28% (Sem Fila)</span>
+</div>
+<div class="border-l-2 border-primary-container pl-2">
+<span class="text-caption font-label-mono text-on-surface-variant block">Prato do Dia:</span>
+<span class="text-body-sm font-title-md text-[#1e293b] font-bold">Frango Assado no Forno com Batata Rústica</span>
+<span class="text-caption font-caption text-on-surface-variant block mt-0.5">Opção Vegetariana: Caril de Grão e Espinafres</span>
+</div>
+<div class="flex items-center justify-between pt-1 text-body-sm">
+<span class="text-on-surface-variant font-label-mono text-caption">Saldo Disponível:</span>
+<span class="font-label-mono font-bold text-primary">14,30 €</span>
+</div>
+</div>
+</div>
+<div class="mt-space-md pt-3 border-t border-surface-container flex items-center justify-between">
+<span class="text-caption font-label-mono text-on-surface-variant">Almoço: 12h00 - 14h30</span>
+<a class="inline-flex items-center gap-1 text-title-md font-title-md text-primary hover:text-primary-dark font-bold group-hover:translate-x-1 transition-transform" href="#">
+              Ver Ementa &amp; Cartão
+              <span class="material-symbols-outlined text-title-md text-primary-container" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- CARD 4: Balcão Único (SPOC) (Span 4) -->
+<div class="lg:col-span-4 bg-surface-container-lowest border border-outline-variant rounded-xl p-space-md shadow-sm hover:border-primary-container hover:shadow-md transition-all flex flex-col justify-between group" id="balcao">
+<div>
+<div class="flex items-start justify-between pb-space-sm border-b border-surface-container">
+<div class="flex items-center gap-space-sm">
+<div class="p-2.5 rounded-lg bg-[#f0f9e8] text-primary group-hover:bg-primary-container group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-headline-sm" data-icon="account_balance">account_balance</span>
+</div>
+<div>
+<h3 class="text-title-lg font-title-lg text-[#1e293b] font-bold">Balcão Único (SPOC)</h3>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Atendimento, Certidões &amp; Requerimentos</span>
+</div>
+</div>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-3">
+              Ponto único de contacto (Single Point of Contact), esclarecimento de dúvidas e emissão de certificados oficiais.
+            </p>
+<!-- Balcão Único Live Widget -->
+<div class="mt-space-md p-space-sm bg-surface-container-low rounded-lg border border-outline-variant/60 space-y-2">
+<div class="flex items-center justify-between text-caption font-label-mono">
+<span class="text-on-surface-variant">SENHA VIRTUAL ATIVA</span>
+<span class="px-2 py-0.5 bg-primary-container text-on-primary rounded text-caption font-label-mono font-bold">EM ESPERA</span>
+</div>
+<div class="flex items-center justify-between bg-surface-container-lowest p-2 rounded border border-outline-variant">
+<div>
+<span class="text-headline-md font-label-mono font-bold text-primary">A042</span>
+<span class="text-caption font-caption text-on-surface-variant block">Atendimento Geral / Académico</span>
+</div>
+<div class="text-right">
+<span class="text-body-sm font-label-mono font-bold text-on-surface block">4 pessoas</span>
+<span class="text-caption font-caption text-on-surface-variant block">Tempo est.: ~12 min</span>
+</div>
+</div>
+<span class="text-caption font-caption text-on-surface-variant flex items-center gap-1 pt-1">
+<span class="material-symbols-outlined text-caption text-primary" data-icon="notifications_active">notifications_active</span>
+                Notificação SMS ativa para o nº (+351) 91•••••82
+              </span>
+</div>
+</div>
+<div class="mt-space-md pt-3 border-t border-surface-container flex items-center justify-between">
+<span class="text-caption font-label-mono text-on-surface-variant">Fila: Balcões 1 a 4</span>
+<a class="inline-flex items-center gap-1 text-title-md font-title-md text-primary hover:text-primary-dark font-bold group-hover:translate-x-1 transition-transform" href="#">
+              Tirar Senha / Agendar
+              <span class="material-symbols-outlined text-title-md text-primary-container" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- CARD 5: Moodle & Apoio ao Estudo (Span 4) -->
+<div class="lg:col-span-4 bg-surface-container-lowest border border-outline-variant rounded-xl p-space-md shadow-sm hover:border-primary-container hover:shadow-md transition-all flex flex-col justify-between group" id="moodle">
+<div>
+<div class="flex items-start justify-between pb-space-sm border-b border-surface-container">
+<div class="flex items-center gap-space-sm">
+<div class="p-2.5 rounded-lg bg-[#f0f9e8] text-primary group-hover:bg-primary-container group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-headline-sm" data-icon="laptop_chromebook">laptop_chromebook</span>
+</div>
+<div>
+<h3 class="text-title-lg font-title-lg text-[#1e293b] font-bold">Moodle &amp; Apoio</h3>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Salas de Aula Virtuais &amp; Biblioteca</span>
+</div>
+</div>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-3">
+              Materiais pedagógicos, fóruns de discussão, submissão de relatórios de projeto e repositório b-on.
+            </p>
+<!-- Moodle Live Dynamic Widget -->
+<div class="mt-space-md p-space-sm bg-surface-container-low rounded-lg border border-outline-variant/60 space-y-2">
+<div class="flex items-center justify-between text-caption font-label-mono">
+<span class="text-on-surface-variant">TAREFAS DA SEMANA</span>
+<span class="text-caption font-label-mono text-error font-bold">2 Pendentes</span>
+</div>
+<ul class="space-y-1.5">
+<li class="p-2 bg-surface-container-lowest rounded border border-outline-variant flex items-center justify-between">
+<div class="truncate pr-2">
+<span class="text-body-sm font-title-md text-[#1e293b] font-semibold block truncate">Entrega Sprint 1 - Engenharia Software</span>
+<span class="text-caption font-label-mono text-on-surface-variant">Amanhã às 23:59</span>
+</div>
+<span class="material-symbols-outlined text-primary text-title-md shrink-0" data-icon="upload_file">upload_file</span>
+</li>
+<li class="p-2 bg-surface-container-lowest rounded border border-outline-variant flex items-center justify-between">
+<div class="truncate pr-2">
+<span class="text-body-sm font-title-md text-[#1e293b] font-semibold block truncate">Quiz 2: Protocolos de Transporte (RC1)</span>
+<span class="text-caption font-label-mono text-on-surface-variant">Domingo às 20:00</span>
+</div>
+<span class="material-symbols-outlined text-primary text-title-md shrink-0" data-icon="quiz">quiz</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="mt-space-md pt-3 border-t border-surface-container flex items-center justify-between">
+<span class="text-caption font-label-mono text-on-surface-variant">5 Disciplinas ativas</span>
+<a class="inline-flex items-center gap-1 text-title-md font-title-md text-primary hover:text-primary-dark font-bold group-hover:translate-x-1 transition-transform" href="#">
+              Aceder ao Moodle
+              <span class="material-symbols-outlined text-title-md text-primary-container" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 4: FAST SHORTCUTS & CAMPUS TELEMETRY STATUS -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-space-md items-stretch">
+<!-- Quick Shortcuts Cluster (Span 8) -->
+<div class="lg:col-span-8 bg-surface-container-lowest border border-outline-variant rounded-xl p-space-md shadow-sm">
+<h3 class="text-title-md font-title-md text-[#1e293b] mb-3 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container" data-icon="bolt">bolt</span>
+          Ações Rápidas &amp; Cartão de Identificação Digital
+        </h3>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-space-sm">
+<button class="p-3 bg-surface-container-low hover:bg-[#f0f9e8] hover:border-primary-container rounded-lg border border-outline-variant/80 text-left transition-all flex flex-col justify-between group active:scale-95">
+<div class="flex items-center justify-between mb-2">
+<span class="material-symbols-outlined text-primary-container group-hover:text-primary" data-icon="qr_code_2">qr_code_2</span>
+<span class="text-caption font-label-mono text-primary bg-[#e3f4cb] px-1 py-0.2 rounded font-bold">NFC</span>
+</div>
+<div>
+<span class="text-body-sm font-title-md font-bold text-[#1e293b] group-hover:text-primary block leading-tight">Cartão Digital</span>
+<span class="text-caption font-caption text-on-surface-variant">IPT ID &amp; Catracas</span>
+</div>
+</button>
+<button class="p-3 bg-surface-container-low hover:bg-[#f0f9e8] hover:border-primary-container rounded-lg border border-outline-variant/80 text-left transition-all flex flex-col justify-between group active:scale-95">
+<div class="flex items-center justify-between mb-2">
+<span class="material-symbols-outlined text-primary-container group-hover:text-primary" data-icon="calendar_month">calendar_month</span>
+<span class="text-caption font-label-mono text-on-surface-variant">Semana 4</span>
+</div>
+<div>
+<span class="text-body-sm font-title-md font-bold text-[#1e293b] group-hover:text-primary block leading-tight">Horário Semanal</span>
+<span class="text-caption font-caption text-on-surface-variant">Salas &amp; Docentes</span>
+</div>
+</button>
+<button class="p-3 bg-surface-container-low hover:bg-[#f0f9e8] hover:border-primary-container rounded-lg border border-outline-variant/80 text-left transition-all flex flex-col justify-between group active:scale-95">
+<div class="flex items-center justify-between mb-2">
+<span class="material-symbols-outlined text-primary-container group-hover:text-primary" data-icon="event_note">event_note</span>
+<span class="text-caption font-label-mono text-on-surface-variant">PDF</span>
+</div>
+<div>
+<span class="text-body-sm font-title-md font-bold text-[#1e293b] group-hover:text-primary block leading-tight">Calendário 24/25</span>
+<span class="text-caption font-caption text-on-surface-variant">Prazos &amp; Férias</span>
+</div>
+</button>
+<button class="p-3 bg-surface-container-low hover:bg-[#fef2f2] hover:border-error rounded-lg border border-outline-variant/80 text-left transition-all flex flex-col justify-between group active:scale-95">
+<div class="flex items-center justify-between mb-2">
+<span class="material-symbols-outlined text-error" data-icon="sos">sos</span>
+<span class="text-caption font-label-mono text-error font-bold">24h</span>
+</div>
+<div>
+<span class="text-body-sm font-title-md font-bold text-[#1e293b] group-hover:text-error block leading-tight">Emergência</span>
+<span class="text-caption font-caption text-on-surface-variant">Segurança Campus</span>
+</div>
+</button>
+</div>
+</div>
+<!-- Campus Live Telemetry Status (Span 4) -->
+<div class="lg:col-span-4 bg-surface-container-lowest border border-outline-variant rounded-xl p-space-md shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-2">
+<h3 class="text-title-md font-title-md text-[#1e293b] flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container" data-icon="sensors">sensors</span>
+              Estado do Campus
+            </h3>
+<span class="flex h-2 w-2 relative">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-container opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-primary-container"></span>
+</span>
+</div>
+<span class="text-caption font-label-mono text-on-surface-variant block mb-3">CAMPUS TOMAR — ATUALIZADO HÁ 2 MIN</span>
+<ul class="space-y-2 text-body-sm font-body-sm">
+<li class="flex items-center justify-between py-1 border-b border-surface-container">
+<span class="text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-caption text-primary" data-icon="restaurant">restaurant</span>
+                Cantina Central:
+              </span>
+<span class="font-label-mono text-caption text-primary font-bold">Aberta (12h-14h30)</span>
+</li>
+<li class="flex items-center justify-between py-1 border-b border-surface-container">
+<span class="text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-caption text-primary" data-icon="account_balance">account_balance</span>
+                Serviços Académicos:
+              </span>
+<span class="font-label-mono text-caption text-primary font-bold">09:00 - 16:30</span>
+</li>
+<li class="flex items-center justify-between py-1">
+<span class="text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-caption text-primary" data-icon="wifi">wifi</span>
+                Wi-Fi Eduroam:
+              </span>
+<span class="font-label-mono text-caption px-2 py-0.5 rounded bg-[#f0f9e8] text-primary border border-[#d2ebb0] font-semibold">100% Operacional</span>
+</li>
+</ul>
+</div>
+<div class="mt-3 pt-2 border-t border-surface-container flex items-center justify-between text-caption font-caption text-on-surface-variant">
+<span>Estacionamento P1/P2: 64% livre</span>
+<a class="font-label-mono text-primary font-semibold hover:underline" href="#">Ver Sensores →</a>
+</div>
+</div>
+</section>
+</main>
+<!-- INSTITUTIONAL UNIFIED FOOTER -->
+<footer class="bg-surface-container-low text-on-surface docked full-width bottom w-full border-t border-outline-variant flat no shadows mt-auto">
+<div class="flex flex-col md:flex-row items-center justify-between px-gutter md:px-margin py-space-md w-full gap-space-sm">
+<!-- Institutional Identity & Copyright Text -->
+<div class="flex flex-col sm:flex-row items-center gap-space-sm text-center sm:text-left">
+<span class="text-title-md font-title-md text-primary font-bold">IPT Hub</span>
+<span class="hidden sm:inline text-outline-variant">|</span>
+<p class="text-caption font-caption text-on-surface-variant">
+          © Universidade Politécnica de Tomar (IPT) • Sessão Única Federada (SSO Ativo)
+        </p>
+</div>
+<!-- Links Array -->
+<nav class="flex flex-wrap items-center justify-center gap-x-space-md gap-y-1 text-label-sm font-label-sm">
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-150 hover:underline" href="#">Privacidade &amp; RGPD</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-150 hover:underline" href="#">Regulamentos Académicos</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-150 hover:underline" href="#">Suporte Técnico Unificado</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-150 hover:underline" href="#">Estado dos Serviços</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-150 hover:underline" href="#">Segurança de Acessos</a>
+</nav>
+</div>
+</footer>
+</body></html>

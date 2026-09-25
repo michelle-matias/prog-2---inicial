@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+
+<html lang="pt"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>IPT Ecosystem Master Showcase — Diretório &amp; Arquitetura Federada</title>
+<!-- Google Fonts: Plus Jakarta Sans, Public Sans & JetBrains Mono -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Public+Sans:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS with Forms and Container-Queries Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          ipt: {
+            lime: "#74B816",
+            darkgreen: "#264300",
+            forest: "#1c3200",
+            soft: "#f2fbe8"
+          }
+        },
+        fontFamily: {
+          sans: ["Public Sans", "sans-serif"],
+          headline: ["Plus Jakarta Sans", "sans-serif"],
+          mono: ["JetBrains Mono", "monospace"]
+        }
+      }
+    }
+  }
+</script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1;
+      display: inline-block;
+      vertical-align: middle;
+      -webkit-font-smoothing: antialiased;
+    }
+    /* Official IPT Multi-Colored Top Ribbon Bar */
+    .ipt-ribbon-bar {
+      height: 6px;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      overflow: hidden;
+    }
+    .ipt-card {
+      background-color: #ffffff;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.05);
+      transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .ipt-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px -3px rgba(15, 23, 42, 0.08), 0 4px 6px -2px rgba(15, 23, 42, 0.04);
+    }
+</style>
+</head>
+<body class="bg-[#F8FAFC] text-slate-800 font-sans min-h-screen flex flex-col antialiased selection:bg-[#74B816]/20 selection:text-[#264300]">
+<!-- 1. ICONIC IPT MULTI-COLORED BRAND RIBBON -->
+<div class="ipt-ribbon-bar">
+<div class="h-full flex-1 bg-[#d9222a]"></div> <!-- Red -->
+<div class="h-full flex-1 bg-[#ec008c]"></div> <!-- Pink -->
+<div class="h-full flex-1 bg-[#f58220]"></div> <!-- Orange -->
+<div class="h-full flex-1 bg-[#ffc20e]"></div> <!-- Yellow -->
+<div class="h-full flex-1 bg-[#74B816]"></div> <!-- IPT Signature Lime Green -->
+<div class="h-full flex-1 bg-[#00a88f]"></div> <!-- Teal/Mint -->
+<div class="h-full flex-1 bg-[#009ee0]"></div> <!-- Cyan / Sky -->
+<div class="h-full flex-1 bg-[#005ba8]"></div> <!-- Cobalt Blue -->
+<div class="h-full flex-1 bg-[#662483]"></div> <!-- Purple -->
+<div class="h-full flex-1 bg-[#49176d]"></div> <!-- Violet -->
+</div>
+<!-- ================= TOP INSTITUTIONAL BAR & FEDERATION STATUS ================= -->
+<header class="bg-white sticky top-0 z-50 border-b border-slate-200/90 shadow-sm">
+<!-- Federated Session Micro Bar -->
+<div class="bg-[#1E293B] text-slate-200 py-1.5 px-4 text-xs font-mono">
+<div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+<div class="flex items-center gap-2.5">
+<span class="inline-flex items-center gap-1.5 font-bold text-[#74B816] tracking-wider text-[11px]">
+<span class="material-symbols-outlined text-sm text-[#74B816]">verified_user</span> IPT ID FEDERATION
+        </span>
+<span class="text-slate-600">|</span>
+<span class="text-slate-300 text-[11px]">Sessão Única Ativa (Aluno nº 24891 — Michelle Gomes)</span>
+</div>
+<div class="flex items-center gap-2 text-[11px]">
+<span class="text-slate-400 mr-1 hidden sm:inline font-sans">Comutador Rápido:</span>
+<a class="px-2 py-0.5 rounded bg-slate-700/70 hover:bg-[#74B816] hover:text-white transition-colors" href="#sec-hub">IPT Hub</a>
+<a class="px-2 py-0.5 rounded bg-slate-700/70 hover:bg-[#2563eb] hover:text-white transition-colors" href="#sec-netpa">NETPA</a>
+<a class="px-2 py-0.5 rounded bg-slate-700/70 hover:bg-[#d97706] hover:text-white transition-colors" href="#sec-balcao">Balcão Único</a>
+<a class="px-2 py-0.5 rounded bg-slate-700/70 hover:bg-[#ea580c] hover:text-white transition-colors" href="#sec-refeitorio">Unicard Cantina</a>
+<a class="px-2 py-0.5 rounded bg-slate-700/70 hover:bg-[#0d9488] hover:text-white transition-colors" href="#sec-sas">SAS-IPT</a>
+<span class="text-slate-600">|</span>
+<a class="text-[#74B816] hover:underline font-bold flex items-center gap-0.5" href="https://moodle.ipt.pt" target="_blank">
+          Moodle <span class="material-symbols-outlined text-xs">open_in_new</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Main Navigation Bar -->
+<div class="flex justify-between items-center w-full px-4 md:px-8 max-w-7xl mx-auto h-16">
+<div class="flex items-center gap-4">
+<a class="flex items-center gap-3.5 group" href="#">
+<!-- IPT Institutional Rosette Mark -->
+<div class="w-10 h-10 rounded-xl bg-[#74B816] flex items-center justify-center text-white shadow-sm ring-4 ring-[#74B816]/15 group-hover:scale-105 transition-transform">
+<svg class="w-6 h-6 fill-current" viewbox="0 0 24 24">
+<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"></path>
+</svg>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-headline text-lg font-bold text-slate-900 tracking-tight leading-none group-hover:text-[#74B816] transition-colors">
+              Universidade Politécnica de Tomar
+            </span>
+<span class="inline-block w-2 h-2 rounded-full bg-[#74B816]"></span>
+</div>
+<span class="text-xs font-mono text-slate-500 font-semibold block tracking-wide mt-0.5">
+            IPT Ecosystem Master Showcase • 29 Ecrãs Federados
+          </span>
+</div>
+</a>
+</div>
+<!-- Center Live Search Bar -->
+<div class="hidden lg:flex items-center flex-1 max-w-md mx-6">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-slate-400 text-lg">search</span>
+<input class="w-full pl-9 pr-20 py-2 text-sm bg-slate-50 border border-slate-200 rounded-xl text-slate-800 placeholder-slate-400 focus:outline-none focus:border-[#74B816] focus:ring-2 focus:ring-[#74B816]/20 transition-all shadow-inner" id="searchInput" placeholder="Pesquisar exames, propinas, cantina, salas..." type="text"/>
+<span class="absolute right-2.5 top-2 px-2 py-0.5 bg-white border border-slate-200 text-[11px] font-mono font-medium text-slate-500 rounded-md shadow-xs">
+          ⌘K
+        </span>
+</div>
+</div>
+<!-- Trailing Actions & User Cluster -->
+<div class="flex items-center gap-3">
+<nav class="hidden xl:flex items-center gap-5 text-sm font-semibold">
+<a class="text-[#74B816] border-b-2 border-[#74B816] pb-1" href="#sec-hub">IPT Hub</a>
+<a class="text-slate-600 hover:text-[#2563eb] transition-colors" href="#sec-netpa">NETPA</a>
+<a class="text-slate-600 hover:text-[#d97706] transition-colors" href="#sec-balcao">Balcão Único</a>
+<a class="text-slate-600 hover:text-[#ea580c] transition-colors" href="#sec-refeitorio">Cantinas</a>
+<a class="text-slate-600 hover:text-[#0d9488] transition-colors" href="#sec-sas">SAS-IPT</a>
+</nav>
+<div class="flex items-center gap-1.5 border-l border-slate-200 pl-3">
+<button class="p-2 text-slate-600 hover:text-[#74B816] hover:bg-slate-100 rounded-lg transition-colors" title="Aplicações Federadas (Waffle)">
+<span class="material-symbols-outlined">apps</span>
+</button>
+<button class="p-2 text-slate-600 hover:text-[#74B816] hover:bg-slate-100 rounded-lg transition-colors relative" title="Notificações">
+<span class="material-symbols-outlined">notifications</span>
+<span class="w-2 h-2 rounded-full bg-[#74B816] ring-2 ring-white absolute top-1.5 right-1.5"></span>
+</button>
+<a class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold rounded-lg bg-[#74B816] hover:bg-[#629d12] text-white transition-all shadow-sm shadow-[#74B816]/30 ml-1" href="#docs">
+<span class="material-symbols-outlined text-sm">description</span> Docs
+        </a>
+</div>
+</div>
+</div>
+</header>
+<!-- ================= HERO EXECUTIVE SHOWCASE ================= -->
+<section class="bg-gradient-to-b from-white via-white to-slate-50 border-b border-slate-200 py-8 sm:py-10 relative overflow-hidden" id="overview">
+<div class="max-w-7xl mx-auto px-4 md:px-8 relative">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+<div class="max-w-2xl">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#f2fbe8] border border-[#74B816]/30 text-[#264300] font-mono text-xs font-semibold mb-3">
+<span class="w-2 h-2 rounded-full bg-[#74B816] animate-pulse"></span>
+<span>Plataforma Oficial de Ecossistema Digital • Tomar &amp; Abrantes</span>
+</div>
+<h1 class="text-2xl sm:text-3xl lg:text-4xl font-headline font-extrabold text-slate-900 tracking-tight mb-2.5">
+          Diretório Federado do Estudante e Docente
+        </h1>
+<p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+          Navegação centralizada, ecrãs canónicos e especificações de engenharia de software para os 5 subsistemas do Instituto Politécnico de Tomar.
+        </p>
+</div>
+<!-- Quick Platform Stats Cards -->
+<div class="flex items-center gap-3">
+<div class="bg-white border border-slate-200 rounded-xl p-3.5 shadow-sm text-center min-w-[100px]">
+<span class="block text-2xl font-extrabold font-headline text-[#74B816]">29</span>
+<span class="text-[11px] font-bold text-slate-500 uppercase tracking-wider font-mono">Ecrãs Vivos</span>
+</div>
+<div class="bg-white border border-slate-200 rounded-xl p-3.5 shadow-sm text-center min-w-[100px]">
+<span class="block text-2xl font-extrabold font-headline text-[#2563eb]">5</span>
+<span class="text-[11px] font-bold text-slate-500 uppercase tracking-wider font-mono">Portais</span>
+</div>
+<div class="bg-white border border-slate-200 rounded-xl p-3.5 shadow-sm text-center min-w-[100px]">
+<span class="block text-2xl font-extrabold font-headline text-[#0d9488]">100%</span>
+<span class="text-[11px] font-bold text-slate-500 uppercase tracking-wider font-mono">SAML 2.0</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ================= INTERACTIVE FILTER & SEARCH BAR ================= -->
+<section class="bg-white/95 backdrop-blur-md border-b border-slate-200 sticky top-16 z-40 py-2.5 shadow-xs">
+<div class="max-w-7xl mx-auto px-4 md:px-8 flex flex-wrap items-center justify-between gap-3">
+<div class="flex items-center gap-2 overflow-x-auto py-1 scrollbar-none" id="filterPills">
+<button class="filter-pill active px-3.5 py-1.5 rounded-lg text-xs font-bold bg-[#74B816] text-white shadow-xs transition-all" onclick="filterCategory('all', this)">
+        Todos os Portais (29)
+      </button>
+<button class="filter-pill px-3.5 py-1.5 rounded-lg text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition-all flex items-center gap-1.5" onclick="filterCategory('hub', this)">
+<span class="w-2 h-2 rounded-full bg-[#74B816]"></span> IPT Hub
+      </button>
+<button class="filter-pill px-3.5 py-1.5 rounded-lg text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition-all flex items-center gap-1.5" onclick="filterCategory('netpa', this)">
+<span class="w-2 h-2 rounded-full bg-[#2563eb]"></span> NETPA
+      </button>
+<button class="filter-pill px-3.5 py-1.5 rounded-lg text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition-all flex items-center gap-1.5" onclick="filterCategory('balcao', this)">
+<span class="w-2 h-2 rounded-full bg-[#d97706]"></span> Balcão Único
+      </button>
+<button class="filter-pill px-3.5 py-1.5 rounded-lg text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition-all flex items-center gap-1.5" onclick="filterCategory('refeitorio', this)">
+<span class="w-2 h-2 rounded-full bg-[#ea580c]"></span> Cantinas &amp; Bar
+      </button>
+<button class="filter-pill px-3.5 py-1.5 rounded-lg text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition-all flex items-center gap-1.5" onclick="filterCategory('sas', this)">
+<span class="w-2 h-2 rounded-full bg-[#0d9488]"></span> SAS-IPT Ação Social
+      </button>
+</div>
+<span class="text-xs font-mono font-bold text-slate-600 hidden md:inline-flex items-center gap-1.5 bg-slate-100 px-3 py-1 rounded-md border border-slate-200">
+<span class="material-symbols-outlined text-sm text-[#74B816]">hub</span> 5 Sub-sistemas Ativos
+    </span>
+</div>
+</section>
+<!-- ================= MAIN SHOWCASE CONTENT CANVAS ================= -->
+<main class="flex-1 max-w-7xl w-full mx-auto px-4 md:px-8 py-8 space-y-10">
+<!-- ================= 1. IPT HUB CENTRAL (Green Signature) ================= -->
+<section class="category-section transition-all" data-category="hub" id="sec-hub">
+<div class="flex items-center justify-between border-b border-slate-200 pb-3 mb-5">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-xl bg-[#74B816] text-white flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-lg">hub</span>
+</div>
+<div>
+<h2 class="text-xl font-headline font-bold text-slate-900 flex items-center gap-2">
+            1. IPT Hub Central
+            <span class="text-xs font-mono font-semibold text-[#74B816] bg-[#f2fbe8] px-2.5 py-0.5 rounded-full border border-[#74B816]/30">Ponto de Entrada</span>
+</h2>
+<p class="text-xs sm:text-sm text-slate-600">Lançador federado, cartões digitais e ponto de partida do estudante do IPT.</p>
+</div>
+</div>
+<span class="text-xs font-mono font-bold px-2.5 py-1 rounded-md bg-[#74B816]/15 text-[#264300] border border-[#74B816]/30">
+        1 Ecrã Canónico
+      </span>
+</div>
+<!-- Featured Master Hub Card -->
+<div class="ipt-card rounded-2xl p-6 border-l-4 border-l-[#74B816] bg-white">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+<div class="lg:col-span-6 space-y-3">
+<div class="inline-flex items-center gap-1.5 text-xs font-bold text-[#74B816] uppercase tracking-wider font-mono">
+<span class="material-symbols-outlined text-base">dashboard_customize</span> Dashboard Pessoal
+          </div>
+<h3 class="text-xl font-headline font-bold text-slate-900">Portal Unificado do Estudante IPT</h3>
+<p class="text-sm text-slate-600 leading-relaxed">
+            Agrega cartões virtuais, saldo Unicard, notificações curriculares transversais, atalhos rápidos para as aulas e autenticação federada SAML 2.0.
+          </p>
+<div class="flex flex-wrap gap-2 pt-1">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-[#f2fbe8] text-[#264300] border border-[#74B816]/30 text-xs font-bold font-mono">
+<span class="material-symbols-outlined text-xs text-[#74B816]">credit_card</span> Widget Unicard
+            </span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-slate-100 text-slate-700 text-xs font-semibold font-mono">
+<span class="material-symbols-outlined text-xs">search</span> Pesquisa Global
+            </span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-emerald-50 text-emerald-800 border border-emerald-200 text-xs font-bold font-mono">
+<span class="material-symbols-outlined text-xs text-emerald-600">notifications_active</span> Notificações Push
+            </span>
+</div>
+</div>
+<!-- Live Widget Preview Box -->
+<div class="lg:col-span-6 rounded-xl border border-slate-200 bg-slate-50/70 p-4 shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between border-b border-slate-200 pb-2.5 mb-3">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-lg bg-[#74B816] text-white flex items-center justify-center text-xs font-bold">IPT</div>
+<span class="text-xs font-bold text-slate-800 font-headline">IPT Hub · Central Dashboard</span>
+</div>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-bold font-mono border border-emerald-300">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> SSO Conectado
+            </span>
+</div>
+<div class="space-y-2.5 text-left">
+<div class="p-2.5 rounded-lg bg-white border border-slate-200 flex items-center justify-between shadow-xs">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-full bg-[#f2fbe8] text-[#74B816] flex items-center justify-center font-bold">
+<span class="material-symbols-outlined text-sm">person</span>
+</div>
+<div>
+<p class="text-xs font-bold text-slate-900 leading-tight">Michelle Gomes</p>
+<span class="text-[10px] text-slate-500 font-mono">Nº 24891 · L. Eng. Informática</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded bg-[#f2fbe8] text-[#264300] font-bold font-mono text-[10px] border border-[#74B816]/30">Matrícula Ativa</span>
+</div>
+<div class="grid grid-cols-3 gap-2 text-center">
+<div class="p-2 rounded-lg bg-white border border-slate-200 shadow-xs">
+<span class="text-[10px] text-slate-500 block font-mono">Saldo Cantina</span>
+<span class="text-xs font-bold text-[#74B816]">14,30 €</span>
+</div>
+<div class="p-2 rounded-lg bg-white border border-slate-200 shadow-xs">
+<span class="text-[10px] text-slate-500 block font-mono">Próxima Aula</span>
+<span class="text-xs font-bold text-slate-800">Sala B204</span>
+</div>
+<div class="p-2 rounded-lg bg-white border border-slate-200 shadow-xs">
+<span class="text-[10px] text-slate-500 block font-mono">Senha BUN</span>
+<span class="text-xs font-bold text-[#d97706]">A042</span>
+</div>
+</div>
+</div>
+<div class="mt-3.5 pt-2.5 border-t border-slate-200 flex items-center justify-between">
+<span class="text-[11px] font-mono text-slate-500 flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-[#74B816]">desktop_windows</span> Ecrã Canónico 1080p
+            </span>
+<a class="inline-flex items-center gap-1 px-3 py-1.5 bg-[#74B816] hover:bg-[#629d12] text-white rounded-lg text-xs font-bold transition-colors shadow-xs" href="#hub">
+<span>Abrir Hub</span>
+<span class="material-symbols-outlined text-xs">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ================= 2. NETPA ACADÉMICO (Academic Blue Accent) ================= -->
+<section class="category-section transition-all" data-category="netpa" id="sec-netpa">
+<div class="flex items-center justify-between border-b border-slate-200 pb-3 mb-5">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-xl bg-[#2563eb] text-white flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-lg">school</span>
+</div>
+<div>
+<h2 class="text-xl font-headline font-bold text-slate-900 flex items-center gap-2">
+            2. NETPA Académico
+            <span class="text-xs font-mono font-semibold text-[#2563eb] bg-blue-50 px-2.5 py-0.5 rounded-full border border-blue-200">Gestão Curricular</span>
+</h2>
+<p class="text-xs sm:text-sm text-slate-600">Inscrições, notas, horários, turmas e propinas académicas.</p>
+</div>
+</div>
+<span class="text-xs font-mono font-bold px-2.5 py-1 rounded-md bg-blue-50 text-blue-800 border border-blue-200">
+        5 Ecrãs
+      </span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+<!-- 2.1 Dashboard Aluno -->
+<div class="ipt-card rounded-xl p-4 flex flex-col justify-between border-t-2 border-t-[#2563eb]">
+<div class="mb-3">
+<div class="flex items-center justify-between mb-1.5">
+<h4 class="text-base font-headline font-bold text-slate-900">Dashboard do Aluno</h4>
+<span class="px-2 py-0.5 rounded bg-blue-50 text-[#2563eb] font-mono text-[11px] font-bold border border-blue-200">Desktop</span>
+</div>
+<p class="text-xs text-slate-600">Visão global curricular, créditos ECTS concluídos e avisos letivos do curso.</p>
+</div>
+<div class="p-2.5 bg-slate-50 rounded-lg border border-slate-200 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-7 h-7 rounded bg-blue-100 text-[#2563eb] flex items-center justify-center material-symbols-outlined text-sm">desktop_windows</span>
+<div class="text-left">
+<span class="text-xs font-bold text-slate-800 block leading-tight">Portal Curricular &amp; ECTS</span>
+<span class="text-[10px] font-mono text-slate-500">2 Vistas Disponíveis</span>
+</div>
+</div>
+<span class="inline-flex items-center gap-0.5 text-xs font-bold text-[#2563eb] hover:text-blue-800 cursor-pointer transition-colors">
+            Ver Ecrã <span class="material-symbols-outlined text-xs">arrow_forward</span>
+</span>
+</div>
+</div>
+<!-- 2.2 O Meu Curso & Salas -->
+<div class="ipt-card rounded-xl p-4 flex flex-col justify-between border-t-2 border-t-[#2563eb]">
+<div class="mb-3">
+<div class="flex items-center justify-between mb-1.5">
+<h4 class="text-base font-headline font-bold text-slate-900">O Meu Curso &amp; Salas</h4>
+<span class="px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 font-mono text-[11px] font-bold border border-emerald-200">Horários</span>
+</div>
+<p class="text-xs text-slate-600">Grelha semanal de aulas, docentes e salas de Tomar e Abrantes em tempo real.</p>
+</div>
+<div class="p-2.5 bg-slate-50 rounded-lg border border-slate-200 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-7 h-7 rounded bg-emerald-100 text-emerald-700 flex items-center justify-center material-symbols-outlined text-sm">calendar_month</span>
+<div class="text-left">
+<span class="text-xs font-bold text-slate-800 block leading-tight">Horários Tomar &amp; Abrantes</span>
+<span class="text-[10px] font-mono text-slate-500">Grelha Semanal Ativa</span>
+</div>
+</div>
+<span class="inline-flex items-center gap-0.5 text-xs font-bold text-[#2563eb] hover:text-blue-800 cursor-pointer transition-colors">
+            Ver Ecrã <span class="material-symbols-outlined text-xs">arrow_forward</span>
+</span>
+</div>
+</div>
+<!-- 2.3 Exames & Avaliações -->
+<div class="ipt-card rounded-xl p-4 flex flex-col justify-between border-t-2 border-t-[#2563eb]">
+<div class="mb-3">
+<div class="flex items-center justify-between mb-1.5">
+<h4 class="text-base font-headline font-bold text-slate-900">Exames &amp; Avaliações</h4>
+<span class="px-2 py-0.5 rounded bg-amber-50 text-amber-700 font-mono text-[11px] font-bold border border-amber-200">Pautas</span>
+</div>
+<p class="text-xs text-slate-600">Inscrição em épocas de exame (Normal, Recurso, Especial) e consulta de notas.</p>
+</div>
+<div class="p-2.5 bg-slate-50 rounded-lg border border-slate-200 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-7 h-7 rounded bg-amber-100 text-amber-700 flex items-center justify-center material-symbols-outlined text-sm">grade</span>
+<div class="text-left">
+<span class="text-xs font-bold text-slate-800 block leading-tight">Pautas &amp; Inscrições Exames</span>
+<span class="text-[10px] font-mono text-slate-500">Épocas Normal e Recurso</span>
+</div>
+</div>
+<span class="inline-flex items-center gap-0.5 text-xs font-bold text-[#2563eb] hover:text-blue-800 cursor-pointer transition-colors">
+            Ver Ecrã <span class="material-symbols-outlined text-xs">arrow_forward</span>
+</span>
+</div>
+</div>
+<!-- 2.4 Propinas & Pagamentos -->
+<div class="ipt-card rounded-xl p-4 flex flex-col justify-between border-t-2 border-t-[#2563eb]">
+<div class="mb-3">
+<div class="flex items-center justify-between mb-1.5">
+<h4 class="text-base font-headline font-bold text-slate-900">Propinas &amp; Pagamentos</h4>
+<span class="px-2 py-0.5 rounded bg-indigo-50 text-indigo-700 font-mono text-[11px] font-bold border border-indigo-200">Financeiro</span>
+</div>
+<p class="text-xs text-slate-600">Extrato de conta-corrente, referências MB, emissão de MB WAY e recibos fiscais.</p>
+</div>
+<div class="p-2.5 bg-slate-50 rounded-lg border border-slate-200 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-7 h-7 rounded bg-indigo-100 text-indigo-700 flex items-center justify-center material-symbols-outlined text-sm">receipt_long</span>
+<div class="text-left">
+<span class="text-xs font-bold text-slate-800 block leading-tight">Extrato &amp; Referências MB</span>
+<span class="text-[10px] font-mono text-slate-500">MB WAY Instantâneo</span>
+</div>
+</div>
+<span class="inline-flex items-center gap-0.5 text-xs font-bold text-[#2563eb] hover:text-blue-800 cursor-pointer transition-colors">
+            Ver Ecrã <span class="material-symbols-outlined text-xs">arrow_forward</span>
+</span>
+</div>
+</div>
+<!-- 2.5 NETPA Mobile App -->
+<div class="ipt-card rounded-xl p-4 flex flex-col justify-between md:col-span-2 border-l-4 border-l-[#2563eb] border-t-2 border-t-[#2563eb]">
+<div class="mb-3">
+<div class="flex items-center justify-between mb-1.5">
+<h4 class="text-base font-headline font-bold text-slate-900">NETPA Mobile</h4>
+<span class="px-2 py-0.5 rounded bg-[#f2fbe8] text-[#264300] font-mono text-[11px] font-bold border border-[#74B816]/30">App Nativa IPT</span>
+</div>
+<p class="text-xs text-slate-600">Consulta rápida de salas a 10 minutos do início da aula, faltas e avisos imediatos na palma da mão.</p>
+</div>
+<div class="p-2.5 bg-slate-50 rounded-lg border border-slate-200 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-7 h-7 rounded bg-blue-100 text-[#2563eb] flex items-center justify-center material-symbols-outlined text-sm">smartphone</span>
+<div class="text-left">
+<span class="text-xs font-bold text-slate-800 block leading-tight">NETPA Mobile View</span>
+<span class="text-[10px] font-mono text-slate-500">Responsivo · iOS &amp; Android PWA</span>
+</div>
+</div>
+<span class="inline-flex items-center gap-0.5 text-xs font-bold text-[#2563eb] hover:text-blue-800 cursor-pointer transition-colors">
+            Ver Ecrã Mobile <span class="material-symbols-outlined text-xs">arrow_forward</span>
+</span>
+</div>
+</div>
+</div>
+</section>
+<!-- ================= 3. BALCÃO ÚNICO DIGITAL (Warm Amber/Gold Accent) ================= -->
+<section class="category-section transition-all" data-category="balcao" id="sec-balcao">
+<div class="flex items-center justify-between border-b border-slate-200 pb-3 mb-5">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-xl bg-[#d97706] text-white flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-lg">support_agent</span>
+</div>
+<div>
+<h2 class="text-xl font-headline font-bold text-slate-900 flex items-center gap-2">
+            3. Balcão Único Digital (BUN SPOC)
+            <span class="text-xs font-mono font-semibold text-[#d97706] bg-amber-50 px-2.5 py-0.5 rounded-full border border-amber-200">Atendimento &amp; Apoio</span>
+</h2>
+<p class="text-xs sm:text-sm text-slate-600">Senhas virtuais, requerimentos académicos, emolumentos e candidaturas.</p>
+</div>
+</div>
+<span class="text-xs font-mono font-bold px-2.5 py-1 rounded-md bg-amber-50 text-amber-800 border border-amber-200">
+        8 Ecrãs
+      </span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<div class="ipt-card rounded-xl p-4 flex flex-col justify-between border-t-2 border-t-[#d97706]">
+<div>
+<div class="w-7 h-7 rounded bg-amber-100 text-[#d97706] flex items-center justify-center mb-2">
+<span class="material-symbols-outlined text-sm">home</span>
+</div>
+<h4 class="text-sm font-headline font-bold text-slate-900 mb-1">Portal Geral</h4>
+<p class="text-xs text-slate-600 mb-3">Triagem e acessos principais do balcão.</p>
+</div>
+<div class="p-2 bg-slate-50 rounded-lg border border-slate-200 flex items-center justify-between text-xs">
+<span class="font-mono text-[10px] text-slate-500 font-bold">Desktop + Mobile</span>
+<span class="text-[#74B816] font-bold flex items-center gap-0.5 hover:underline cursor-pointer">Ver Ecrã <span class="material-symbols-outlined text-xs">arrow_forward</span></span>
+</div>
+</div>
+<div class="ipt-card rounded-xl p-4 flex flex-col justify-between border-t-2 border-t-[#d97706]">
+<div>
+<div class="w-7 h-7 rounded bg-amber-100 text-[#d97706] flex items-center justify-center mb-2">
+<span class="material-symbols-outlined text-sm">how_to_reg</span>
+</div>
+<h4 class="text-sm font-headline font-bold text-slate-900 mb-1">Candidaturas</h4>
+<p class="text-xs text-slate-600 mb-3">Guias e submissão para novos alunos.</p>
+</div>
+<div class="p-2 bg-slate-50 rounded-lg border border-slate-200 flex items-center justify-between text-xs">
+<span class="font-mono text-[10px] text-slate-500 font-bold">Guia de Acesso</span>
+<span class="text-[#74B816] font-bold flex items-center gap-0.5 hover:underline cursor-pointer">Ver Ecrã <span class="material-symbols-outlined text-xs">arrow_forward</span></span>
+</div>
+</div>
+<div class="ipt-card rounded-xl p-4 flex flex-col justify-between border-t-2 border-t-[#d97706]">
+<div>
+<div class="w-7 h-7 rounded bg-amber-100 text-[#d97706] flex items-center justify-center mb-2">
+<span class="material-symbols-outlined text-sm">description</span>
+</div>
+<h4 class="text-sm font-headline font-bold text-slate-900 mb-1">Requerimentos</h4>
+<p class="text-xs text-slate-600 mb-3">Estatutos especiais e pedidos formais.</p>
+</div>
+<div class="p-2 bg-slate-50 rounded-lg border border-slate-200 flex items-center justify-between text-xs">
+<span class="font-mono text-[10px] text-slate-500 font-bold">Formulários Digitais</span>
+<span class="text-[#74B816] font-bold flex items-center gap-0.5 hover:underline cursor-pointer">Ver Ecrã <span class="material-symbols-outlined text-xs">arrow_forward</span></span>
+</div>
+</div>
+<div class="ipt-card rounded-xl p-4 flex flex-col justify-between border-t-2 border-t-[#d97706]">
+<div>
+<div class="w-7 h-7 rounded bg-amber-100 text-[#d97706] flex items-center justify-center mb-2">
+<span class="material-symbols-outlined text-sm">event_note</span>
+</div>
+<h4 class="text-sm font-headline font-bold text-slate-900 mb-1">Calendário Letivo</h4>
+<p class="text-xs text-slate-600 mb-3">Prazos e paragens do ano letivo.</p>
+</div>
+<div class="p-2 bg-slate-50 rounded-lg border border-slate-200 flex items-center justify-between text-xs">
+<span class="font-mono text-[10px] text-slate-500 font-bold">Ano 2024/2025</span>
+<span class="text-[#74B816] font-bold flex items-center gap-0.5 hover:underline cursor-pointer">Ver Ecrã <span class="material-symbols-outlined text-xs">arrow_forward</span></span>
+</div>
+</div>
+<div class="ipt-card rounded-xl p-4 flex flex-col justify-between border-t-2 border-t-[#d97706]">
+<div>
+<div class="w-7 h-7 rounded bg-amber-100 text-[#d97706] flex items-center justify-center mb-2">
+<span class="material-symbols-outlined text-sm">calculate</span>
+</div>
+<h4 class="text-sm font-headline font-bold text-slate-900 mb-1">Emolumentos</h4>
+<p class="text-xs text-slate-600 mb-3">Simulador de certidões e diplomas.</p>
+</div>
+<div class="p-2 bg-slate-50 rounded-lg border border-slate-200 flex items-center justify-between text-xs">
+<span class="font-mono text-[10px] text-slate-500 font-bold">Tabela Oficial</span>
+<span class="text-[#74B816] font-bold flex items-center gap-0.5 hover:underline cursor-pointer">Ver Ecrã <span class="material-symbols-outlined text-xs">arrow_forward</span></span>
+</div>
+</div>
+<div class="ipt-card rounded-xl p-4 flex flex-col justify-between border-t-2 border-t-[#d97706]">
+<div>
+<div class="w-7 h-7 rounded bg-amber-100 text-[#d97706] flex items-center justify-center mb-2">
+<span class="material-symbols-outlined text-sm">confirmation_number</span>
+</div>
+<h4 class="text-sm font-headline font-bold text-slate-900 mb-1">Senhas Virtuais</h4>
+<p class="text-xs text-slate-600 mb-3">Tiragem online de senhas sem filas físicas.</p>
+</div>
+<div class="p-2 bg-slate-50 rounded-lg border border-slate-200 flex items-center justify-between text-xs">
+<span class="font-mono text-[10px] text-emerald-600 font-bold">Fila em Tempo Real</span>
+<span class="text-[#74B816] font-bold flex items-center gap-0.5 hover:underline cursor-pointer">Ver Ecrã <span class="material-symbols-outlined text-xs">arrow_forward</span></span>
+</div>
+</div>
+<div class="ipt-card rounded-xl p-4 flex flex-col justify-between border-t-2 border-t-[#d97706] sm:col-span-2">
+<div>
+<div class="w-7 h-7 rounded bg-amber-100 text-[#d97706] flex items-center justify-center mb-2">
+<span class="material-symbols-outlined text-sm">help_outline</span>
+</div>
+<h4 class="text-sm font-headline font-bold text-slate-900 mb-1">Perguntas Frequentes &amp; Suporte Técnico</h4>
+<p class="text-xs text-slate-600 mb-3">Respostas imediatas sobre senhas de rede Eduroam, acesso VPN e credenciais.</p>
+</div>
+<div class="p-2 bg-slate-50 rounded-lg border border-slate-200 flex items-center justify-between text-xs">
+<span class="font-mono text-[10px] text-slate-500 font-bold">Base de Conhecimento SPOC</span>
+<span class="text-[#74B816] font-bold flex items-center gap-0.5 hover:underline cursor-pointer">Consultar FAQ <span class="material-symbols-outlined text-xs">arrow_forward</span></span>
+</div>
+</div>
+</div>
+</section>
+<!-- ================= 4. REFEITÓRIO & BARES (Energetic Coral/Orange Accent) ================= -->
+<section class="category-section transition-all" data-category="refeitorio" id="sec-refeitorio">
+<div class="flex items-center justify-between border-b border-slate-200 pb-3 mb-5">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-xl bg-[#ea580c] text-white flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-lg">restaurant</span>
+</div>
+<div>
+<h2 class="text-xl font-headline font-bold text-slate-900 flex items-center gap-2">
+            4. Refeitório &amp; Bares (Unicard SIGE)
+            <span class="text-xs font-mono font-semibold text-[#ea580c] bg-orange-50 px-2.5 py-0.5 rounded-full border border-orange-200">Alimentação &amp; Saldo</span>
+</h2>
+<p class="text-xs sm:text-sm text-slate-600">Ementas diárias, recargas MB WAY, leitor QR e lotação das cantinas.</p>
+</div>
+</div>
+<span class="text-xs font-mono font-bold px-2.5 py-1 rounded-md bg-orange-50 text-orange-800 border border-orange-200">
+        7 Ecrãs
+      </span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<div class="ipt-card rounded-xl p-4 flex flex-col justify-between border-t-2 border-t-[#ea580c]">
+<div>
+<div class="w-7 h-7 rounded bg-orange-100 text-[#ea580c] flex items-center justify-center mb-2">
+<span class="material-symbols-outlined text-sm">credit_card</span>
+</div>
+<h4 class="text-sm font-headline font-bold text-slate-900 mb-1">Portal Unicard</h4>
+<p class="text-xs text-slate-600 mb-3">Saldo, extrato de consumo e reserva rápida do dia.</p>
+</div>
+<div class="p-2 bg-slate-50 rounded-lg border border-slate-200 flex items-center justify-between text-xs">
+<span class="font-mono text-[10px] text-slate-500 font-bold">Módulo Unicard</span>
+<span class="text-[#ea580c] font-bold flex items-center gap-0.5 hover:underline cursor-pointer">Ver Ecrã <span class="material-symbols-outlined text-xs">arrow_forward</span></span>
+</div>
+</div>
+<div class="ipt-card rounded-xl p-4 flex flex-col justify-between border-t-2 border-t-[#ea580c]">
+<div>
+<div class="w-7 h-7 rounded bg-orange-100 text-[#ea580c] flex items-center justify-center mb-2">
+<span class="material-symbols-outlined text-sm">menu_book</span>
+</div>
+<h4 class="text-sm font-headline font-bold text-slate-900 mb-1">Ementa Semanal</h4>
+<p class="text-xs text-slate-600 mb-3">Alérgenos, opções vegetarianas e menus dos 4 polos.</p>
+</div>
+<div class="p-2 bg-slate-50 rounded-lg border border-slate-200 flex items-center justify-between text-xs">
+<span class="font-mono text-[10px] text-slate-500 font-bold">Atualização Diária</span>
+<span class="text-[#ea580c] font-bold flex items-center gap-0.5 hover:underline cursor-pointer">Ver Ecrã <span class="material-symbols-outlined text-xs">arrow_forward</span></span>
+</div>
+</div>
+<div class="ipt-card rounded-xl p-4 flex flex-col justify-between border-t-2 border-t-[#ea580c]">
+<div>
+<div class="w-7 h-7 rounded bg-orange-100 text-[#ea580c] flex items-center justify-center mb-2">
+<span class="material-symbols-outlined text-sm">add_card</span>
+</div>
+<h4 class="text-sm font-headline font-bold text-slate-900 mb-1">Saldo &amp; MB WAY</h4>
+<p class="text-xs text-slate-600 mb-3">Carregamentos instantâneos sem taxas adicionais.</p>
+</div>
+<div class="p-2 bg-slate-50 rounded-lg border border-slate-200 flex items-center justify-between text-xs">
+<span class="font-mono text-[10px] text-slate-500 font-bold">SIBS / MB WAY</span>
+<span class="text-[#ea580c] font-bold flex items-center gap-0.5 hover:underline cursor-pointer">Ver Ecrã <span class="material-symbols-outlined text-xs">arrow_forward</span></span>
+</div>
+</div>
+<div class="ipt-card rounded-xl p-4 flex flex-col justify-between border-t-2 border-t-[#ea580c]">
+<div>
+<div class="w-7 h-7 rounded bg-orange-100 text-[#ea580c] flex items-center justify-center mb-2">
+<span class="material-symbols-outlined text-sm">qr_code_2</span>
+</div>
+<h4 class="text-sm font-headline font-bold text-slate-900 mb-1">Cartão Virtual QR</h4>
+<p class="text-xs text-slate-600 mb-3">Leitura ótica nas catracas dos refeitórios e bares.</p>
+</div>
+<div class="p-2 bg-slate-50 rounded-lg border border-slate-200 flex items-center justify-between text-xs">
+<span class="font-mono text-[10px] text-slate-500 font-bold">NFC &amp; QR Dinâmico</span>
+<span class="text-[#ea580c] font-bold flex items-center gap-0.5 hover:underline cursor-pointer">Ver Ecrã <span class="material-symbols-outlined text-xs">arrow_forward</span></span>
+</div>
+</div>
+<div class="ipt-card rounded-xl p-4 flex flex-col justify-between border-t-2 border-t-[#ea580c]">
+<div>
+<div class="w-7 h-7 rounded bg-orange-100 text-[#ea580c] flex items-center justify-center mb-2">
+<span class="material-symbols-outlined text-sm">groups</span>
+</div>
+<h4 class="text-sm font-headline font-bold text-slate-900 mb-1">Lotação &amp; Horários</h4>
+<p class="text-xs text-slate-600 mb-3">Ocupação em tempo real e tempos médios de espera.</p>
+</div>
+<div class="p-2 bg-slate-50 rounded-lg border border-slate-200 flex items-center justify-between text-xs">
+<span class="font-mono text-[10px] text-slate-500 font-bold">Sensores IoT</span>
+<span class="text-[#ea580c] font-bold flex items-center gap-0.5 hover:underline cursor-pointer">Ver Ecrã <span class="material-symbols-outlined text-xs">arrow_forward</span></span>
+</div>
+</div>
+<div class="ipt-card rounded-xl p-4 flex flex-col justify-between border-t-2 border-t-[#ea580c]">
+<div>
+<div class="w-7 h-7 rounded bg-orange-100 text-[#ea580c] flex items-center justify-center mb-2">
+<span class="material-symbols-outlined text-sm">campaign</span>
+</div>
+<h4 class="text-sm font-headline font-bold text-slate-900 mb-1">Avisos da Cantina</h4>
+<p class="text-xs text-slate-600 mb-3">Substituições de pratos, fechos e manutenções técnicas.</p>
+</div>
+<div class="p-2 bg-slate-50 rounded-lg border border-slate-200 flex items-center justify-between text-xs">
+<span class="font-mono text-[10px] text-slate-500 font-bold">Comunicação SAS</span>
+<span class="text-[#ea580c] font-bold flex items-center gap-0.5 hover:underline cursor-pointer">Ver Ecrã <span class="material-symbols-outlined text-xs">arrow_forward</span></span>
+</div>
+</div>
+<div class="ipt-card rounded-xl p-4 flex flex-col justify-between border-t-2 border-t-[#ea580c] sm:col-span-2">
+<div>
+<div class="w-7 h-7 rounded bg-orange-100 text-[#ea580c] flex items-center justify-center mb-2">
+<span class="material-symbols-outlined text-sm">thumb_up</span>
+</div>
+<h4 class="text-sm font-headline font-bold text-slate-900 mb-1">Feedback &amp; Apoio Alimentar</h4>
+<p class="text-xs text-slate-600 mb-3">Avaliação das refeições servidas, sugestões de nutrição e apoio direto dos SAS.</p>
+</div>
+<div class="p-2 bg-slate-50 rounded-lg border border-slate-200 flex items-center justify-between text-xs">
+<span class="font-mono text-[10px] text-slate-500 font-bold">Canal de Qualidade</span>
+<span class="text-[#ea580c] font-bold flex items-center gap-0.5 hover:underline cursor-pointer">Avaliar Refeição <span class="material-symbols-outlined text-xs">arrow_forward</span></span>
+</div>
+</div>
+</div>
+</section>
+<!-- ================= 5. SAS-IPT AÇÃO SOCIAL (Teal / Emerald Accent) ================= -->
+<section class="category-section transition-all" data-category="sas" id="sec-sas">
+<div class="flex items-center justify-between border-b border-slate-200 pb-3 mb-5">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-xl bg-[#0d9488] text-white flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-lg">diversity_3</span>
+</div>
+<div>
+<h2 class="text-xl font-headline font-bold text-slate-900 flex items-center gap-2">
+            5. SAS-IPT (Ação Social &amp; Bem-Estar)
+            <span class="text-xs font-mono font-semibold text-[#0d9488] bg-teal-50 px-2.5 py-0.5 rounded-full border border-teal-200">Apoio ao Estudante</span>
+</h2>
+<p class="text-xs sm:text-sm text-slate-600">Bolsas DGES, residências universitárias, prova de vida e apoio psicológico.</p>
+</div>
+</div>
+<span class="text-xs font-mono font-bold px-2.5 py-1 rounded-md bg-teal-50 text-teal-800 border border-teal-200">
+        8 Ecrãs
+      </span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+<div class="ipt-card rounded-xl p-4 flex flex-col justify-between border-t-2 border-t-[#0d9488]">
+<div>
+<div class="w-7 h-7 rounded bg-teal-100 text-[#0d9488] flex items-center justify-center mb-2">
+<span class="material-symbols-outlined text-sm">home_work</span>
+</div>
+<h4 class="text-sm font-headline font-bold text-slate-900 mb-1">Página Inicial SAS</h4>
+<p class="text-xs text-slate-600 mb-3">Portal de bem-estar, bolsas em curso e comunicados.</p>
+</div>
+<div class="p-2 bg-slate-50 rounded-lg border border-slate-200 flex items-center justify-between text-xs">
+<span class="font-mono text-[10px] text-teal-700 font-bold">Portal Oficial SAS</span>
+<span class="text-[#0d9488] font-bold flex items-center gap-0.5 hover:underline cursor-pointer">Ver Ecrã <span class="material-symbols-outlined text-xs">arrow_forward</span></span>
+</div>
+</div>
+<div class="ipt-card rounded-xl p-4 flex flex-col justify-between border-t-2 border-t-[#0d9488]">
+<div>
+<div class="w-7 h-7 rounded bg-teal-100 text-[#0d9488] flex items-center justify-center mb-2">
+<span class="material-symbols-outlined text-sm">fingerprint</span>
+</div>
+<h4 class="text-sm font-headline font-bold text-slate-900 mb-1">Prova de Vida Digital</h4>
+<p class="text-xs text-slate-600 mb-3">Validação biométrica e por Chave Móvel Digital.</p>
+</div>
+<div class="p-2 bg-slate-50 rounded-lg border border-slate-200 flex items-center justify-between text-xs">
+<span class="font-mono text-[10px] text-teal-700 font-bold">Chave Móvel / Cartão Cidadão</span>
+<span class="text-[#0d9488] font-bold flex items-center gap-0.5 hover:underline cursor-pointer">Ver Ecrã <span class="material-symbols-outlined text-xs">arrow_forward</span></span>
+</div>
+</div>
+<div class="ipt-card rounded-xl p-4 flex flex-col justify-between border-t-2 border-t-[#0d9488]">
+<div>
+<div class="w-7 h-7 rounded bg-teal-100 text-[#0d9488] flex items-center justify-center mb-2">
+<span class="material-symbols-outlined text-sm">savings</span>
+</div>
+<h4 class="text-sm font-headline font-bold text-slate-900 mb-1">Bolsas &amp; Apoios DGES</h4>
+<p class="text-xs text-slate-600 mb-3">Simulador de bolsas, prazos e fundo de emergência.</p>
+</div>
+<div class="p-2 bg-slate-50 rounded-lg border border-slate-200 flex items-center justify-between text-xs">
+<span class="font-mono text-[10px] text-teal-700 font-bold">Integração DGES</span>
+<span class="text-[#0d9488] font-bold flex items-center gap-0.5 hover:underline cursor-pointer">Ver Ecrã <span class="material-symbols-outlined text-xs">arrow_forward</span></span>
+</div>
+</div>
+<div class="ipt-card rounded-xl p-4 flex flex-col justify-between border-t-2 border-t-[#0d9488]">
+<div>
+<div class="w-7 h-7 rounded bg-teal-100 text-[#0d9488] flex items-center justify-center mb-2">
+<span class="material-symbols-outlined text-sm">hotel</span>
+</div>
+<h4 class="text-sm font-headline font-bold text-slate-900 mb-1">Alojamento Universitário</h4>
+<p class="text-xs text-slate-600 mb-3">Residência Maria de Lurdes, candidaturas e vagas.</p>
+</div>
+<div class="p-2 bg-slate-50 rounded-lg border border-slate-200 flex items-center justify-between text-xs">
+<span class="font-mono text-[10px] text-teal-700 font-bold">Residências IPT</span>
+<span class="text-[#0d9488] font-bold flex items-center gap-0.5 hover:underline cursor-pointer">Ver Ecrã <span class="material-symbols-outlined text-xs">arrow_forward</span></span>
+</div>
+</div>
+<div class="ipt-card rounded-xl p-4 flex flex-col justify-between border-t-2 border-t-[#0d9488] sm:col-span-2 border-l-4 border-l-[#0d9488]">
+<div>
+<div class="w-7 h-7 rounded bg-teal-100 text-[#0d9488] flex items-center justify-center mb-2">
+<span class="material-symbols-outlined text-sm">psychology</span>
+</div>
+<h4 class="text-sm font-headline font-bold text-slate-900 mb-1">Saúde Mental &amp; Apoio Psicológico</h4>
+<p class="text-xs text-slate-600 mb-3">Marcação confidencial de consultas gratuitas com especialistas, acompanhamento e linha SOS do IPT.</p>
+</div>
+<div class="p-2 bg-slate-50 rounded-lg border border-slate-200 flex items-center justify-between text-xs">
+<span class="font-mono text-[10px] text-emerald-700 font-bold">100% Confidencial &amp; Gratuito</span>
+<span class="text-[#0d9488] font-bold flex items-center gap-0.5 hover:underline cursor-pointer">Marcar Consulta <span class="material-symbols-outlined text-xs">arrow_forward</span></span>
+</div>
+</div>
+</div>
+</section>
+<!-- ================= ARCHITECTURE INSIGHTS & FEDERATED CONTINUITY ================= -->
+<section class="bg-white rounded-2xl border border-slate-200 p-6 md:p-8 shadow-sm relative overflow-hidden" id="docs">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6 border-b border-slate-200 pb-4">
+<div class="flex items-center gap-3">
+<div class="w-3 h-7 rounded-full bg-[#74B816]"></div>
+<h3 class="text-lg font-headline font-bold text-slate-900">Pilares de Integração do Ecossistema IPT</h3>
+</div>
+<span class="text-xs font-mono font-bold text-[#264300] bg-[#f2fbe8] px-3 py-1 rounded-full border border-[#74B816]/30">
+        Arquitetura Federada Coesa
+      </span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- Pillar 1: Blue -->
+<div class="p-4 rounded-xl bg-slate-50 border border-slate-200 hover:border-blue-400 hover:shadow-sm transition-all flex items-start gap-3">
+<div class="w-10 h-10 rounded-xl bg-blue-100 text-[#2563eb] flex items-center justify-center shrink-0 shadow-xs">
+<span class="material-symbols-outlined text-xl">badge</span>
+</div>
+<div>
+<h4 class="text-sm font-bold text-slate-900">IPT ID Global</h4>
+<p class="text-xs text-slate-600 mt-1">Sessão SAML 2.0 unificada com Eduroam e Microsoft 365.</p>
+</div>
+</div>
+<!-- Pillar 2: Green -->
+<div class="p-4 rounded-xl bg-slate-50 border border-slate-200 hover:border-[#74B816] hover:shadow-sm transition-all flex items-start gap-3">
+<div class="w-10 h-10 rounded-xl bg-[#f2fbe8] text-[#74B816] flex items-center justify-center shrink-0 shadow-xs">
+<span class="material-symbols-outlined text-xl">apps</span>
+</div>
+<div>
+<h4 class="text-sm font-bold text-slate-900">Comutador Waffle</h4>
+<p class="text-xs text-slate-600 mt-1">Navegação em 1 clique entre NETPA, Balcão, Unicard e SAS.</p>
+</div>
+</div>
+<!-- Pillar 3: Purple -->
+<div class="p-4 rounded-xl bg-slate-50 border border-slate-200 hover:border-purple-400 hover:shadow-sm transition-all flex items-start gap-3">
+<div class="w-10 h-10 rounded-xl bg-purple-100 text-purple-700 flex items-center justify-center shrink-0 shadow-xs">
+<span class="material-symbols-outlined text-xl">sync</span>
+</div>
+<div>
+<h4 class="text-sm font-bold text-slate-900">Notificações Cruzadas</h4>
+<p class="text-xs text-slate-600 mt-1">Alertas académicos, prazos de propinas e senhas no telemóvel.</p>
+</div>
+</div>
+<!-- Pillar 4: Amber -->
+<div class="p-4 rounded-xl bg-slate-50 border border-slate-200 hover:border-amber-400 hover:shadow-sm transition-all flex items-start gap-3">
+<div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center shrink-0 shadow-xs">
+<span class="material-symbols-outlined text-xl">search</span>
+</div>
+<div>
+<h4 class="text-sm font-bold text-slate-900">Pesquisa Federada</h4>
+<p class="text-xs text-slate-600 mt-1">Indexação semântica transversal aos 29 ecrãs e serviços.</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- ================= INSTITUTIONAL FOOTER ================= -->
+<footer class="bg-white border-t border-slate-200 mt-auto">
+<!-- Multi-color micro accent -->
+<div class="ipt-ribbon-bar" style="height: 3px;">
+<div class="h-full flex-1 bg-[#d9222a]"></div>
+<div class="h-full flex-1 bg-[#ec008c]"></div>
+<div class="h-full flex-1 bg-[#f58220]"></div>
+<div class="h-full flex-1 bg-[#ffc20e]"></div>
+<div class="h-full flex-1 bg-[#74B816]"></div>
+<div class="h-full flex-1 bg-[#00a88f]"></div>
+<div class="h-full flex-1 bg-[#009ee0]"></div>
+<div class="h-full flex-1 bg-[#005ba8]"></div>
+<div class="h-full flex-1 bg-[#662483]"></div>
+<div class="h-full flex-1 bg-[#49176d]"></div>
+</div>
+<div class="w-full px-4 md:px-8 py-6 max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+<div class="flex flex-col sm:flex-row items-center gap-3 text-center sm:text-left">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded bg-[#74B816] flex items-center justify-center text-white text-xs font-bold">IPT</div>
+<span class="font-headline font-bold text-slate-900 text-sm">Universidade Politécnica de Tomar (IPT)</span>
+</div>
+<span class="hidden sm:inline text-slate-300">|</span>
+<span class="text-xs text-slate-500">© 2025 Instituto Politécnico de Tomar. Todos os direitos reservados.</span>
+</div>
+<div class="flex flex-wrap items-center justify-center gap-5 text-xs text-slate-600">
+<a class="hover:text-[#74B816] transition-colors" href="#">Termos de Utilização</a>
+<a class="hover:text-[#74B816] transition-colors" href="#">Privacidade &amp; RGPD</a>
+<a class="hover:text-[#74B816] transition-colors" href="#">Gabinete de Informática</a>
+<a class="hover:text-[#74B816] transition-colors" href="#">Segurança &amp; Acessibilidade</a>
+</div>
+</div>
+</footer>
+<!-- ================= INTERACTIVE FILTER & SEARCH SCRIPT ================= -->
+<script>
+  function filterCategory(category, buttonElement) {
+    const pills = document.querySelectorAll('.filter-pill');
+    pills.forEach(btn => {
+      btn.classList.remove('bg-[#74B816]', 'text-white', 'shadow-xs');
+      btn.classList.add('bg-slate-100', 'text-slate-700');
+    });
+
+    buttonElement.classList.remove('bg-slate-100', 'text-slate-700');
+    buttonElement.classList.add('bg-[#74B816]', 'text-white', 'shadow-xs');
+
+    const sections = document.querySelectorAll('.category-section');
+    sections.forEach(sec => {
+      if (category === 'all' || sec.getAttribute('data-category') === category) {
+        sec.style.display = 'block';
+        sec.style.opacity = '1';
+      } else {
+        sec.style.display = 'none';
+        sec.style.opacity = '0';
+      }
+    });
+  }
+
+  const searchInput = document.getElementById('searchInput');
+  if (searchInput) {
+    searchInput.addEventListener('input', function(e) {
+      const query = e.target.value.toLowerCase().trim();
+      const cards = document.querySelectorAll('.ipt-card');
+
+      cards.forEach(card => {
+        const text = card.innerText.toLowerCase();
+        if (text.includes(query) || query === '') {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  }
+
+  document.addEventListener('keydown', function(e) {
+    if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+      e.preventDefault();
+      if (searchInput) {
+        searchInput.focus();
+        searchInput.select();
+      }
+    }
+  });
+</script>
+</body></html>

@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+
+<html lang="pt"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Balcão Único Virtual | Instituto Politécnico de Tomar (IPT)</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;family=Public+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "secondary-fixed-dim": "#bdc7da",
+          "surface-dim": "#d8dadc",
+          "inverse-surface": "#2d3133",
+          "on-background": "#191c1e",
+          "on-primary-fixed": "#0f2000",
+          "on-surface": "#191c1e",
+          "on-secondary": "#ffffff",
+          "on-primary-container": "#264300",
+          "surface-tint": "#3f6900",
+          "tertiary-fixed": "#cce5ff",
+          "surface-container-highest": "#e0e3e5",
+          "tertiary": "#006398",
+          "surface-container-low": "#f2f4f6",
+          "on-surface-variant": "#424937",
+          "on-secondary-fixed-variant": "#3d4757",
+          "background": "#f8f9fb",
+          "on-secondary-fixed": "#121c2a",
+          "inverse-primary": "#93da3c",
+          "primary-container": "#74b816",
+          "on-tertiary": "#ffffff",
+          "primary-fixed-dim": "#93da3c",
+          "on-tertiary-container": "#003f62",
+          "tertiary-fixed-dim": "#93ccff",
+          "on-error": "#ffffff",
+          "outline-variant": "#c1cab2",
+          "secondary-fixed": "#d9e3f6",
+          "surface-container-high": "#e6e8ea",
+          "on-primary-fixed-variant": "#2e4f00",
+          "error-container": "#ffdad6",
+          "on-secondary-container": "#596374",
+          "on-tertiary-fixed": "#001d31",
+          "primary-fixed": "#aef756",
+          "surface-bright": "#f8f9fb",
+          "on-error-container": "#93000a",
+          "secondary-container": "#d6e0f3",
+          "secondary": "#555f6f",
+          "error": "#ba1a1a",
+          "surface": "#f8f9fb",
+          "surface-container-lowest": "#ffffff",
+          "outline": "#727a65",
+          "primary": "#3f6900",
+          "tertiary-container": "#4eadf3",
+          "inverse-on-surface": "#eff1f3",
+          "surface-container": "#eceef0",
+          "on-primary": "#ffffff",
+          "on-tertiary-fixed-variant": "#004b73",
+          "surface-variant": "#e0e3e5"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.125rem",
+          "lg": "0.25rem",
+          "xl": "0.5rem",
+          "full": "0.75rem"
+        },
+        "fontFamily": {
+          "headline-sm": ["Plus Jakarta Sans"],
+          "label-sm": ["Public Sans"],
+          "body-sm": ["Public Sans"],
+          "body-lg": ["Public Sans"],
+          "headline-lg": ["Plus Jakarta Sans"],
+          "title-md": ["Plus Jakarta Sans"],
+          "body-md": ["Public Sans"],
+          "label-lg": ["Public Sans"],
+          "label-md": ["Public Sans"],
+          "headline-lg-mobile": ["Plus Jakarta Sans"],
+          "title-sm": ["Plus Jakarta Sans"],
+          "headline-md": ["Plus Jakarta Sans"]
+        },
+        "fontSize": {
+          "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+          "label-sm": ["11px", { "lineHeight": "14px", "fontWeight": "600" }],
+          "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+          "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+          "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+          "title-md": ["16px", { "lineHeight": "22px", "fontWeight": "600" }],
+          "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+          "label-lg": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+          "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "600" }],
+          "headline-lg-mobile": ["26px", { "lineHeight": "32px", "fontWeight": "700" }],
+          "title-sm": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
+          "headline-md": ["22px", { "lineHeight": "28px", "fontWeight": "600" }]
+        }
+      },
+    },
+  }
+</script>
+</head>
+<body class="bg-background text-on-background min-h-screen antialiased selection:bg-primary-container selection:text-on-primary font-body-md">
+<!-- BARRA MULTICOLORIDA INSTITUCIONAL IPT (Verde, Azul, Amarelo, Laranja, Vermelho característicos das escolas IPT) -->
+<div class="fixed top-0 left-0 right-0 z-50 h-1.5 w-full flex">
+<div class="h-full flex-1 bg-[#74b816]"></div>
+<div class="h-full flex-1 bg-[#006398]"></div>
+<div class="h-full flex-1 bg-[#f59e0b]"></div>
+<div class="h-full flex-1 bg-[#e05638]"></div>
+<div class="h-full flex-1 bg-[#3f6900]"></div>
+</div>
+<!-- 1. TOP NAVIGATION BAR -->
+<aside class="fixed inset-y-0 left-0 z-40 w-64 bg-surface-container-lowest border-r border-outline-variant hidden lg:flex flex-col justify-between p-4 pt-6 shadow-sm select-none" id="appSidebar">
+<div>
+<!-- Brand & Logo -->
+<a class="flex items-center gap-3 px-2 py-3 mb-6 rounded-xl hover:bg-surface-container transition-colors" href="#">
+<div class="w-10 h-10 rounded-lg bg-[#74b816] flex items-center justify-center text-white font-bold shadow-sm shrink-0">
+<span class="font-headline-sm tracking-tighter">IPT</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm font-bold text-primary tracking-tight leading-tight truncate">Balcão Único</span>
+<span class="text-label-sm text-on-surface-variant truncate">Politécnico de Tomar</span>
+</div>
+</a>
+<!-- Navigation Links -->
+<div class="text-label-sm uppercase font-semibold text-outline px-3 mb-2 tracking-wider">Navegação</div>
+<nav class="space-y-1">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-[#74b816]/10 text-primary font-title-sm font-semibold border-l-4 border-[#74b816]" href="#inicio">
+<span class="material-symbols-outlined text-[20px] text-[#74b816]">home</span>
+<span>Início</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary font-title-sm transition-colors" href="#sou-estudante">
+<span class="material-symbols-outlined text-[20px]">school</span>
+<span>Sou Estudante</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary font-title-sm transition-colors" href="#quero-candidatar-me">
+<span class="material-symbols-outlined text-[20px]">person_add</span>
+<span>Quero Candidatar-me</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary font-title-sm transition-colors" href="#prazos">
+<span class="material-symbols-outlined text-[20px]">calendar_month</span>
+<span>Prazos &amp; Calendário</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary font-title-sm transition-colors" href="#emolumentos">
+<span class="material-symbols-outlined text-[20px]">payments</span>
+<span>Emolumentos</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary font-title-sm transition-colors" href="#senha-virtual">
+<span class="material-symbols-outlined text-[20px]">confirmation_number</span>
+<span>Senha &amp; Atendimento</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary font-title-sm transition-colors" href="#faq">
+<span class="material-symbols-outlined text-[20px]">help</span>
+<span>Perguntas Frequentes</span>
+</a>
+</nav>
+</div>
+<!-- Sidebar Footer Quick Actions -->
+<div class="border-t border-outline-variant pt-4 space-y-2">
+<div class="bg-surface-container-low rounded-xl p-3 border border-outline-variant text-body-sm">
+<div class="flex items-center justify-between font-label-md text-primary mb-1">
+<span class="flex items-center gap-1.5 font-bold">
+<span class="material-symbols-outlined text-[18px] text-[#74b816]">local_activity</span>
+          Senha Virtual
+        </span>
+<span class="px-1.5 py-0.5 rounded bg-[#74b816]/15 text-primary text-[11px] font-bold">3 na fila</span>
+</div>
+<p class="text-on-surface-variant text-[12px] mb-2">Espera estimada: ~8 min</p>
+<a class="block text-center py-2 rounded-lg bg-[#74b816] text-white font-label-md text-xs hover:bg-[#3f6900] shadow-sm transition-all font-semibold" href="#senha-virtual">
+        Tirar Senha Agora
+      </a>
+</div>
+<a class="flex items-center justify-between px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container text-body-sm transition-colors" href="tel:+351249328100">
+<span class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">call</span>
+<span>249 328 100</span>
+</span>
+<span class="text-[11px] text-outline font-mono">Ext. 2101</span>
+</a>
+</div>
+</aside><header class="lg:pl-64 sticky top-0 z-30 pt-1.5 bg-surface-container-lowest/90 backdrop-blur-md border-b border-outline-variant">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
+<div class="flex items-center gap-3">
+<button class="lg:hidden p-2 rounded-lg text-on-surface-variant hover:bg-surface-container" id="sidebarMobileToggle">
+<span class="material-symbols-outlined text-[24px]">menu</span>
+</button>
+<div class="hidden sm:flex items-center gap-2 text-label-md text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px] text-[#74b816]">domain</span>
+<span>Campus da Quinta do Contador • Tomar</span>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container text-on-surface-variant text-label-sm border border-outline-variant">
+<span class="w-2 h-2 rounded-full bg-[#74b816] animate-pulse"></span>
+<span>Atendimento Balcão: Aberto (09h00 - 16h30)</span>
+</div>
+<a class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-[#74b816] text-white font-label-md hover:bg-[#3f6900] shadow-sm transition-colors" href="https://netpa.ipt.pt" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[18px]">person</span>
+<span>NETPA Aluno</span>
+</a>
+</div>
+</div>
+</header>
+<main id="inicio"><div class="lg:pl-64">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 py-10 space-y-12">
+<!-- 1. HERO ACOLHEDOR COM PESQUISA CENTRALIZADA -->
+<section class="text-center pt-4 pb-2">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#74b816]/15 text-primary text-label-sm font-label-sm mb-4 border border-[#74b816]/30">
+<span class="material-symbols-outlined text-[16px] text-[#74b816]">verified</span>
+<span class="font-medium">Balcão Único Virtual do Politécnico de Tomar</span>
+</div>
+<h1 class="text-headline-lg-mobile md:text-headline-lg font-headline-lg font-bold text-primary tracking-tight mb-3">
+        O que procuras hoje?
+      </h1>
+<p class="text-body-lg text-on-surface-variant max-w-xl mx-auto mb-8">
+        Acesso simplificado a candidaturas, matrículas, certidões e agendamento de atendimento.
+      </p>
+<!-- Caixa de Pesquisa Centralizada -->
+<div class="max-w-2xl mx-auto bg-surface-container-lowest rounded-2xl p-2 sm:p-2.5 shadow-md border border-outline-variant focus-within:border-[#74b816] transition-all">
+<div class="relative flex items-center">
+<span class="material-symbols-outlined text-[#74b816] text-[24px] ml-3 mr-2 shrink-0">search</span>
+<input class="w-full bg-transparent border-none text-on-surface placeholder:text-outline text-body-md py-2.5 focus:outline-none" id="globalSearchInput" placeholder="Pesquisar por assunto (ex: passe sub23, exames, prazos, equivalências)..." type="text"/>
+<button class="shrink-0 px-4 py-2 rounded-xl bg-[#74b816] text-white font-label-md hover:bg-[#3f6900] active:scale-95 transition-all flex items-center gap-1 shadow-sm">
+<span>Pesquisar</span>
+</button>
+</div>
+</div>
+<!-- Chips de atalho rápido -->
+<div class="mt-4 flex flex-wrap items-center justify-center gap-2 text-label-sm">
+<span class="text-outline">Mais pesquisados:</span>
+<a class="px-3 py-1 rounded-full bg-surface-container hover:bg-[#74b816]/10 hover:text-primary transition-colors border border-outline-variant/60" href="#sou-estudante">Passes de transporte (Sub23)</a>
+<a class="px-3 py-1 rounded-full bg-surface-container hover:bg-[#74b816]/10 hover:text-primary transition-colors border border-outline-variant/60" href="#prazos">Calendário de exames</a>
+<a class="px-3 py-1 rounded-full bg-surface-container hover:bg-[#74b816]/10 hover:text-primary transition-colors border border-outline-variant/60" href="#quero-candidatar-me">Candidatura TeSP</a>
+<a class="px-3 py-1 rounded-full bg-surface-container hover:bg-[#74b816]/10 hover:text-primary transition-colors border border-outline-variant/60" href="#emolumentos">Tabela de emolumentos</a>
+</div>
+</section>
+<!-- 2. AVISO / NOTÍCIA EM DESTAQUE (LIMPO) -->
+<div class="bg-surface-container-lowest border-l-4 border-[#74b816] rounded-xl p-4 sm:p-5 shadow-sm border border-outline-variant flex items-start gap-4">
+<div class="w-10 h-10 rounded-lg bg-[#74b816]/15 flex items-center justify-center text-[#74b816] shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[22px]">campaign</span>
+</div>
+<div class="flex-1">
+<div class="flex items-center gap-2 mb-1">
+<span class="bg-[#74b816]/15 text-primary text-label-sm font-semibold px-2 py-0.5 rounded">Ano Letivo 2026/2027</span>
+<span class="text-label-sm text-outline">Prazos em Curso</span>
+</div>
+<h2 class="text-title-sm font-title-sm text-primary font-bold">
+          Renovação de Matrículas e Inscrições no NETPA abertas
+        </h2>
+<p class="text-body-sm text-on-surface-variant mt-0.5">
+          As renovações decorrem preferencialmente online. Se necessita de suporte técnico ou esclarecimento de estatuto, utilize a nossa senha virtual para atendimento personalizado.
+        </p>
+</div>
+</div>
+<!-- 3. CARTÕES DE ACESSO RÁPIDO (CENTRAIS E SUCINTOS) -->
+<section>
+<div class="flex items-center justify-between mb-5">
+<div>
+<h2 class="text-headline-sm font-headline-sm font-bold text-primary">Áreas de Serviço</h2>
+<p class="text-body-sm text-on-surface-variant">Aceda diretamente aos guias e requerimentos de cada categoria.</p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+<!-- Card 1: Sou Estudante -->
+<div class="group bg-surface-container-lowest rounded-xl p-5 border border-outline-variant hover:border-[#74b816] hover:shadow-md transition-all flex flex-col justify-between" id="sou-estudante">
+<div>
+<div class="w-11 h-11 rounded-lg bg-[#74b816]/15 flex items-center justify-center text-[#74b816] mb-4">
+<span class="material-symbols-outlined text-[24px]">school</span>
+</div>
+<h3 class="text-title-md font-bold text-primary mb-1">Sou Estudante</h3>
+<p class="text-body-sm text-on-surface-variant mb-4">
+              Inscrições em UCs, declarações escolares (Sub23), estatuto trabalhador-estudante e emissão de certidões.
+            </p>
+</div>
+<a class="inline-flex items-center justify-between pt-3 border-t border-surface-container-high text-label-md font-semibold text-primary hover:text-[#74b816] transition-colors" href="https://netpa.ipt.pt" target="_blank">
+<span>Aceder ao portal NETPA</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</div>
+<!-- Card 2: Quero Candidatar-me -->
+<div class="group bg-surface-container-lowest rounded-xl p-5 border border-outline-variant hover:border-[#74b816] hover:shadow-md transition-all flex flex-col justify-between" id="quero-candidatar-me">
+<div>
+<div class="w-11 h-11 rounded-lg bg-surface-container flex items-center justify-center text-[#74b816] mb-4">
+<span class="material-symbols-outlined text-[24px]">person_add</span>
+</div>
+<h3 class="text-title-md font-bold text-primary mb-1">Quero Candidatar-me</h3>
+<p class="text-body-sm text-on-surface-variant mb-4">
+              Guias de acesso para Licenciaturas (CNAES), Cursos TeSP, Maiores de 23 anos, Mestrados e Internacionais.
+            </p>
+</div>
+<a class="inline-flex items-center justify-between pt-3 border-t border-surface-container-high text-label-md font-semibold text-primary hover:text-[#74b816] transition-colors" href="#">
+<span>Vias de Ingresso e Vagas</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</div>
+<!-- Card 3: Prazos e Calendário -->
+<div class="group bg-surface-container-lowest rounded-xl p-5 border border-outline-variant hover:border-[#74b816] hover:shadow-md transition-all flex flex-col justify-between" id="prazos">
+<div>
+<div class="w-11 h-11 rounded-lg bg-surface-container-high flex items-center justify-center text-[#74b816] mb-4">
+<span class="material-symbols-outlined text-[24px]">calendar_today</span>
+</div>
+<h3 class="text-title-md font-bold text-primary mb-1">Prazos &amp; Calendário</h3>
+<p class="text-body-sm text-on-surface-variant mb-4">
+              Datas críticas para renovações, prazos de pagamento de propinas, épocas normais e de recurso.
+            </p>
+</div>
+<a class="inline-flex items-center justify-between pt-3 border-t border-surface-container-high text-label-md font-semibold text-primary hover:text-[#74b816] transition-colors" href="#">
+<span>Ver Calendário 2026/27</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</div>
+<!-- Card 4: Emolumentos e Pagamentos -->
+<div class="group bg-surface-container-lowest rounded-xl p-5 border border-outline-variant hover:border-[#74b816] hover:shadow-md transition-all flex flex-col justify-between" id="emolumentos">
+<div>
+<div class="w-11 h-11 rounded-lg bg-surface-container-low flex items-center justify-center text-[#74b816] mb-4">
+<span class="material-symbols-outlined text-[24px]">payments</span>
+</div>
+<h3 class="text-title-md font-bold text-primary mb-1">Tabela de Emolumentos</h3>
+<p class="text-body-sm text-on-surface-variant mb-4">
+              Taxas administrativas oficiais em vigor, prazos de emissão de certidões e referências Multibanco/MB WAY.
+            </p>
+</div>
+<a class="inline-flex items-center justify-between pt-3 border-t border-surface-container-high text-label-md font-semibold text-primary hover:text-[#74b816] transition-colors" href="#">
+<span>Consultar Valores Oficiais</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</div>
+<!-- Card 5: Regulamentos Académicos -->
+<div class="group bg-surface-container-lowest rounded-xl p-5 border border-outline-variant hover:border-[#74b816] hover:shadow-md transition-all flex flex-col justify-between">
+<div>
+<div class="w-11 h-11 rounded-lg bg-surface-container flex items-center justify-center text-outline mb-4">
+<span class="material-symbols-outlined text-[24px]">gavel</span>
+</div>
+<h3 class="text-title-md font-bold text-primary mb-1">Regulamentos &amp; Normas</h3>
+<p class="text-body-sm text-on-surface-variant mb-4">
+              Regulamento Pedagógico IPT, regimes de avaliação de conhecimentos, transição de ano e prescrições.
+            </p>
+</div>
+<a class="inline-flex items-center justify-between pt-3 border-t border-surface-container-high text-label-md font-semibold text-primary hover:text-[#74b816] transition-colors" href="#">
+<span>Descarregar Regulamentos</span>
+<span class="material-symbols-outlined text-[18px]">download</span>
+</a>
+</div>
+<!-- Card 6: Acompanhamento de Processos -->
+<div class="group bg-surface-container-lowest rounded-xl p-5 border border-outline-variant hover:border-[#74b816] hover:shadow-md transition-all flex flex-col justify-between">
+<div>
+<div class="w-11 h-11 rounded-lg bg-[#74b816]/15 flex items-center justify-center text-[#74b816] mb-4">
+<span class="material-symbols-outlined text-[24px]">fact_check</span>
+</div>
+<h3 class="text-title-md font-bold text-primary mb-1">Estado do Requerimento</h3>
+<p class="text-body-sm text-on-surface-variant mb-4">
+              Verifique o progresso dos pedidos de equivalência, alteração de regime ou emissão de certidão registados.
+            </p>
+</div>
+<a class="inline-flex items-center justify-between pt-3 border-t border-surface-container-high text-label-md font-semibold text-primary hover:text-[#74b816] transition-colors" href="https://netpa.ipt.pt" target="_blank">
+<span>Consultar Estado no NETPA</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</section>
+<!-- 4. WIDGET DE ATENDIMENTO & SENHA VIRTUAL -->
+<section class="bg-surface-container-low rounded-2xl p-6 sm:p-8 border border-outline-variant" id="senha-virtual">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+<div class="lg:col-span-7 space-y-3">
+<div class="inline-flex items-center gap-2 text-primary font-label-md">
+<span class="material-symbols-outlined text-[20px] text-[#74b816]">schedule</span>
+<span class="font-semibold">Atendimento Presencial Centralizado</span>
+</div>
+<h2 class="text-headline-sm font-headline-sm font-bold text-primary">
+            Atendimento sem filas: retire a sua senha virtual
+          </h2>
+<p class="text-body-md text-on-surface-variant">
+            O Balcão Único opera no Piso 0 do Edifício Central (Campus Tomar). Retire uma senha digital antes da deslocação ao campus ou marque com antecedência.
+          </p>
+<div class="pt-2 flex flex-wrap items-center gap-4 text-body-sm text-on-surface-variant">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[#74b816] text-[18px]">location_on</span>
+<span>Campus da Quinta do Contador, Tomar</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[#74b816] text-[18px]">call</span>
+<span>+351 249 328 100</span>
+</div>
+</div>
+</div>
+<div class="lg:col-span-5 bg-surface-container-lowest rounded-xl p-5 border border-outline-variant shadow-sm space-y-4">
+<div class="flex items-center justify-between pb-3 border-b border-surface-container-high">
+<div>
+<span class="text-label-sm text-outline block">Pessoas em Espera</span>
+<span class="text-headline-md font-bold text-primary font-mono">3 utentes</span>
+</div>
+<div class="text-right">
+<span class="text-label-sm text-outline block">Tempo Médio</span>
+<span class="inline-block bg-primary text-[#aef756] font-mono font-bold text-xs px-2.5 py-1 rounded">~8 minutos</span>
+</div>
+</div>
+<div class="space-y-2">
+<button class="w-full py-2.5 px-4 rounded-lg bg-[#74b816] text-white font-label-md hover:bg-[#3f6900] active:scale-95 transition-all shadow-sm flex items-center justify-center gap-2 font-semibold">
+<span class="material-symbols-outlined text-[20px]">local_activity</span>
+<span>Tirar Senha Virtual Agora</span>
+</button>
+<button class="w-full py-2.5 px-4 rounded-lg bg-surface-container text-primary font-label-md hover:bg-surface-container-high active:scale-95 transition-all flex items-center justify-center gap-2 font-medium">
+<span class="material-symbols-outlined text-[20px]">calendar_month</span>
+<span>Agendar Hora Presencial</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- 5. PERGUNTAS MAIS FREQUENTES (FAQ COMPACTO COM 3 ITENS) -->
+<section class="space-y-6" id="faq">
+<div class="flex items-end justify-between border-b border-outline-variant pb-3">
+<div>
+<h2 class="text-headline-sm font-headline-sm font-bold text-primary">Dúvidas Frequentes</h2>
+<p class="text-body-sm text-on-surface-variant">Respostas rápidas às questões essenciais dos estudantes.</p>
+</div>
+<a class="text-label-md text-primary font-semibold hover:text-[#74b816] flex items-center gap-1" href="mailto:servicosacademicos@ipt.pt">
+<span>Contactar apoio</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+<div class="space-y-3" id="faqAccordion">
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant overflow-hidden">
+<button class="w-full py-3.5 px-5 text-left flex items-center justify-between gap-4 focus:outline-none" onclick="toggleFaq(this)">
+<span class="text-title-sm font-semibold text-primary">Como posso obter a declaração para o passe de transportes (Sub23)?</span>
+<span class="material-symbols-outlined text-[#74b816] text-[20px] transition-transform duration-200">expand_more</span>
+</button>
+<div class="px-5 pb-4 pt-1 text-body-md text-on-surface-variant border-t border-surface-container-high hidden">
+            Após validação da matrícula anual, aceda ao <strong>NETPA</strong> &gt; <em>Secretaria Virtual</em> &gt; <em>Declarações</em> para descarregar o documento oficial com código de validação digital, imediatamente aceite pelos operadores de transporte (CP, Rodoviária, etc.).
+          </div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant overflow-hidden">
+<button class="w-full py-3.5 px-5 text-left flex items-center justify-between gap-4 focus:outline-none" onclick="toggleFaq(this)">
+<span class="text-title-sm font-semibold text-primary">Quais os prazos e requisitos para requerer o Estatuto Trabalhador-Estudante?</span>
+<span class="material-symbols-outlined text-[#74b816] text-[20px] transition-transform duration-200">expand_more</span>
+</button>
+<div class="px-5 pb-4 pt-1 text-body-md text-on-surface-variant border-t border-surface-container-high hidden">
+            O requerimento deve ser submetido até 31 de Outubro no NETPA, anexando declaração da entidade patronal com horário laboral e comprovativo de descontos da Segurança Social dos últimos 3 meses.
+          </div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant overflow-hidden">
+<button class="w-full py-3.5 px-5 text-left flex items-center justify-between gap-4 focus:outline-none" onclick="toggleFaq(this)">
+<span class="text-title-sm font-semibold text-primary">Como proceder em caso de atraso no pagamento de propinas?</span>
+<span class="material-symbols-outlined text-[#74b816] text-[20px] transition-transform duration-200">expand_more</span>
+</button>
+<div class="px-5 pb-4 pt-1 text-body-md text-on-surface-variant border-t border-surface-container-high hidden">
+            Pode regularizar a prestação via nova referência gerada na área de pagamentos do NETPA. Caso tenha requerido bolsa SAS-IPT, anexe o respetivo comprovativo junto da Tesouraria (tesouraria@ipt.pt) para isenção de mora.
+          </div>
+</div>
+</div>
+</section>
+</div>
+</div></main>
+<!-- 8. FOOTER INSTITUCIONAL COMPLETO -->
+<footer class="bg-primary text-on-primary pt-14 pb-8 border-t border-[#74b816]/30 lg:pl-64">
+<div class="max-w-7xl mx-auto px-4 md:px-8">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-white/15">
+<!-- Coluna 1: IPT Balcão Único Brand & Missão -->
+<div class="space-y-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-[#74b816] flex items-center justify-center text-white font-bold shadow-sm">
+<span class="font-headline-sm tracking-tighter">IPT</span>
+</div>
+<div class="flex flex-col">
+<span class="text-headline-sm font-headline-sm font-bold text-white">IPT Balcão Único</span>
+<span class="text-label-sm font-label-sm text-[#aef756]">Instituto Politécnico de Tomar</span>
+</div>
+</div>
+<p class="text-body-sm font-body-sm text-white/80 leading-relaxed">
+            Portal oficial de serviços académicos, matrículas, certidões e gestão do percurso formativo de ensino superior público em Tomar e Abrantes.
+          </p>
+<div class="text-label-sm font-label-sm text-white/70 space-y-1">
+<p><strong class="text-white">Acreditação:</strong> Agência de Avaliação e Acreditação do Ensino Superior (A3ES)</p>
+<p><strong class="text-white">Registo DGES:</strong> 3240</p>
+</div>
+</div>
+<!-- Coluna 2: Escolas do Politécnico -->
+<div class="space-y-3">
+<h4 class="text-title-sm font-title-sm text-white font-bold tracking-wide">Unidades Orgânicas</h4>
+<ul class="space-y-2 text-body-sm font-body-sm text-white/80">
+<li><a class="hover:text-[#aef756] transition-colors" href="#">ESTT • Escola Superior de Tecnologia de Tomar</a></li>
+<li><a class="hover:text-[#aef756] transition-colors" href="#">ESTA • Escola Superior de Tecnologia de Abrantes</a></li>
+<li><a class="hover:text-[#aef756] transition-colors" href="#">ESGT • Escola Superior de Gestão de Tomar</a></li>
+<li><a class="hover:text-[#aef756] transition-colors" href="#">SAS-IPT • Serviços de Ação Social</a></li>
+<li><a class="hover:text-[#aef756] transition-colors" href="#">Biblioteca Dr. Nuno Simões</a></li>
+</ul>
+</div>
+<!-- Coluna 3: Links Rápidos Académicos -->
+<div class="space-y-3">
+<h4 class="text-title-sm font-title-sm text-white font-bold tracking-wide">Acesso Rápido</h4>
+<ul class="space-y-2 text-body-sm font-body-sm text-white/80">
+<li><a class="hover:text-[#aef756] transition-colors" href="https://netpa.ipt.pt">Portal NETPA (Autenticação)</a></li>
+<li><a class="hover:text-[#aef756] transition-colors" href="#">E-Learning Moodle IPT</a></li>
+<li><a class="hover:text-[#aef756] transition-colors" href="#">Horários &amp; Alocação de Salas</a></li>
+<li><a class="hover:text-[#aef756] transition-colors" href="#">Associação de Estudantes (AEIPT)</a></li>
+<li><a class="hover:text-[#aef756] transition-colors" href="#">Mobilidade Internacional (Erasmus+)</a></li>
+</ul>
+</div>
+<!-- Coluna 4: Contacto Oficial & Horários -->
+<div class="space-y-3">
+<h4 class="text-title-sm font-title-sm text-white font-bold tracking-wide">Contactos Oficiais</h4>
+<div class="text-body-sm font-body-sm text-white/80 space-y-2">
+<p>Campus da Quinta do Contador, Estrada da Serra, 2300-313 Tomar</p>
+<p>Telefone: +351 249 328 100</p>
+<p>Email: servicosacademicos@ipt.pt</p>
+<p class="text-[#aef756] font-medium">Atendimento: Seg-Sex 09:00 - 16:30</p>
+</div>
+</div>
+</div>
+<!-- Copyright e Notas Legais -->
+<div class="pt-8 flex flex-col md:flex-row items-center justify-between text-body-sm font-body-sm text-white/70 gap-4">
+<p>© 2026 Instituto Politécnico de Tomar (IPT). Todos os direitos reservados.</p>
+<div class="flex flex-wrap items-center gap-6">
+<a class="hover:text-white transition-colors" href="#">Aviso Legal &amp; Privacidade</a>
+<a class="hover:text-white transition-colors" href="#">Acessibilidade</a>
+<a class="hover:text-white transition-colors" href="#">Livro de Reclamações</a>
+</div>
+</div>
+</div>
+</footer>
+<!-- Micro-interações JS para FAQ & Pesquisa -->
+<script>
+    // FAQ Accordion Toggle
+    function toggleFaq(button) {
+      const content = button.nextElementSibling;
+      const icon = button.querySelector('.material-symbols-outlined');
+      const isHidden = content.classList.contains('hidden');
+
+      // Fechar todos
+      document.querySelectorAll('#faqAccordion > div > div').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('#faqAccordion button .material-symbols-outlined').forEach(i => i.classList.remove('rotate-180'));
+
+      // Abrir o clicado se estava fechado
+      if (isHidden) {
+        content.classList.remove('hidden');
+        icon.classList.add('rotate-180');
+      }
+    }
+
+    // Mobile Drawer Toggle
+    const mobileMenuBtn = document.getElementById('sidebarMobileToggle');
+    const appSidebar = document.getElementById('appSidebar');
+    if (mobileMenuBtn && appSidebar) {
+      mobileMenuBtn.addEventListener('click', () => {
+        appSidebar.classList.toggle('hidden');
+      });
+    }
+
+    // Atalho de Teclado Ctrl+K / Cmd+K para Pesquisa
+    window.addEventListener('keydown', (e) => {
+      if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+        e.preventDefault();
+        const searchInput = document.getElementById('globalSearchInput');
+        if (searchInput) {
+          searchInput.focus();
+          searchInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      }
+    });
+  </script>
+</body></html>

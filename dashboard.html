@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+
+<html lang="pt"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Portal NETPA - Instituto Politécnico de Tomar</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Plus Jakarta Sans & Public Sans / Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300..900;1,300..900&amp;family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 with plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "secondary-fixed-dim": "#bdc7da",
+          "surface-dim": "#d8dadc",
+          "inverse-surface": "#2d3133",
+          "on-background": "#191c1e",
+          "on-primary-fixed": "#0f2000",
+          "on-surface": "#191c1e",
+          "on-secondary": "#ffffff",
+          "on-primary-container": "#264300",
+          "surface-tint": "#3f6900",
+          "tertiary-fixed": "#cce5ff",
+          "surface-container-highest": "#e0e3e5",
+          "tertiary": "#006398",
+          "surface-container-low": "#f2f4f6",
+          "on-surface-variant": "#424937",
+          "on-secondary-fixed-variant": "#3d4757",
+          "background": "#f8f9fb",
+          "on-secondary-fixed": "#121c2a",
+          "inverse-primary": "#93da3c",
+          "primary-container": "#74b816",
+          "on-tertiary": "#ffffff",
+          "primary-fixed-dim": "#93da3c",
+          "on-tertiary-container": "#003f62",
+          "tertiary-fixed-dim": "#93ccff",
+          "on-error": "#ffffff",
+          "outline-variant": "#c1cab2",
+          "secondary-fixed": "#d9e3f6",
+          "surface-container-high": "#e6e8ea",
+          "on-primary-fixed-variant": "#2e4f00",
+          "error-container": "#ffdad6",
+          "on-secondary-container": "#596374",
+          "on-tertiary-fixed": "#001d31",
+          "primary-fixed": "#aef756",
+          "surface-bright": "#f8f9fb",
+          "on-error-container": "#93000a",
+          "secondary-container": "#d6e0f3",
+          "secondary": "#555f6f",
+          "error": "#ba1a1a",
+          "surface": "#f8f9fb",
+          "surface-container-lowest": "#ffffff",
+          "outline": "#727a65",
+          "primary": "#3f6900",
+          "primary-ipt": "#74b816",
+          "primary-ipt-dark": "#3f6900",
+          "tertiary-container": "#4eadf3",
+          "inverse-on-surface": "#eff1f3",
+          "surface-container": "#eceef0",
+          "on-primary": "#ffffff",
+          "on-tertiary-fixed-variant": "#004b73",
+          "surface-variant": "#e0e3e5"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.125rem",
+          "lg": "0.25rem",
+          "xl": "0.5rem",
+          "full": "0.75rem"
+        },
+        "spacing": {
+          "space-md": "1rem",
+          "space-xs": "0.25rem",
+          "margin-md": "2rem",
+          "margin-lg": "4rem",
+          "margin": "1rem",
+          "space-xl": "2.5rem",
+          "gutter-sm": "1rem",
+          "gutter": "1.5rem",
+          "space-lg": "1.5rem",
+          "gutter-lg": "2rem",
+          "space-sm": "0.5rem"
+        },
+        "fontFamily": {
+          "display-lg-mobile": ["Plus Jakarta Sans"],
+          "label-sm": ["Public Sans"],
+          "label-lg": ["Public Sans"],
+          "body-md": ["Public Sans"],
+          "headline-lg": ["Plus Jakarta Sans"],
+          "body-lg": ["Public Sans"],
+          "title-md": ["Plus Jakarta Sans"],
+          "label-md": ["Public Sans"],
+          "body-sm": ["Public Sans"],
+          "headline-md": ["Plus Jakarta Sans"],
+          "display-lg": ["Plus Jakarta Sans"],
+          "headline-lg-mobile": ["Plus Jakarta Sans"],
+          "headline-sm": ["Plus Jakarta Sans"]
+        },
+        "fontSize": {
+          "display-lg-mobile": ["34px", { "lineHeight": "42px", "letterSpacing": "-0.01em", "fontWeight": "800" }],
+          "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+          "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+          "body-md": ["15px", { "lineHeight": "24px", "fontWeight": "400" }],
+          "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+          "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+          "title-md": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+          "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+          "body-sm": ["13px", { "lineHeight": "20px", "fontWeight": "400" }],
+          "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+          "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+          "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "0em", "fontWeight": "700" }],
+          "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }]
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .custom-scroll::-webkit-scrollbar {
+      width: 6px;
+    }
+    .custom-scroll::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background: #c1cab2;
+      border-radius: 4px;
+    }
+    /* IPT Multicolored Institutional Stripe */
+    .ipt-stripe {
+      height: 4px;
+      width: 100%;
+      background: linear-gradient(90deg, 
+        #74b816 0%, 
+        #74b816 28%, 
+        #006398 28%, 
+        #006398 52%, 
+        #f59e0b 52%, 
+        #f59e0b 74%, 
+        #e11d48 74%, 
+        #e11d48 100%);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body-md antialiased min-h-screen flex flex-col">
+<!-- ========================================================================= -->
+<!-- SHARED COMPONENT: SideNavBar                                              -->
+<!-- ========================================================================= -->
+<aside class="fixed top-0 left-0 h-full w-72 flex flex-col justify-between p-4 z-40 bg-surface-container-lowest dark:bg-inverse-surface border-r border-outline-variant/60 dark:border-outline shadow-sm dark:shadow-none">
+<div class="flex flex-col gap-5">
+<!-- Header / Logo Brand -->
+<div class="flex items-center gap-3 px-2 py-1">
+<div class="w-10 h-10 rounded-lg bg-[#74b816] flex items-center justify-center text-white shadow-sm shadow-[#74b816]/30">
+<span class="material-symbols-outlined text-white text-[24px]">school</span>
+</div>
+<div>
+<h1 class="text-title-md font-headline-md font-bold text-on-surface leading-tight">Portal NETPA</h1>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Instituto Politécnico de Tomar</p>
+</div>
+</div>
+<!-- Quick Action CTA: Balcão Virtual com Verde IPT -->
+<a class="flex items-center justify-center gap-2 w-full py-2.5 px-3 bg-[#74b816] hover:bg-[#689f38] text-white rounded-lg font-title-sm text-title-sm transition-all shadow-sm active:scale-[0.98] font-semibold" href="#balcao">
+<span class="material-symbols-outlined text-[18px]">support_agent</span>
+<span>Balcão Virtual</span>
+</a>
+<!-- Navigation List (Active state updated to IPT Lime theme) -->
+<nav class="flex flex-col gap-1">
+<div class="text-[11px] font-semibold text-on-surface-variant uppercase tracking-wider px-3 pt-1 pb-1">Principal</div>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-[#74b816] text-white font-semibold shadow-sm transition-all" href="#inicio">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="text-label-md font-label-md">Início</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" href="#vida-academica">
+<span class="material-symbols-outlined text-[20px]">school</span>
+<span class="text-label-md font-label-md">O Meu Curso &amp; Salas</span>
+</a>
+<a class="flex items-center justify-between px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" href="#exames">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[20px]">assignment</span>
+<span class="text-label-md font-label-md">Exames &amp; Avaliações</span>
+</div>
+<span class="px-1.5 py-0.5 rounded text-[10px] font-bold bg-[#F4F9E9] text-[#3f6900] border border-[#74b816]/30">1 Urgente</span>
+</a>
+<a class="flex items-center justify-between px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" href="#pagamentos">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[20px]">payments</span>
+<span class="text-label-md font-label-md">Propinas &amp; Pagamentos</span>
+</div>
+<span class="w-2 h-2 rounded-full bg-error"></span>
+</a>
+<div class="text-[11px] font-semibold text-on-surface-variant uppercase tracking-wider px-3 pt-3 pb-1">Secretaria &amp; Campus</div>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" href="#documentos">
+<span class="material-symbols-outlined text-[20px]">description</span>
+<span class="text-label-md font-label-md">Documentos &amp; Certidões</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" href="#pedidos">
+<span class="material-symbols-outlined text-[20px]">support_agent</span>
+<span class="text-label-md font-label-md">Pedidos à Secretaria</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" href="#calendario">
+<span class="material-symbols-outlined text-[20px]">calendar_month</span>
+<span class="text-label-md font-label-md">Calendário Escolar</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-[#3f6900] transition-colors" href="#guia">
+<span class="material-symbols-outlined text-[20px] text-[#74b816]">help_outline</span>
+<span class="text-label-md font-label-md font-medium text-[#3f6900]">Guia do Caloiro / Apoio</span>
+</a>
+</nav>
+</div>
+<!-- Sidebar Footer / Terminar Sessão -->
+<div class="border-t border-outline-variant/50 dark:border-outline pt-3">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-error font-medium hover:bg-error-container hover:text-on-error-container transition-colors duration-150 active:scale-[0.98]" href="#logout">
+<span class="material-symbols-outlined text-[20px]">logout</span>
+<span class="text-label-md font-label-md">Terminar Sessão</span>
+</a>
+</div>
+</aside>
+<!-- ========================================================================= -->
+<!-- SHARED COMPONENT: TopNavBar with Institutional Ribbon                     -->
+<!-- ========================================================================= -->
+<header class="sticky top-0 z-30 flex flex-col w-full pl-72 bg-surface-container-lowest dark:bg-inverse-surface border-b border-outline-variant/60 dark:border-outline shadow-sm dark:shadow-none">
+<!-- Main Header Row -->
+<div class="flex items-center justify-between w-full h-16 px-8">
+<!-- Left: Global Search Input -->
+<div class="w-96 relative">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]">search</span>
+</div>
+<input class="w-full pl-10 pr-4 py-2 text-body-sm font-body-sm bg-surface-container-low border border-outline-variant/60 rounded-lg focus:outline-none focus:border-[#74b816] focus:ring-2 focus:ring-[#74b816]/20 transition-all" placeholder="Procurar cadeiras, salas, propinas, exames... (ou prime / para pesquisar)" type="search"/>
+</div>
+<!-- Center/Right: Institutional Links -->
+<div class="flex items-center gap-6">
+<nav class="hidden xl:flex items-center gap-5 text-label-md font-label-md">
+<a class="text-on-surface-variant hover:text-[#3f6900] hover:bg-surface-container-low transition-colors duration-150 px-2.5 py-1 rounded" href="#campustomar">Campus Tomar</a>
+<a class="text-on-surface-variant hover:text-[#3f6900] hover:bg-surface-container-low transition-colors duration-150 px-2.5 py-1 rounded" href="#biblioteca">Biblioteca</a>
+<a class="text-on-surface-variant hover:text-[#3f6900] hover:bg-surface-container-low transition-colors duration-150 px-2.5 py-1 rounded flex items-center gap-1" href="#moodle">
+          Moodle
+          <span class="material-symbols-outlined text-[14px]">open_in_new</span>
+</a>
+<a class="text-on-surface-variant hover:text-[#3f6900] hover:bg-surface-container-low transition-colors duration-150 px-2.5 py-1 rounded" href="#email">Email Institucional</a>
+</nav>
+<!-- Trailing Action: Matrícula Badge & Icons -->
+<div class="flex items-center gap-4 pl-4 border-l border-outline-variant/60">
+<span class="hidden md:inline-flex items-center px-2.5 py-1 rounded-full text-label-sm font-label-sm bg-[#F4F9E9] text-[#3f6900] font-semibold border border-[#74b816]/30">
+          Matrícula 2026/27
+        </span>
+<!-- Notification action with badge -->
+<button class="relative p-2 rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors" title="Notificações" type="button">
+<span class="material-symbols-outlined text-[22px]">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-4 h-4 bg-error text-on-error text-[10px] font-bold rounded-full flex items-center justify-center">4</span>
+</button>
+<button class="p-2 rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors" title="Ajuda" type="button">
+<span class="material-symbols-outlined text-[22px]">help</span>
+</button>
+<!-- Student Profile Michelle -->
+<div class="flex items-center gap-3 pl-2">
+<div class="relative">
+<img class="w-9 h-9 rounded-full object-cover border-2 border-surface-container-lowest shadow-sm" data-alt="A clean, professional headshot of a young university student with a friendly expression, captured against a soft academic neutral background. Soft indoor natural light illuminates her face, conveying confidence and academic dedication. The aesthetic aligns with a modern European polytechnic environment with crisp detail and balanced exposure." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUsgkjxs5PmCxfLv0_3SvLG66XIIIkYw_wN1jRupEjkWvirtQoEUsdpAmX1Y2VKL0FOIrZ6Fo3QdWw6E7GMvMHw8iLB0RyGGcOJZg0jUdt1-M4nN6gj_EumNSdU8r_NPkwY8H_KAD5RshZWGnAh5WD7ZTjeAeyVW8mIrz_RWlirzBW031fXSLyDRc9pYTPyDIwxgUFxx7yeVmdtM_ZnJIkWDsgJr-cMG5JrQwbnGtt5nozjXUZzizQtw"/>
+<span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-[#74b816] ring-2 ring-surface-container-lowest"></span>
+</div>
+<div class="hidden lg:flex flex-col text-left">
+<span class="text-title-sm font-title-sm text-on-surface font-semibold leading-tight">Michelle</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Nº 24891 · TPSI</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Official IPT Multicolor Institutional Stripe under Header -->
+<div class="ipt-stripe"></div>
+</header>
+<!-- ========================================================================= -->
+<!-- MAIN CONTENT CANVAS (Widescreen 1440px desktop grid, padding for SideNav) -->
+<!-- ========================================================================= -->
+<main class="pl-80 pr-8 py-8 flex-1 max-w-[1540px] w-full mx-auto space-y-8">
+<!-- 1. Warm & Welcoming Header with Student Guide Banner -->
+<section class="bg-surface-container-lowest border border-outline-variant/60 rounded-xl p-6 shadow-sm relative overflow-hidden">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6 relative z-10">
+<div>
+<div class="flex flex-wrap items-center gap-2.5 mb-1.5">
+<h2 class="text-headline-md font-headline-md text-on-surface font-bold">Bem-vinda de volta, Michelle 👋</h2>
+<span class="px-2.5 py-0.5 rounded-full text-label-sm font-label-sm bg-surface-container text-on-surface-variant font-medium border border-outline-variant/40">Nº 24891</span>
+<span class="px-2.5 py-0.5 rounded-full text-label-sm font-label-sm bg-[#F4F9E9] text-[#3f6900] font-semibold border border-[#74b816]/30 flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-[#74b816]"></span> Matrícula Ativa 2026/27
+        </span>
+</div>
+<p class="text-body-md font-body-md text-on-surface-variant">
+        CTeSP em Tecnologias e Programação de Sistemas de Informação (TPSI) · 2º Ano · Campus de Tomar (ESTT)
+      </p>
+</div>
+<!-- Quick Action Shortcuts (Atualizados para Verde Oficial IPT #74b816) -->
+<div class="flex items-center gap-3">
+<a class="inline-flex items-center gap-2 px-4 py-2.5 bg-surface-container text-on-surface font-title-sm text-title-sm rounded-lg hover:bg-surface-container-high transition-colors font-semibold" href="#horario">
+<span class="material-symbols-outlined text-[18px] text-[#74b816]">calendar_today</span>
+<span>O Meu Horário</span>
+</a>
+<a class="inline-flex items-center gap-2 px-4 py-2.5 bg-[#74b816] hover:bg-[#689f38] text-white font-title-sm text-title-sm rounded-lg transition-colors shadow-sm font-semibold" href="#balcao">
+<span class="material-symbols-outlined text-[18px]">support_agent</span>
+<span>Balcão Virtual &amp; Dúvidas</span>
+</a>
+</div>
+</div>
+<!-- Friendly New Student Helper Banner -->
+<div class="mt-5 p-3.5 bg-surface-bright rounded-lg border border-outline-variant/40 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-body-sm">
+<div class="flex items-center gap-2.5">
+<span class="w-8 h-8 rounded-full bg-[#F4F9E9] text-[#3f6900] border border-[#74b816]/30 flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[18px] text-[#74b816]">tips_and_updates</span>
+</span>
+<span class="text-on-surface">
+<strong>És novo no IPT ou tens dúvidas?</strong> Consulta o <a class="text-[#3f6900] font-semibold underline hover:text-[#74b816]" href="#guia">Guia Prático do Estudante</a>: localização de salas, cantina, wifi e serviços.
+      </span>
+</div>
+<div class="flex items-center gap-2 self-end sm:self-auto flex-shrink-0">
+<span class="text-label-sm text-on-surface-variant">Apoio IPT: <strong class="text-on-surface">secretaria@ipt.pt</strong></span>
+</div>
+</div>
+</section>
+<!-- 2. Priority Action Strip: "O Que Precisas de Fazer Hoje" -->
+<section class="space-y-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#74b816] text-[22px]">task_alt</span>
+<h3 class="text-headline-sm font-headline-sm text-on-surface font-semibold">O que precisas de resolver</h3>
+</div>
+<span class="text-label-sm font-label-sm text-[#3f6900] bg-[#F4F9E9] border border-[#74b816]/30 px-2.5 py-1 rounded-md font-semibold">2 Ações Pendentes</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Action 1: Propina com CTA Direto -->
+<div class="bg-surface-container-lowest border border-outline-variant/60 rounded-xl p-5 shadow-sm border-l-4 border-l-error flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-2">
+<span class="inline-flex items-center gap-1 text-label-sm font-label-sm px-2 py-0.5 rounded bg-error-container text-on-error-container font-semibold">
+<span class="material-symbols-outlined text-[14px]">schedule</span> Vence a 24/09
+          </span>
+<span class="text-title-md font-title-md text-error font-bold">€ 60,00</span>
+</div>
+<h4 class="text-title-sm font-title-sm text-on-surface font-bold">Propina de Setembro (Prestação 1/10)</h4>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1">
+          Ano letivo 2026/27. Paga facilmente por MB WAY ou gera a referência Multibanco instantaneamente.
+        </p>
+</div>
+<div class="mt-4 pt-3 border-t border-outline-variant/30 flex items-center gap-2">
+<button class="flex-1 py-2.5 px-3 bg-[#74b816] hover:bg-[#689f38] text-white rounded-lg text-title-sm font-title-sm transition-colors flex items-center justify-center gap-2 shadow-sm font-medium" type="button">
+<span class="material-symbols-outlined text-[18px]">contactless</span>
+<span>Pagar Propina (€60,00)</span>
+</button>
+<button class="py-2.5 px-3 bg-surface-container text-on-surface rounded-lg text-title-sm font-title-sm hover:bg-surface-container-high transition-colors flex items-center justify-center" title="Ver Dados Multibanco" type="button">
+<span class="material-symbols-outlined text-[18px]">receipt_long</span>
+</button>
+</div>
+</div>
+<!-- Action 2: Exame com CTA Direto (Atualizado com #74b816) -->
+<div class="bg-surface-container-lowest border border-outline-variant/60 rounded-xl p-5 shadow-sm border-l-4 border-l-[#74b816] flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-2">
+<span class="inline-flex items-center gap-1 text-label-sm font-label-sm px-2 py-0.5 rounded bg-[#FFFBEB] text-[#92400E] font-semibold">
+<span class="material-symbols-outlined text-[14px]">hourglass_top</span> Termina amanhã às 23:59
+          </span>
+<span class="text-label-sm font-label-sm px-2 py-0.5 rounded bg-[#F4F9E9] text-[#3f6900] border border-[#74b816]/30 font-medium">Gratuito (1ª Inscrição)</span>
+</div>
+<h4 class="text-title-sm font-title-sm text-on-surface font-bold">Inscrição em Exame: Bases de Dados</h4>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1">
+          Época de Recurso · Data da prova: 24/09 (14:00) na Sala B12. Confirma a tua inscrição no exame.
+        </p>
+</div>
+<div class="mt-4 pt-3 border-t border-outline-variant/30">
+<button class="w-full py-2.5 px-3 bg-[#74b816] hover:bg-[#689f38] text-white rounded-lg text-title-sm font-title-sm transition-colors flex items-center justify-center gap-2 shadow-sm font-semibold" type="button">
+<span class="material-symbols-outlined text-[18px]">how_to_reg</span>
+<span>Inscrever no Exame de Bases de Dados</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- 3. Four Core Pillars for Students (The Essentials) -->
+<section class="space-y-3">
+<h3 class="text-headline-sm font-headline-sm text-on-surface font-semibold">Acesso Rápido às Áreas Essenciais</h3>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+<!-- Pillar 1 -->
+<a class="p-4 bg-surface-container-lowest border border-outline-variant/60 rounded-xl hover:border-[#74b816] hover:shadow-md transition-all group flex flex-col items-start" href="#horario">
+<div class="w-10 h-10 rounded-lg bg-[#F4F9E9] text-[#3f6900] group-hover:bg-[#74b816] group-hover:text-white transition-colors flex items-center justify-center mb-3">
+<span class="material-symbols-outlined text-[22px]">calendar_today</span>
+</div>
+<span class="text-title-sm font-title-sm text-on-surface group-hover:text-[#3f6900] transition-colors font-bold">Horário &amp; Salas</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant mt-0.5">Onde tenho aulas hoje</span>
+</a>
+<!-- Pillar 2 -->
+<a class="p-4 bg-surface-container-lowest border border-outline-variant/60 rounded-xl hover:border-[#74b816] hover:shadow-md transition-all group flex flex-col items-start" href="#pagamentos">
+<div class="w-10 h-10 rounded-lg bg-[#F4F9E9] text-[#3f6900] group-hover:bg-[#74b816] group-hover:text-white transition-colors flex items-center justify-center mb-3">
+<span class="material-symbols-outlined text-[22px]">payments</span>
+</div>
+<span class="text-title-sm font-title-sm text-on-surface group-hover:text-[#3f6900] transition-colors font-bold">Propinas &amp; Pagamentos</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant mt-0.5">MB WAY &amp; Referências</span>
+</a>
+<!-- Pillar 3 -->
+<a class="p-4 bg-surface-container-lowest border border-outline-variant/60 rounded-xl hover:border-[#74b816] hover:shadow-md transition-all group flex flex-col items-start" href="#exames">
+<div class="w-10 h-10 rounded-lg bg-[#F4F9E9] text-[#3f6900] group-hover:bg-[#74b816] group-hover:text-white transition-colors flex items-center justify-center mb-3">
+<span class="material-symbols-outlined text-[22px]">assignment</span>
+</div>
+<span class="text-title-sm font-title-sm text-on-surface group-hover:text-[#3f6900] transition-colors font-bold">Exames &amp; Notas</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant mt-0.5">Inscrições e pautas</span>
+</a>
+<!-- Pillar 4 -->
+<a class="p-4 bg-surface-container-lowest border border-outline-variant/60 rounded-xl hover:border-[#74b816] hover:shadow-md transition-all group flex flex-col items-start" href="#documentos">
+<div class="w-10 h-10 rounded-lg bg-[#F4F9E9] text-[#3f6900] group-hover:bg-[#74b816] group-hover:text-white transition-colors flex items-center justify-center mb-3">
+<span class="material-symbols-outlined text-[22px]">description</span>
+</div>
+<span class="text-title-sm font-title-sm text-on-surface group-hover:text-[#3f6900] transition-colors font-bold">Documentos &amp; Atestados</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant mt-0.5">Comprovativo em 1 clique</span>
+</a>
+</div>
+</section>
+<!-- 4. Two-Column Core Layout -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-8 items-start">
+<!-- Left Column: Agenda & Course Progress -->
+<div class="xl:col-span-8 space-y-8">
+<!-- Agenda: Hoje e Próximos Compromissos -->
+<div class="bg-surface-container-lowest border border-outline-variant/60 rounded-xl p-6 shadow-sm space-y-4">
+<div class="flex items-center justify-between">
+<div>
+<h3 class="text-headline-sm font-headline-sm text-on-surface font-semibold flex items-center gap-2">
+<span class="material-symbols-outlined text-[#74b816] text-[22px]">event_upcoming</span>
+            Os Teus Próximos Compromissos
+          </h3>
+<p class="text-body-sm text-on-surface-variant mt-0.5">Salas, horários e prazos importantes desta semana no campus</p>
+</div>
+<a class="text-label-md font-label-md text-[#3f6900] hover:text-[#74b816] hover:underline flex items-center gap-1 font-semibold" href="#calendario">
+          Ver Horário Completo
+          <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+<div class="space-y-3 pt-1">
+<!-- Event 1: Aula Programação Web -->
+<div class="p-4 rounded-xl border-l-4 border-l-[#74b816] bg-surface-bright border border-outline-variant/30 flex items-start gap-4">
+<div class="text-center bg-surface-container-low px-3 py-2 rounded-lg min-w-[56px]">
+<span class="block text-label-sm font-bold text-[#3f6900]">TERÇA</span>
+<span class="block text-headline-sm font-headline-sm text-on-surface font-bold">22 SET</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-2 mb-1">
+<span class="px-2 py-0.5 rounded text-[11px] font-bold bg-[#F4F9E9] text-[#3f6900] border border-[#74b816]/30">AULA PRÁTICA</span>
+<span class="text-label-sm font-medium text-on-surface-variant">09:00 - 12:00</span>
+</div>
+<h4 class="text-title-sm font-title-sm text-on-surface font-bold">Programação Web</h4>
+<div class="flex flex-wrap items-center gap-3 text-body-sm text-on-surface-variant mt-1">
+<span class="inline-flex items-center gap-1 font-medium text-on-surface bg-surface-container px-2 py-0.5 rounded">
+<span class="material-symbols-outlined text-[16px] text-[#74b816]">location_on</span> Lab 3 · Edifício I (Campus Tomar)
+              </span>
+<span>Docente: Prof. Ricardo</span>
+</div>
+</div>
+</div>
+<!-- Event 2: Exame Bases de Dados -->
+<div class="p-4 rounded-xl border-l-4 border-l-[#74b816] bg-surface-bright border border-outline-variant/30 flex items-start gap-4">
+<div class="text-center bg-surface-container-low px-3 py-2 rounded-lg min-w-[56px]">
+<span class="block text-label-sm font-bold text-[#3f6900]">QUINTA</span>
+<span class="block text-headline-sm font-headline-sm text-on-surface font-bold">24 SET</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-2 mb-1">
+<span class="px-2 py-0.5 rounded text-[11px] font-bold bg-[#F4F9E9] text-[#3f6900] border border-[#74b816]/30">EXAME RECURSO</span>
+<span class="text-label-sm font-medium text-on-surface-variant">14:00 (Duração: 2h30)</span>
+</div>
+<h4 class="text-title-sm font-title-sm text-on-surface font-bold">Bases de Dados</h4>
+<div class="flex flex-wrap items-center gap-3 text-body-sm text-on-surface-variant mt-1">
+<span class="inline-flex items-center gap-1 font-medium text-on-surface bg-surface-container px-2 py-0.5 rounded">
+<span class="material-symbols-outlined text-[16px] text-[#74b816]">meeting_room</span> Sala B12 · Campus Tomar
+              </span>
+<span class="text-error font-medium text-label-sm">Inscrição necessária até 20/09</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Course Progress & Simple ECTS Overview -->
+<div class="bg-surface-container-lowest border border-outline-variant/60 rounded-xl p-6 shadow-sm space-y-4">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+<div>
+<h3 class="text-headline-sm font-headline-sm text-on-surface font-semibold">O Teu Progresso no Curso</h3>
+<p class="text-body-sm text-on-surface-variant">CTeSP - TPSI (Ciclo Total de 120 ECTS)</p>
+</div>
+<div class="text-right">
+<span class="text-title-md font-title-md text-[#3f6900] font-bold">72 / 120 ECTS Concluídos</span>
+<span class="block text-label-sm text-[#74b816] font-medium">60% do ciclo completo</span>
+</div>
+</div>
+<!-- Simple, clean visual progress bar -->
+<div class="space-y-2">
+<div class="w-full h-3 bg-surface-container rounded-full overflow-hidden flex">
+<div class="bg-[#74b816] h-full" style="width: 60%" title="Concluído: 72 ECTS"></div>
+<div class="bg-surface-variant h-full" style="width: 40%" title="Restante: 48 ECTS"></div>
+</div>
+<div class="flex items-center justify-between text-label-sm text-on-surface-variant">
+<span class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-[#74b816]"></span> 10 Unidades Curriculares Aprovadas (Média: 13,4)
+          </span>
+<span class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-outline-variant"></span> 5 Unidades em Frequência (1º Semestre)
+          </span>
+</div>
+</div>
+</div>
+<!-- Documentos Recentes & Acesso Fácil -->
+<div class="bg-surface-container-lowest border border-outline-variant/60 rounded-xl p-6 shadow-sm space-y-4">
+<div class="flex items-center justify-between">
+<h3 class="text-headline-sm font-headline-sm text-on-surface font-semibold flex items-center gap-2">
+<span class="material-symbols-outlined text-[#74b816] text-[22px]">folder_shared</span>
+          Documentos Disponíveis para Download
+        </h3>
+<a class="text-label-md font-label-md text-[#3f6900] hover:text-[#74b816] hover:underline flex items-center gap-1 font-semibold" href="#documentos">
+          Pedir Nova Certidão
+          <span class="material-symbols-outlined text-[16px]">add_circle</span>
+</a>
+</div>
+<div class="divide-y divide-outline-variant/20">
+<div class="py-3 flex items-center justify-between gap-4">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-[#F4F9E9] text-[#3f6900] border border-[#74b816]/30 flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[20px] text-[#74b816]">picture_as_pdf</span>
+</div>
+<div>
+<h4 class="text-title-sm font-title-sm text-on-surface font-bold">Declaração de Matrícula 2026/27</h4>
+<p class="text-label-sm text-on-surface-variant">Válida para Passes, Bolsas e Abono de Família · IPT-26-8919-DOC</p>
+</div>
+</div>
+<button class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-surface-container text-[#3f6900] rounded-lg text-label-md font-label-md hover:bg-[#F4F9E9] hover:text-[#74b816] transition-colors font-semibold flex-shrink-0" type="button">
+<span class="material-symbols-outlined text-[16px]">download</span>
+<span>Descarregar PDF</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Situação Financeira Simples + Apoio ao Estudante -->
+<div class="xl:col-span-4 space-y-6">
+<!-- Pagamento Multibanco / MB WAY Rápido -->
+<div class="bg-surface-container-lowest border border-outline-variant/60 rounded-xl p-5 shadow-sm space-y-4">
+<div class="flex items-center justify-between">
+<h3 class="text-headline-sm font-headline-sm text-on-surface font-semibold flex items-center gap-2">
+<span class="material-symbols-outlined text-[#74b816] text-[20px]">account_balance_wallet</span>
+          Propinas &amp; Pagamento
+        </h3>
+<span class="text-label-sm font-semibold text-error bg-error-container px-2 py-0.5 rounded">Vence a 24/09</span>
+</div>
+<!-- Dados de Pagamento Claros -->
+<div class="p-3.5 rounded-lg bg-surface-bright border border-outline-variant/40 space-y-2.5">
+<span class="text-label-sm font-semibold text-on-surface-variant block">Referência Multibanco (Prestação 1):</span>
+<div class="grid grid-cols-3 gap-2 bg-surface-container-lowest p-3 rounded-lg border border-outline-variant/30 text-center font-mono">
+<div>
+<span class="block text-[10px] text-on-surface-variant font-sans uppercase">Entidade</span>
+<span class="font-bold text-on-surface text-title-sm">21223</span>
+</div>
+<div>
+<span class="block text-[10px] text-on-surface-variant font-sans uppercase">Referência</span>
+<span class="font-bold text-on-surface text-title-sm">891 024 891</span>
+</div>
+<div>
+<span class="block text-[10px] text-on-surface-variant font-sans uppercase">Montante</span>
+<span class="font-bold text-error text-title-sm">€ 60,00</span>
+</div>
+</div>
+</div>
+<div class="pt-1">
+<button class="w-full py-2.5 px-3 bg-[#74b816] hover:bg-[#689f38] text-white rounded-lg text-title-sm font-title-sm transition-colors flex items-center justify-center gap-2 font-semibold shadow-sm" type="button">
+<span class="material-symbols-outlined text-[18px]">contactless</span>
+<span>Pagar via MB WAY</span>
+</button>
+</div>
+</div>
+<!-- Apoio ao Estudante & Secretaria IPT (Guia de Contacto Fácil) -->
+<div class="bg-surface-container-lowest border border-outline-variant/60 rounded-xl p-5 shadow-sm space-y-4">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-lg bg-[#74b816] text-white flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[18px]">help_center</span>
+</div>
+<div>
+<h4 class="text-title-sm font-title-sm text-on-surface font-bold">Precisas de Ajuda no IPT?</h4>
+<p class="text-label-sm text-on-surface-variant">Canais diretos para caloiros e veteranos</p>
+</div>
+</div>
+<div class="space-y-2 text-body-sm">
+<div class="p-2.5 rounded-lg bg-surface-bright flex items-center gap-3">
+<span class="material-symbols-outlined text-[#74b816] text-[20px]">place</span>
+<div>
+<div class="font-semibold text-on-surface text-label-md">Secretaria Académica</div>
+<div class="text-label-sm text-on-surface-variant">Edifício Central · 09:30 - 16:30</div>
+</div>
+</div>
+<div class="p-2.5 rounded-lg bg-surface-bright flex items-center gap-3">
+<span class="material-symbols-outlined text-[#74b816] text-[20px]">mail</span>
+<div>
+<div class="font-semibold text-on-surface text-label-md">Email Oficial</div>
+<div class="text-label-sm text-on-surface-variant">secretaria@ipt.pt · helpdesk@ipt.pt</div>
+</div>
+</div>
+<div class="p-2.5 rounded-lg bg-surface-bright flex items-center gap-3">
+<span class="material-symbols-outlined text-[#74b816] text-[20px]">wifi</span>
+<div>
+<div class="font-semibold text-on-surface text-label-md">Rede Sem Fios (eduroam)</div>
+<div class="text-label-sm text-on-surface-variant">Login com email institucional IPT</div>
+</div>
+</div>
+</div>
+<!-- Simple Assistant Input -->
+<div class="pt-2 border-t border-outline-variant/30">
+<div class="relative">
+<input class="w-full pl-3 pr-9 py-2 text-body-sm font-body-sm bg-surface-bright border border-outline-variant/60 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#74b816]" placeholder="Pergunta sobre salas, cantina, etc..." type="text"/>
+<button class="absolute right-1.5 top-1.5 p-1 text-[#74b816] hover:text-[#3f6900]" title="Perguntar" type="button">
+<span class="material-symbols-outlined text-[18px]">send</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- ========================================================================= -->
+<!-- INSTITUTIONAL FOOTER STRIP                                                -->
+<!-- ========================================================================= -->
+<footer class="pl-80 pr-8 py-6 mt-12 bg-surface-container-lowest border-t border-outline-variant/60 text-on-surface-variant text-label-sm font-label-sm">
+<div class="max-w-[1540px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+<div class="flex items-center gap-2">
+<span class="font-bold text-on-surface">Instituto Politécnico de Tomar</span>
+<span>·</span>
+<span>NETPA v4.8.2 · Todos os direitos reservados © 2026/2027</span>
+</div>
+<div class="flex items-center gap-6">
+<a class="hover:text-[#3f6900]" href="#privacidade">Privacidade &amp; RGPD</a>
+<a class="hover:text-[#3f6900]" href="#termos">Termos de Utilização</a>
+<a class="hover:text-[#3f6900]" href="#suporte">Suporte Informático (helpdesk@ipt.pt)</a>
+</div>
+</div>
+</footer>
+</body></html>

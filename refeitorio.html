@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+
+<html lang="pt"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SAS-IPT Alimentação — Portal Unicard SIGE | Instituto Politécnico de Tomar</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;family=Public+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#3f6900",
+            "primary-container": "#74b816",
+            "on-primary": "#ffffff",
+            "on-primary-container": "#264300",
+            "primary-fixed": "#aef756",
+            "ipt-lime": "#74b816",
+            "ipt-lime-dark": "#3f6900",
+            "ipt-lime-light": "#f4fce8",
+            "secondary": "#555f6f",
+            "secondary-container": "#d6e0f3",
+            "tertiary": "#006398",
+            "tertiary-container": "#4eadf3",
+            "background": "#f8f9fb",
+            "surface": "#ffffff",
+            "surface-container-low": "#f2f4f6",
+            "surface-container": "#eceef0",
+            "surface-container-high": "#e6e8ea",
+            "on-background": "#191c1e",
+            "on-surface": "#191c1e",
+            "on-surface-variant": "#424937",
+            "outline": "#727a65",
+            "outline-variant": "#c1cab2",
+            "error": "#ba1a1a",
+            "error-container": "#ffdad6"
+          },
+          fontFamily: {
+            "headline-lg": ["Plus Jakarta Sans", "sans-serif"],
+            "headline-md": ["Plus Jakarta Sans", "sans-serif"],
+            "headline-sm": ["Plus Jakarta Sans", "sans-serif"],
+            "title-md": ["Plus Jakarta Sans", "sans-serif"],
+            "title-sm": ["Plus Jakarta Sans", "sans-serif"],
+            "body-lg": ["Public Sans", "sans-serif"],
+            "body-md": ["Public Sans", "sans-serif"],
+            "body-sm": ["Public Sans", "sans-serif"],
+            "label-lg": ["Public Sans", "sans-serif"],
+            "label-md": ["Public Sans", "sans-serif"],
+            "label-sm": ["Public Sans", "sans-serif"]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-fill {
+      font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+</head>
+<body class="bg-[#f8f9fb] text-on-surface font-body-md antialiased min-h-screen flex flex-col selection:bg-[#74b816] selection:text-white">
+<!-- FAIXA MULTICOLORIDA INSTITUCIONAL DO IPT -->
+<div aria-hidden="true" class="h-1.5 w-full grid grid-cols-6 sticky top-0 z-40">
+<div class="bg-[#74b816]"></div> <!-- IPT Verde Oficial -->
+<div class="bg-[#eab308]"></div> <!-- IPT Amarelo / Tecnologia -->
+<div class="bg-[#ef4444]"></div> <!-- IPT Vermelho / Artes -->
+<div class="bg-[#0284c7]"></div> <!-- IPT Azul / Gestão -->
+<div class="bg-[#8b5cf6]"></div> <!-- IPT Roxo / Investigação -->
+<div class="bg-[#10b981]"></div> <!-- IPT Verde Água / Sustentabilidade -->
+</div>
+<!-- WRAPPER -->
+<div class="flex flex-1 min-h-screen">
+<!-- ========================================================================= -->
+<!-- SIDE NAVIGATION BAR (w-64 FIXED)                                          -->
+<!-- ========================================================================= -->
+<aside class="w-64 fixed inset-y-0 left-0 top-1.5 z-30 flex flex-col justify-between bg-white border-r border-slate-200 shadow-sm p-4 hidden lg:flex">
+<div class="flex flex-col gap-6">
+<!-- Logo SAS-IPT -->
+<div class="flex items-center gap-3 px-2 py-2 border-b border-slate-100">
+<div class="w-10 h-10 rounded-xl bg-[#74b816] flex items-center justify-center text-white shadow-md shadow-[#74b816]/20">
+<span class="material-symbols-outlined text-[24px]">school</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm font-bold text-slate-900 leading-tight text-base">SAS-IPT Unicard</span>
+<span class="text-[11px] text-slate-500 font-medium">Serviços de Ação Social</span>
+</div>
+</div>
+<!-- Menu Links -->
+<nav aria-label="Menu Principal" class="flex flex-col gap-1.5">
+<a class="bg-[#74b816]/15 text-[#3f6900] font-bold rounded-lg px-3.5 py-2.5 flex items-center gap-3 transition-colors border-l-4 border-[#74b816]" href="#inicio">
+<span class="material-symbols-outlined text-[20px] text-[#74b816]">dashboard</span>
+<span class="text-sm">Início</span>
+</a>
+<a class="text-slate-600 hover:text-[#3f6900] hover:bg-[#74b816]/10 rounded-lg px-3.5 py-2.5 flex items-center gap-3 transition-colors font-medium" href="#ementa">
+<span class="material-symbols-outlined text-[20px]">restaurant</span>
+<span class="text-sm">Ementa &amp; Refeições</span>
+</a>
+<a class="text-slate-600 hover:text-[#3f6900] hover:bg-[#74b816]/10 rounded-lg px-3.5 py-2.5 flex items-center gap-3 transition-colors font-medium" href="#saldo-movimentos">
+<span class="material-symbols-outlined text-[20px]">payments</span>
+<span class="text-sm">Saldo &amp; Carregamentos</span>
+</a>
+<a class="text-slate-600 hover:text-[#3f6900] hover:bg-[#74b816]/10 rounded-lg px-3.5 py-2.5 flex items-center gap-3 transition-colors font-medium" href="#cartao-virtual">
+<span class="material-symbols-outlined text-[20px]">credit_card</span>
+<span class="text-sm">Cartão Virtual Unicard</span>
+</a>
+<a class="text-slate-600 hover:text-[#3f6900] hover:bg-[#74b816]/10 rounded-lg px-3.5 py-2.5 flex items-center gap-3 transition-colors font-medium" href="#espacos-horarios">
+<span class="material-symbols-outlined text-[20px]">schedule</span>
+<span class="text-sm">Espaços &amp; Horários</span>
+</a>
+<a class="text-slate-600 hover:text-[#3f6900] hover:bg-[#74b816]/10 rounded-lg px-3.5 py-2.5 flex items-center justify-between transition-colors font-medium" href="#notificacoes">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[20px]">notifications</span>
+<span class="text-sm">Notificações &amp; Avisos</span>
+</div>
+<span class="w-2 h-2 rounded-full bg-[#74b816]"></span>
+</a>
+<a class="text-slate-600 hover:text-[#3f6900] hover:bg-[#74b816]/10 rounded-lg px-3.5 py-2.5 flex items-center gap-3 transition-colors font-medium" href="#apoio-faq">
+<span class="material-symbols-outlined text-[20px]">support_agent</span>
+<span class="text-sm">Apoio &amp; Feedback SAS</span>
+</a>
+</nav>
+</div>
+<!-- Quick Action & Sub-links -->
+<div class="flex flex-col gap-3 pt-3 border-t border-slate-200">
+<button class="w-full bg-[#74b816] hover:bg-[#3f6900] text-white text-sm font-bold py-2.5 px-3 rounded-lg shadow-sm shadow-[#74b816]/30 flex items-center justify-center gap-2 transition-all" onclick="document.getElementById('modal-carregamento').classList.remove('hidden')">
+<span class="material-symbols-outlined text-[18px]">add_card</span>
+<span>Carregar Saldo</span>
+</button>
+<div class="flex flex-col gap-1 text-xs text-slate-500 font-medium">
+<a class="flex items-center gap-2 px-2 py-1.5 rounded hover:bg-slate-50 hover:text-slate-700" href="#definicoes">
+<span class="material-symbols-outlined text-[18px]">settings</span>
+<span>Definições</span>
+</a>
+<a class="flex items-center gap-2 px-2 py-1.5 rounded hover:bg-red-50 text-red-600 font-medium" href="#logout">
+<span class="material-symbols-outlined text-[18px]">logout</span>
+<span>Terminar Sessão</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- ========================================================================= -->
+<!-- MAIN WORKSPACE                                                            -->
+<!-- ========================================================================= -->
+<div class="flex-1 lg:pl-64 flex flex-col min-w-0 bg-[#f8f9fb]">
+<!-- TOP HEADER BAR -->
+<header class="sticky top-1.5 z-20 w-full bg-white border-b border-slate-200/80 px-6 py-3.5 shadow-sm">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-4">
+<!-- Left: Greeting & Academic Subtext -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<button aria-label="Abrir Menu" class="lg:hidden p-1.5 rounded-lg border border-slate-200 text-slate-600 hover:bg-slate-50">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<div>
+<div class="flex items-center gap-2.5">
+<h1 class="text-xl font-headline-sm font-bold text-slate-900">Olá, Michelle 👋</h1>
+<span class="hidden sm:inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-[#74b816]/15 text-[#3f6900] border border-[#74b816]/30">
+<span class="w-1.5 h-1.5 rounded-full bg-[#74b816]"></span>
+                    Sessão Ativa Unicard
+                  </span>
+</div>
+<p class="text-xs text-slate-500 mt-0.5 font-medium">Licenciatura em Engenharia Informática · Campus Quinta do Contador</p>
+</div>
+</div>
+</div>
+<!-- Right: Search Bar & Actions -->
+<div class="flex items-center gap-3 justify-end">
+<!-- Search -->
+<div class="relative w-full sm:w-64">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-slate-400 text-[18px]">search</span>
+<input class="w-full pl-9 pr-3 py-1.5 bg-slate-50 border border-slate-200 rounded-lg text-xs text-slate-700 placeholder:text-slate-400 focus:bg-white focus:outline-none focus:border-[#74b816] transition-all" placeholder="Pesquisar ementa, prato..." type="text"/>
+</div>
+<!-- Notifications Bell -->
+<button class="relative p-2 rounded-lg border border-slate-200 hover:bg-slate-50 text-slate-600" title="Notificações">
+<span class="material-symbols-outlined text-[20px]">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-[#74b816]"></span>
+</button>
+<!-- Quick Wallet Button -->
+<button class="flex items-center gap-2 px-3 py-1.5 rounded-lg border border-[#74b816]/40 bg-[#74b816]/10 hover:bg-[#74b816]/20 text-[#3f6900] font-bold text-sm transition-all" onclick="document.getElementById('modal-carregamento').classList.remove('hidden')">
+<span class="material-symbols-outlined text-[#74b816] text-[18px]">account_balance_wallet</span>
+<span>€18,50</span>
+</button>
+<!-- Profile Avatar -->
+<div class="flex items-center gap-2 pl-1 border-l border-slate-200">
+<div class="relative w-8 h-8 rounded-full overflow-hidden border border-slate-200">
+<img alt="Perfil Michelle" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFhBHvdZ1_J8msYNaL3kcRe8jHYfbrZcwkhpEfVIbumNsnptDp0AapI4aHZGfwS_Tym1xXx6WSw49Mr4tYCDbxBrcVpUMn7GiLpBjyAlTh8IlFUGJVel-mfK1UH6kAlXVM5vFT3N4E6_XEz0c4CJF3mulWsxJFggY2ttMIKHsf2O4ly1EIgGIHp_BWr6GIO0UDINx7Nzbtj7R_PLecrSjY_NDHXq0xCH75X6K52x3RAMvzX74YHKrpVg"/>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- PAGE CONTENT BODY -->
+<main class="w-full max-w-7xl mx-auto p-6 md:p-8 flex flex-col gap-8">
+<!-- ========================================================================= -->
+<!-- 1. KPI & SUMMARY BANNER GRID (4 Clean Cards)                              -->
+<!-- ========================================================================= -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+<!-- Card 1: Saldo Unicard -->
+<div class="bg-white rounded-xl p-5 border border-slate-200 shadow-sm flex flex-col justify-between hover:border-[#74b816]/60 transition-all ring-1 ring-[#74b816]/10">
+<div>
+<div class="flex items-center justify-between text-slate-500 mb-2">
+<span class="text-xs font-semibold uppercase tracking-wider text-slate-400">Saldo Unicard</span>
+<span class="p-1.5 rounded-lg bg-[#74b816]/15 text-[#3f6900]">
+<span class="material-symbols-outlined text-[18px]">account_balance_wallet</span>
+</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="text-3xl font-extrabold text-slate-900 font-headline-lg">€18,50</span>
+<span class="text-[11px] font-bold text-[#3f6900] bg-[#74b816]/15 px-2 py-0.5 rounded-full border border-[#74b816]/30">Ativo</span>
+</div>
+<p class="text-xs text-slate-500 mt-2 flex items-center gap-1 font-medium">
+<span class="material-symbols-outlined text-[14px] text-slate-400">history</span>
+                Último carregamento: <strong class="text-[#3f6900]">+€20,00</strong> (17/09)
+              </p>
+</div>
+<div class="mt-4 pt-3 border-t border-slate-100 flex gap-2">
+<button class="w-full bg-[#74b816] hover:bg-[#3f6900] text-white text-xs font-bold py-2 px-3 rounded-lg shadow-sm shadow-[#74b816]/30 flex items-center justify-center gap-1.5 transition-all" onclick="document.getElementById('modal-carregamento').classList.remove('hidden')">
+<span class="material-symbols-outlined text-[16px]">add_circle</span>
+                Carregar Saldo
+              </button>
+</div>
+</div>
+<!-- Card 2: Próxima Refeição (Hoje) -->
+<div class="bg-white rounded-xl p-5 border border-slate-200 shadow-sm flex flex-col justify-between hover:border-slate-300 transition-all">
+<div>
+<div class="flex items-center justify-between mb-2">
+<span class="text-xs font-semibold uppercase tracking-wider text-slate-400">Próxima Refeição</span>
+<span class="text-xs font-bold text-[#3f6900] bg-[#74b816]/15 px-2 py-0.5 rounded-md border border-[#74b816]/30">Hoje · €2,95</span>
+</div>
+<div class="text-sm font-bold text-slate-900">Almoço (12:00 – 14:30)</div>
+<div class="text-xs text-slate-500 font-medium">Cantina Quinta do Contador</div>
+<p class="text-xs text-slate-600 mt-2 line-clamp-2 bg-slate-50 p-2 rounded border border-slate-100">
+<strong class="text-slate-800">Menu:</strong> Lombo de Porco Assado c/ puré ou Pescada Grelhada
+              </p>
+</div>
+<div class="mt-4 pt-3 border-t border-slate-100">
+<button class="w-full bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold py-2 px-3 rounded-lg shadow-sm flex items-center justify-center gap-1.5 transition-all" onclick="comprarRefeicaoRapida('Almoço', '2,95')">
+<span class="material-symbols-outlined text-[16px] text-[#74b816]">restaurant_menu</span>
+                Reservar / Comprar Refeição
+              </button>
+</div>
+</div>
+<!-- Card 3: Cartão Virtual & Acesso Torniquetes -->
+<div class="bg-white rounded-xl p-5 border border-slate-200 shadow-sm flex flex-col justify-between hover:border-slate-300 transition-all">
+<div>
+<div class="flex items-center justify-between mb-2">
+<span class="text-xs font-semibold uppercase tracking-wider text-slate-400">Cartão Virtual Unicard</span>
+<span class="inline-flex items-center gap-1 text-[11px] text-[#3f6900] font-semibold bg-[#74b816]/15 px-2 py-0.5 rounded-full border border-[#74b816]/30">
+<span class="w-1.5 h-1.5 rounded-full bg-[#74b816]"></span> Ativo
+                </span>
+</div>
+<div class="flex items-center gap-3 mt-1">
+<div class="w-14 h-14 bg-slate-900 rounded-lg p-1 flex items-center justify-center shrink-0 border border-[#74b816]/30">
+<!-- Realistic mini QR pattern -->
+<div class="w-12 h-12 bg-white rounded p-0.5 grid grid-cols-3 gap-0.5">
+<div class="bg-[#3f6900] rounded-[1px]"></div>
+<div class="bg-slate-900 rounded-[1px]"></div>
+<div class="bg-[#74b816] rounded-[1px]"></div>
+<div class="bg-slate-900 rounded-[1px]"></div>
+<div class="bg-white border border-[#74b816]"></div>
+<div class="bg-slate-900 rounded-[1px]"></div>
+<div class="bg-[#74b816] rounded-[1px]"></div>
+<div class="bg-slate-900 rounded-[1px]"></div>
+<div class="bg-[#3f6900] rounded-[1px]"></div>
+</div>
+</div>
+<div>
+<div class="text-xs font-bold text-slate-800">QR Code Dinâmico</div>
+<div class="text-[11px] text-slate-500 mt-0.5">Renova a cada 30s</div>
+<div class="text-[11px] text-[#3f6900] font-semibold mt-1">Apple Pay / Google Wallet</div>
+</div>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-slate-100">
+<a class="w-full bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold py-2 px-3 rounded-lg flex items-center justify-center gap-1.5 transition-all text-center" href="#cartao-virtual">
+<span class="material-symbols-outlined text-[16px] text-[#74b816]">qr_code_scanner</span>
+                Ver Ecrã Completo
+              </a>
+</div>
+</div>
+<!-- Card 4: Lotação dos Espaços em Tempo Real -->
+<div class="bg-white rounded-xl p-5 border border-slate-200 shadow-sm flex flex-col justify-between hover:border-slate-300 transition-all">
+<div>
+<div class="flex items-center justify-between mb-2">
+<span class="text-xs font-semibold uppercase tracking-wider text-slate-400">Lotação em Tempo Real</span>
+<span class="p-1.5 rounded-lg bg-[#74b816]/15 text-[#74b816]">
+<span class="material-symbols-outlined text-[18px]">sensors</span>
+</span>
+</div>
+<div class="space-y-2.5 mt-1">
+<div>
+<div class="flex justify-between text-xs font-medium text-slate-700 mb-1">
+<span>Qta. do Contador (Tomar)</span>
+<span class="font-bold text-[#3f6900]">45% · ~4 min</span>
+</div>
+<div class="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
+<div class="bg-[#74b816] h-full rounded-full" style="width: 45%;"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-xs font-medium text-slate-700 mb-1">
+<span>Campus ESTA (Abrantes)</span>
+<span class="font-bold text-[#74b816]">28% · ~2 min</span>
+</div>
+<div class="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
+<div class="bg-[#74b816] h-full rounded-full" style="width: 28%;"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-3 pt-2 text-[11px] text-slate-500 flex items-center justify-between border-t border-slate-100">
+<span>Bar Central: <strong class="text-[#3f6900]">Aberto até 18:00</strong></span>
+<a class="text-[#3f6900] font-semibold hover:underline" href="#espacos-horarios">Ver polos</a>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- 2. EMENTA SEMANAL & FILTROS ALIMENTARES                                   -->
+<!-- ========================================================================= -->
+<section class="bg-white rounded-xl border border-slate-200 p-6 shadow-sm" id="ementa">
+<!-- Header + Filtros -->
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-5 border-b border-slate-200">
+<div>
+<div class="flex items-center gap-2">
+<span class="p-2 rounded-lg bg-[#74b816]/15 text-[#3f6900]">
+<span class="material-symbols-outlined text-[24px]">restaurant_menu</span>
+</span>
+<div>
+<h2 class="text-lg font-headline-sm font-bold text-slate-900">Ementa Semanal dos Refeitórios SAS-IPT</h2>
+<p class="text-xs text-slate-500">Refeições equilibradas confecionadas sob supervisão nutricional com produtos regionais.</p>
+</div>
+</div>
+</div>
+<!-- Filtros Alimentares -->
+<div class="flex items-center gap-2 flex-wrap" id="diet-filters">
+<button class="px-3 py-1.5 rounded-full text-xs font-semibold bg-[#74b816] text-white shadow-sm transition-all filter-pill active" onclick="filtrarDieta('todas', this)">
+                Todos
+              </button>
+<button class="px-3 py-1.5 rounded-full text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-[#74b816]/15 hover:text-[#3f6900] transition-all filter-pill" onclick="filtrarDieta('vegetariana', this)">
+                🌱 Vegetariano
+              </button>
+<button class="px-3 py-1.5 rounded-full text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-[#74b816]/15 hover:text-[#3f6900] transition-all filter-pill" onclick="filtrarDieta('sem-gluten', this)">
+                🌾 Sem Glúten
+              </button>
+<button class="px-3 py-1.5 rounded-full text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-[#74b816]/15 hover:text-[#3f6900] transition-all filter-pill" onclick="filtrarDieta('sem-lactose', this)">
+                🥛 Sem Lactose
+              </button>
+</div>
+</div>
+<!-- Tabs de Dias -->
+<div class="flex items-center gap-2 overflow-x-auto py-3 border-b border-slate-200 text-xs">
+<button class="px-3 py-2 rounded-lg text-slate-500 hover:bg-slate-50 font-medium whitespace-nowrap">
+              Ontem (20 Set)
+            </button>
+<button class="px-4 py-2 rounded-lg bg-[#74b816] text-white font-bold shadow-sm shadow-[#74b816]/30 whitespace-nowrap flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">event_available</span>
+              Hoje (Segunda, 21 Set)
+            </button>
+<button class="px-3.5 py-2 rounded-lg text-slate-600 hover:bg-[#74b816]/10 font-medium whitespace-nowrap">
+              Terça (22 Set)
+            </button>
+<button class="px-3.5 py-2 rounded-lg text-slate-600 hover:bg-[#74b816]/10 font-medium whitespace-nowrap">
+              Quarta (23 Set)
+            </button>
+<button class="px-3.5 py-2 rounded-lg text-slate-600 hover:bg-[#74b816]/10 font-medium whitespace-nowrap">
+              Quinta (24 Set)
+            </button>
+<button class="px-3.5 py-2 rounded-lg text-slate-600 hover:bg-[#74b816]/10 font-medium whitespace-nowrap">
+              Sexta (25 Set)
+            </button>
+<button class="ml-auto px-3 py-1.5 rounded-lg border border-slate-200 text-slate-600 hover:bg-slate-50 font-semibold whitespace-nowrap flex items-center gap-1 text-xs">
+<span class="material-symbols-outlined text-[16px] text-[#74b816]">download</span>
+              Descarregar PDF
+            </button>
+</div>
+<!-- Menus: Almoço e Jantar em 2 Colunas Limpas -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
+<!-- ====== CARD ALMOÇO ====== -->
+<div class="border border-[#74b816]/30 rounded-xl p-5 bg-[#fafcf7] flex flex-col justify-between shadow-sm">
+<div>
+<div class="flex items-center justify-between pb-3 border-b border-slate-200 mb-4">
+<div class="flex items-center gap-2.5">
+<span class="p-2 rounded-lg bg-amber-100 text-amber-800">
+<span class="material-symbols-outlined text-[20px]">sunny</span>
+</span>
+<div>
+<h3 class="text-base font-bold text-slate-900">Almoço</h3>
+<span class="text-xs text-slate-500">12:00 às 14:30 · Refeitório Quinta do Contador</span>
+</div>
+</div>
+<span class="text-sm font-bold text-[#3f6900] bg-white border border-[#74b816]/40 px-3 py-1 rounded-lg">€2,95</span>
+</div>
+<!-- Lista de Itens do Menu -->
+<div class="space-y-3">
+<!-- Sopa -->
+<div class="p-3 rounded-lg bg-white border border-slate-200 diet-item" data-diet="todas vegetariana sem-gluten sem-lactose">
+<div class="flex justify-between items-start">
+<div>
+<span class="text-[10px] uppercase font-bold text-slate-400">Sopa</span>
+<h4 class="text-xs font-semibold text-slate-800 mt-0.5">Sopa de legumes frescos da época</h4>
+<div class="text-[11px] text-slate-500 mt-1">Alergénios: nenhum · Confeção com azeite virgem</div>
+</div>
+<span class="text-xs text-slate-500 font-medium">85 kcal</span>
+</div>
+</div>
+<!-- Prato Carne -->
+<div class="p-3 rounded-lg bg-white border border-slate-200 diet-item" data-diet="todas">
+<div class="flex justify-between items-start">
+<div>
+<span class="text-[10px] uppercase font-bold text-[#3f6900] bg-[#74b816]/15 px-1.5 py-0.5 rounded">Prato Carne</span>
+<h4 class="text-xs font-bold text-slate-800 mt-1">Lombo de Porco Assado à Ribatejana</h4>
+<p class="text-[11px] text-slate-500 mt-0.5">Com puré de batata caseiro e legumes salteados.</p>
+</div>
+<div class="text-right">
+<span class="text-xs font-semibold text-slate-700">620 kcal</span>
+<div class="text-[11px] font-bold text-[#74b816]">38g Prot</div>
+</div>
+</div>
+<div class="flex items-center gap-1.5 mt-2 pt-2 border-t border-slate-100 text-[10px] text-slate-500">
+<span>Alergénios: Lactose (puré)</span>
+</div>
+</div>
+<!-- Prato Peixe -->
+<div class="p-3 rounded-lg bg-white border border-slate-200 diet-item" data-diet="todas sem-gluten sem-lactose">
+<div class="flex justify-between items-start">
+<div>
+<span class="text-[10px] uppercase font-bold text-cyan-700 bg-cyan-50 px-1.5 py-0.5 rounded">Prato Peixe</span>
+<h4 class="text-xs font-bold text-slate-800 mt-1">Pescada Grelhada com Molho de Limão</h4>
+<p class="text-[11px] text-slate-500 mt-0.5">Acompanha batata cozida e brócolos frescos ao vapor.</p>
+</div>
+<div class="text-right">
+<span class="text-xs font-semibold text-slate-700">430 kcal</span>
+<div class="text-[11px] font-bold text-[#74b816]">41g Prot</div>
+</div>
+</div>
+<div class="flex items-center gap-1.5 mt-2 pt-2 border-t border-slate-100 text-[10px] text-slate-500">
+<span>Alergénios: Peixe · Isento Glúten e Lactose</span>
+</div>
+</div>
+<!-- Prato Vegetariano -->
+<div class="p-3 rounded-lg bg-white border border-[#74b816]/50 diet-item" data-diet="vegetariana sem-gluten sem-lactose">
+<div class="flex justify-between items-start">
+<div>
+<span class="text-[10px] uppercase font-bold text-[#3f6900] bg-[#74b816]/20 px-1.5 py-0.5 rounded">🌱 Vegetariano (100% Vegan)</span>
+<h4 class="text-xs font-bold text-slate-800 mt-1">Caril de Grão-de-Bico e Espinafres</h4>
+<p class="text-[11px] text-slate-500 mt-0.5">Com arroz basmati aromatizado e leite de coco suave.</p>
+</div>
+<div class="text-right">
+<span class="text-xs font-semibold text-slate-700">410 kcal</span>
+<div class="text-[11px] font-bold text-[#3f6900]">16g Prot</div>
+</div>
+</div>
+<div class="flex items-center gap-1.5 mt-2 pt-2 border-t border-slate-100 text-[10px] text-[#3f6900] font-medium">
+<span>100% Isento Alergénios Comuns</span>
+</div>
+</div>
+<!-- Dieta / Grelhados -->
+<div class="p-3 rounded-lg bg-white border border-slate-200 diet-item" data-diet="todas sem-gluten sem-lactose">
+<div class="flex justify-between items-start">
+<div>
+<span class="text-[10px] uppercase font-bold text-slate-600 bg-slate-100 px-1.5 py-0.5 rounded">Dieta / Grelhados</span>
+<h4 class="text-xs font-semibold text-slate-800 mt-1">Bife de Frango grelhado com arroz integral</h4>
+<p class="text-[11px] text-slate-500 mt-0.5">Tempero suave com ervas finas e salada mista.</p>
+</div>
+<span class="text-xs font-semibold text-slate-700">380 kcal</span>
+</div>
+</div>
+<!-- Sobremesa -->
+<div class="p-2.5 rounded-lg bg-white border border-slate-200 flex justify-between items-center text-xs text-slate-600">
+<div><strong class="text-slate-700">Sobremesa:</strong> Fruta da época laminada ou Iogurte natural</div>
+<span class="text-slate-400">Incluído</span>
+</div>
+</div>
+</div>
+<!-- Reserva Almoço CTA -->
+<div class="mt-5 pt-3 border-t border-slate-200 flex items-center justify-between">
+<div class="flex items-center gap-1.5 text-xs font-semibold text-[#3f6900]">
+<span class="w-2 h-2 rounded-full bg-[#74b816]"></span>
+                  Disponível para Pré-Reserva
+                </div>
+<button class="bg-[#74b816] hover:bg-[#3f6900] text-white text-xs font-bold py-2 px-4 rounded-lg shadow-sm shadow-[#74b816]/30 transition-all" onclick="comprarRefeicaoRapida('Almoço', '2,95')">
+                  Comprar Refeição (€2,95)
+                </button>
+</div>
+</div>
+<!-- ====== CARD JANTAR ====== -->
+<div class="border border-[#74b816]/30 rounded-xl p-5 bg-[#fafcf7] flex flex-col justify-between shadow-sm">
+<div>
+<div class="flex items-center justify-between pb-3 border-b border-slate-200 mb-4">
+<div class="flex items-center gap-2.5">
+<span class="p-2 rounded-lg bg-indigo-100 text-indigo-800">
+<span class="material-symbols-outlined text-[20px]">dark_mode</span>
+</span>
+<div>
+<h3 class="text-base font-bold text-slate-900">Jantar</h3>
+<span class="text-xs text-slate-500">19:00 às 21:00 · Refeitório Quinta do Contador</span>
+</div>
+</div>
+<span class="text-sm font-bold text-[#3f6900] bg-white border border-[#74b816]/40 px-3 py-1 rounded-lg">€2,95</span>
+</div>
+<!-- Lista de Itens do Menu -->
+<div class="space-y-3">
+<!-- Sopa -->
+<div class="p-3 rounded-lg bg-white border border-slate-200 diet-item" data-diet="todas vegetariana sem-gluten sem-lactose">
+<div class="flex justify-between items-start">
+<div>
+<span class="text-[10px] uppercase font-bold text-slate-400">Sopa</span>
+<h4 class="text-xs font-semibold text-slate-800 mt-0.5">Creme de courgette com hortelã fresca</h4>
+<div class="text-[11px] text-slate-500 mt-1">Alergénios: nenhum · Isento de sal refinado</div>
+</div>
+<span class="text-xs text-slate-500 font-medium">80 kcal</span>
+</div>
+</div>
+<!-- Prato Carne -->
+<div class="p-3 rounded-lg bg-white border border-slate-200 diet-item" data-diet="todas">
+<div class="flex justify-between items-start">
+<div>
+<span class="text-[10px] uppercase font-bold text-[#3f6900] bg-[#74b816]/15 px-1.5 py-0.5 rounded">Prato Carne</span>
+<h4 class="text-xs font-bold text-slate-800 mt-1">Frango Assado com Ervas da Lezíria</h4>
+<p class="text-[11px] text-slate-500 mt-0.5">Acompanhado de arroz vaporizado e feijão verde salteado.</p>
+</div>
+<div class="text-right">
+<span class="text-xs font-semibold text-slate-700">590 kcal</span>
+<div class="text-[11px] font-bold text-[#74b816]">36g Prot</div>
+</div>
+</div>
+<div class="flex items-center gap-1.5 mt-2 pt-2 border-t border-slate-100 text-[10px] text-slate-500">
+<span>Isento Glúten e Lactose</span>
+</div>
+</div>
+<!-- Prato Peixe -->
+<div class="p-3 rounded-lg bg-white border border-slate-200 diet-item" data-diet="todas sem-gluten sem-lactose">
+<div class="flex justify-between items-start">
+<div>
+<span class="text-[10px] uppercase font-bold text-cyan-700 bg-cyan-50 px-1.5 py-0.5 rounded">Prato Peixe</span>
+<h4 class="text-xs font-bold text-slate-800 mt-1">Filetes de Pescada do Atlântico ao Vapor</h4>
+<p class="text-[11px] text-slate-500 mt-0.5">Com cenoura cozida e azeite aromático de coentros.</p>
+</div>
+<div class="text-right">
+<span class="text-xs font-semibold text-slate-700">420 kcal</span>
+<div class="text-[11px] font-bold text-[#74b816]">39g Prot</div>
+</div>
+</div>
+<div class="flex items-center gap-1.5 mt-2 pt-2 border-t border-slate-100 text-[10px] text-slate-500">
+<span>Alergénios: Peixe</span>
+</div>
+</div>
+<!-- Prato Vegetariano -->
+<div class="p-3 rounded-lg bg-white border border-[#74b816]/50 diet-item" data-diet="vegetariana sem-gluten sem-lactose">
+<div class="flex justify-between items-start">
+<div>
+<span class="text-[10px] uppercase font-bold text-[#3f6900] bg-[#74b816]/20 px-1.5 py-0.5 rounded">🌱 Vegetariano (100% Vegan)</span>
+<h4 class="text-xs font-bold text-slate-800 mt-1">Estufado de Lentilhas com Batata-Doce</h4>
+<p class="text-[11px] text-slate-500 mt-0.5">Cozinhado com pimentos e legumes do quintal biológico.</p>
+</div>
+<div class="text-right">
+<span class="text-xs font-semibold text-slate-700">420 kcal</span>
+<div class="text-[11px] font-bold text-[#3f6900]">19g Prot</div>
+</div>
+</div>
+<div class="flex items-center gap-1.5 mt-2 pt-2 border-t border-slate-100 text-[10px] text-[#3f6900] font-medium">
+<span>Isento Glúten e Lactose</span>
+</div>
+</div>
+<!-- Dieta / Grelhados -->
+<div class="p-3 rounded-lg bg-white border border-slate-200 diet-item" data-diet="todas sem-gluten sem-lactose">
+<div class="flex justify-between items-start">
+<div>
+<span class="text-[10px] uppercase font-bold text-slate-600 bg-slate-100 px-1.5 py-0.5 rounded">Dieta / Grelhados</span>
+<h4 class="text-xs font-semibold text-slate-800 mt-1">Bife de Peru Grelhado c/ Arroz Branco</h4>
+<p class="text-[11px] text-slate-500 mt-0.5">Acompanhado de couve-flor e salada fresca.</p>
+</div>
+<span class="text-xs font-semibold text-slate-700">360 kcal</span>
+</div>
+</div>
+<!-- Sobremesa -->
+<div class="p-2.5 rounded-lg bg-white border border-slate-200 flex justify-between items-center text-xs text-slate-600">
+<div><strong class="text-slate-700">Sobremesa:</strong> Pêra Rocha do Oeste ou Gelatina vegetal</div>
+<span class="text-slate-400">Incluído</span>
+</div>
+</div>
+</div>
+<!-- Reserva Jantar CTA -->
+<div class="mt-5 pt-3 border-t border-slate-200 flex items-center justify-between">
+<div class="flex items-center gap-1.5 text-xs font-semibold text-[#3f6900]">
+<span class="w-2 h-2 rounded-full bg-[#74b816]"></span>
+                  Disponível para Pré-Reserva
+                </div>
+<button class="bg-[#74b816] hover:bg-[#3f6900] text-white text-xs font-bold py-2 px-4 rounded-lg shadow-sm shadow-[#74b816]/30 transition-all" onclick="comprarRefeicaoRapida('Jantar', '2,95')">
+                  Comprar Refeição (€2,95)
+                </button>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- 3. DUAS COLUNAS INFERIORES EQUILIBRADAS (Movimentos vs Horários SAS)      -->
+<!-- ========================================================================= -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-6" id="saldo-movimentos">
+<!-- COLUNA ESQUERDA: Últimos Movimentos Unicard SIGE (7 Colunas) -->
+<div class="lg:col-span-7 bg-white rounded-xl border border-slate-200 p-6 shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between pb-4 border-b border-slate-200">
+<div class="flex items-center gap-2.5">
+<span class="p-2 rounded-lg bg-[#74b816]/15 text-[#3f6900]">
+<span class="material-symbols-outlined text-[22px]">receipt_long</span>
+</span>
+<div>
+<h3 class="text-base font-bold text-slate-900">Últimos Movimentos Unicard SIGE</h3>
+<p class="text-xs text-slate-500">Extrato oficial sincronizado com a conta corrente SAS-IPT</p>
+</div>
+</div>
+<button class="text-xs font-bold text-[#3f6900] hover:text-[#74b816] flex items-center gap-1">
+                  Extrato Completo <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+</div>
+<!-- Tabela / Lista Elegante de Transações -->
+<div class="overflow-x-auto mt-4">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-slate-100 text-[11px] font-semibold text-slate-400 uppercase tracking-wider">
+<th class="py-2.5 px-3">Data</th>
+<th class="py-2.5 px-3">Descrição / Local</th>
+<th class="py-2.5 px-3">Método</th>
+<th class="py-2.5 px-3 text-right">Valor</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100 text-xs">
+<!-- Transação 1 -->
+<tr class="hover:bg-slate-50/80 transition-colors">
+<td class="py-3 px-3 text-slate-500 whitespace-nowrap font-medium">18/09 · 12:42</td>
+<td class="py-3 px-3">
+<div class="font-bold text-slate-800">Almoço Refeitório</div>
+<div class="text-[11px] text-slate-500">Quinta do Contador · Torniquete A</div>
+</td>
+<td class="py-3 px-3 whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[11px] bg-slate-100 text-slate-600 font-medium">
+<span class="material-symbols-outlined text-[13px]">nfc</span> Físico
+                        </span>
+</td>
+<td class="py-3 px-3 text-right font-bold text-slate-800 whitespace-nowrap">-€2,95</td>
+</tr>
+<!-- Transação 2 -->
+<tr class="hover:bg-[#74b816]/5 transition-colors">
+<td class="py-3 px-3 text-slate-500 whitespace-nowrap font-medium">17/09 · 10:15</td>
+<td class="py-3 px-3">
+<div class="font-bold text-[#3f6900]">Carregamento MB WAY</div>
+<div class="text-[11px] text-slate-500">Ref: MB-912345678 · SAS-IPT</div>
+</td>
+<td class="py-3 px-3 whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[11px] bg-[#74b816]/15 text-[#3f6900] font-semibold border border-[#74b816]/30">
+<span class="material-symbols-outlined text-[13px]">smartphone</span> MB WAY
+                        </span>
+</td>
+<td class="py-3 px-3 text-right font-bold text-[#3f6900] whitespace-nowrap">+€20,00</td>
+</tr>
+<!-- Transação 3 -->
+<tr class="hover:bg-slate-50/80 transition-colors">
+<td class="py-3 px-3 text-slate-500 whitespace-nowrap font-medium">17/09 · 13:10</td>
+<td class="py-3 px-3">
+<div class="font-bold text-slate-800">Almoço Refeitório</div>
+<div class="text-[11px] text-slate-500">Quinta do Contador · Torniquete B</div>
+</td>
+<td class="py-3 px-3 whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[11px] bg-[#74b816]/10 text-[#3f6900] font-semibold border border-[#74b816]/30">
+<span class="material-symbols-outlined text-[13px]">qr_code</span> QR Virtual
+                        </span>
+</td>
+<td class="py-3 px-3 text-right font-bold text-slate-800 whitespace-nowrap">-€2,95</td>
+</tr>
+<!-- Transação 4 -->
+<tr class="hover:bg-slate-50/80 transition-colors">
+<td class="py-3 px-3 text-slate-500 whitespace-nowrap font-medium">16/09 · 16:22</td>
+<td class="py-3 px-3">
+<div class="font-bold text-slate-800">Cafetaria / Bar Central</div>
+<div class="text-[11px] text-slate-500">Café espresso + Água das Pedras</div>
+</td>
+<td class="py-3 px-3 whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[11px] bg-slate-100 text-slate-600 font-medium">
+<span class="material-symbols-outlined text-[13px]">point_of_sale</span> Balcão
+                        </span>
+</td>
+<td class="py-3 px-3 text-right font-bold text-slate-800 whitespace-nowrap">-€1,05</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+<span>A apresentar os últimos 4 movimentos</span>
+<span class="text-slate-400">Recibo digital com valor fiscal disponível para download</span>
+</div>
+</div>
+<!-- COLUNA DIREITA: Horários & Informações dos Espaços (5 Colunas) -->
+<div class="lg:col-span-5 bg-white rounded-xl border border-slate-200 p-6 shadow-sm flex flex-col justify-between" id="espacos-horarios">
+<div>
+<div class="flex items-center justify-between pb-4 border-b border-slate-200 mb-4">
+<div class="flex items-center gap-2.5">
+<span class="p-2 rounded-lg bg-[#74b816]/15 text-[#3f6900]">
+<span class="material-symbols-outlined text-[22px]">schedule</span>
+</span>
+<div>
+<h3 class="text-base font-bold text-slate-900">Horários &amp; Espaços SAS</h3>
+<p class="text-xs text-slate-500">Campus de Tomar &amp; Abrantes</p>
+</div>
+</div>
+<span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-[#74b816]/15 text-[#3f6900] border border-[#74b816]/30">
+                  Em Funcionamento
+                </span>
+</div>
+<!-- Lista de Polos / Refeitórios -->
+<div class="space-y-3">
+<!-- Polo 1: Tomar -->
+<div class="p-3.5 rounded-xl border border-slate-200 bg-slate-50/60">
+<div class="flex items-center justify-between mb-1.5">
+<span class="text-xs font-bold text-slate-900">Cantina Quinta do Contador (Tomar)</span>
+<span class="text-[11px] font-semibold text-[#3f6900] flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-[#74b816]"></span> Aberto
+                    </span>
+</div>
+<div class="grid grid-cols-2 gap-2 text-xs text-slate-600 mt-2">
+<div><strong class="text-slate-700">Almoço:</strong> 12:00 – 14:30</div>
+<div><strong class="text-slate-700">Jantar:</strong> 19:00 – 21:00</div>
+</div>
+<div class="text-[11px] text-slate-500 mt-2 flex items-center justify-between">
+<span>Capacidade: 380 lugares</span>
+<span class="text-[#3f6900] font-semibold">Take-away disponível</span>
+</div>
+</div>
+<!-- Polo 2: Abrantes -->
+<div class="p-3.5 rounded-xl border border-slate-200 bg-slate-50/60">
+<div class="flex items-center justify-between mb-1.5">
+<span class="text-xs font-bold text-slate-900">Refeitório Campus ESTA (Abrantes)</span>
+<span class="text-[11px] font-semibold text-[#3f6900] flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-[#74b816]"></span> Aberto
+                    </span>
+</div>
+<div class="grid grid-cols-2 gap-2 text-xs text-slate-600 mt-2">
+<div><strong class="text-slate-700">Almoço:</strong> 12:00 – 14:00</div>
+<div><strong class="text-slate-700">Jantar:</strong> <span class="text-slate-400">Encerrado</span></div>
+</div>
+<div class="text-[11px] text-slate-500 mt-2 flex items-center justify-between">
+<span>Capacidade: 140 lugares</span>
+<span class="text-[#3f6900] font-semibold">Linha Rápida</span>
+</div>
+</div>
+<!-- Polo 3: Bares & Cafetarias -->
+<div class="p-3.5 rounded-xl border border-slate-200 bg-slate-50/60">
+<div class="flex items-center justify-between mb-1">
+<span class="text-xs font-bold text-slate-900">Bar Central Tomar &amp; Bar ESTA</span>
+<span class="text-[11px] font-semibold text-[#3f6900]">08:00 – 18:00</span>
+</div>
+<div class="text-xs text-slate-500 mt-1">
+                    Serviço contínuo de cafetaria, sopas e lanches com desconto Unicard.
+                  </div>
+</div>
+</div>
+</div>
+<!-- Botão de Ocorrências e Apoio -->
+<div class="mt-4 pt-3 border-t border-slate-100 flex flex-col gap-2">
+<button class="w-full py-2 px-3 bg-slate-100 hover:bg-[#74b816]/10 text-slate-700 hover:text-[#3f6900] rounded-lg text-xs font-semibold flex items-center justify-center gap-1.5 transition-all" onclick="document.getElementById('modal-ticket').classList.remove('hidden')">
+<span class="material-symbols-outlined text-[16px] text-[#74b816]">contact_support</span>
+                Comunicar Problema / Sugestão SAS
+              </button>
+</div>
+</div>
+</section>
+</main>
+<!-- ========================================================================= -->
+<!-- INSTITUTIONAL FOOTER                                                      -->
+<!-- ========================================================================= -->
+<footer class="w-full bg-white border-t border-slate-200 py-6 px-6 md:px-8 mt-12">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+<div class="flex flex-col sm:flex-row items-center gap-2 text-center sm:text-left">
+<span class="font-bold text-slate-900 flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-sm bg-[#74b816] inline-block"></span> SAS-IPT Alimentação
+</span>
+<span class="hidden sm:inline text-slate-300">|</span>
+<span>© 2024 Instituto Politécnico de Tomar · Serviços de Ação Social (SAS-IPT). Todos os direitos reservados.</span>
+</div>
+<div class="flex items-center gap-4 flex-wrap justify-center font-medium">
+<a class="hover:text-[#74b816] transition-colors" href="#ementa">Ementa Semanal</a>
+<a class="hover:text-[#74b816] transition-colors" href="#tabela">Tabela Nutricional &amp; Alergénios</a>
+<a class="hover:text-[#74b816] transition-colors" href="#regulamento">Regulamento das Cantinas</a>
+<a class="hover:text-[#74b816] transition-colors" href="#espacos-horarios">Horários</a>
+<a class="hover:text-[#74b816] transition-colors" href="#privacidade">Privacidade</a>
+</div>
+</div>
+</footer>
+</div>
+</div>
+<!-- ========================================================================= -->
+<!-- MODAL: CARREGAMENTO DE SALDO (MB WAY & MULTIBANCO)                       -->
+<!-- ========================================================================= -->
+<div class="hidden fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4" id="modal-carregamento">
+<div class="bg-white rounded-2xl max-w-md w-full border border-slate-200 shadow-2xl overflow-hidden animate-in fade-in zoom-in duration-150">
+<!-- Header -->
+<div class="p-5 bg-slate-50 border-b border-slate-200 flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-9 h-9 rounded-lg bg-[#74b816]/15 text-[#3f6900] flex items-center justify-center">
+<span class="material-symbols-outlined text-[22px]">account_balance_wallet</span>
+</div>
+<div>
+<h3 class="text-base font-bold text-slate-900">Carregar Saldo Unicard</h3>
+<span class="text-xs text-slate-500">Michelle (N.º 24108)</span>
+</div>
+</div>
+<button class="p-1 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-200/50" onclick="document.getElementById('modal-carregamento').classList.add('hidden')">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<!-- Body -->
+<div class="p-5 space-y-4">
+<!-- Seletor de Método -->
+<div>
+<label class="block text-xs font-semibold text-slate-600 mb-1.5">Escolha o Método de Pagamento:</label>
+<div class="grid grid-cols-2 gap-2">
+<button class="metodo-btn p-2.5 rounded-lg border-2 border-[#74b816] bg-[#74b816]/10 text-[#3f6900] font-semibold text-xs flex items-center justify-center gap-2" onclick="mudarMetodoCarregamento('mbway', this)" type="button">
+<span class="material-symbols-outlined text-[18px] text-[#74b816]">smartphone</span> MB WAY
+            </button>
+<button class="metodo-btn p-2.5 rounded-lg border border-slate-200 bg-white text-slate-600 font-medium text-xs flex items-center justify-center gap-2" onclick="mudarMetodoCarregamento('multibanco', this)" type="button">
+<span class="material-symbols-outlined text-[18px]">pin</span> Multibanco
+            </button>
+</div>
+</div>
+<!-- Seletor de Valor -->
+<div>
+<label class="block text-xs font-semibold text-slate-600 mb-1.5">Montante:</label>
+<div class="grid grid-cols-4 gap-2">
+<button class="val-btn py-2 rounded-lg border border-slate-200 text-xs font-bold text-slate-700 hover:border-[#74b816]" onclick="setValor(5, this)">€5,00</button>
+<button class="val-btn py-2 rounded-lg border border-slate-200 text-xs font-bold text-slate-700 hover:border-[#74b816]" onclick="setValor(10, this)">€10,00</button>
+<button class="val-btn py-2 rounded-lg border-2 border-[#74b816] bg-[#74b816]/15 text-[#3f6900] text-xs font-bold" onclick="setValor(20, this)">€20,00</button>
+<button class="val-btn py-2 rounded-lg border border-slate-200 text-xs font-bold text-slate-700 hover:border-[#74b816]" onclick="setValor(30, this)">€30,00</button>
+</div>
+</div>
+<!-- Formulário MB WAY -->
+<div class="space-y-2" id="form-mbway">
+<label class="block text-xs font-semibold text-slate-600">Telemóvel associado ao MB WAY:</label>
+<div class="relative">
+<span class="absolute left-3 top-2 text-xs text-slate-400 font-medium">+351</span>
+<input class="w-full pl-14 pr-3 py-1.5 bg-slate-50 border border-slate-200 rounded-lg text-xs font-mono text-slate-800 focus:bg-white focus:outline-none focus:border-[#74b816]" type="tel" value="912 345 678"/>
+</div>
+<p class="text-[11px] text-slate-400">Receberá notificação instantânea para autorizar a operação na sua app móvel.</p>
+</div>
+<!-- Multibanco (oculto) -->
+<div class="hidden p-3 rounded-lg bg-slate-50 border border-slate-200 space-y-1.5 text-xs" id="form-multibanco">
+<div class="flex justify-between">
+<span class="text-slate-500">Entidade:</span>
+<span class="font-mono font-bold text-slate-800">21223 (SAS-IPT)</span>
+</div>
+<div class="flex justify-between">
+<span class="text-slate-500">Referência:</span>
+<span class="font-mono font-bold text-slate-800">892 410 802</span>
+</div>
+<div class="flex justify-between">
+<span class="text-slate-500">Montante:</span>
+<span class="font-mono font-bold text-[#3f6900]" id="mb-val-display">€20,00</span>
+</div>
+</div>
+<!-- Resumo -->
+<div class="p-3 bg-slate-50 rounded-lg border border-slate-100 flex items-center justify-between text-xs">
+<span class="text-slate-600 font-medium">Novo saldo previsto:</span>
+<span class="font-bold text-[#3f6900] text-sm" id="previsao-saldo">€38,50</span>
+</div>
+</div>
+<!-- Footer -->
+<div class="p-4 bg-slate-50 border-t border-slate-200 flex items-center justify-end gap-2">
+<button class="px-3.5 py-2 text-xs font-medium text-slate-600 hover:bg-slate-200/60 rounded-lg" onclick="document.getElementById('modal-carregamento').classList.add('hidden')">
+          Cancelar
+        </button>
+<button class="px-4 py-2 bg-[#74b816] hover:bg-[#3f6900] text-white text-xs font-bold rounded-lg shadow-sm shadow-[#74b816]/30 flex items-center gap-1.5 transition-all" onclick="finalizarCarregamento()">
+<span class="material-symbols-outlined text-[16px]">lock</span>
+          Confirmar Carregamento
+        </button>
+</div>
+</div>
+</div>
+<!-- MODAL: COMUNICAR PROBLEMA SAS -->
+<div class="hidden fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4" id="modal-ticket">
+<div class="bg-white rounded-2xl max-w-md w-full border border-slate-200 shadow-2xl p-5 space-y-4">
+<div class="flex items-center justify-between pb-2 border-b border-slate-100">
+<h3 class="text-base font-bold text-slate-900">Comunicar Ocorrência SAS-IPT</h3>
+<button class="text-slate-400 hover:text-slate-600" onclick="document.getElementById('modal-ticket').classList.add('hidden')">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<div>
+<label class="block text-xs font-semibold text-slate-600 mb-1">Tipo:</label>
+<select class="w-full text-xs p-2 border border-slate-200 rounded-lg bg-slate-50 focus:border-[#74b816] focus:outline-none">
+<option>Cartão / Falha Torniquete</option>
+<option>Carregamento Saldo / MB WAY</option>
+<option>Qualidade Refeição / Ementa</option>
+<option>Outro Assunto SAS</option>
+</select>
+</div>
+<div>
+<label class="block text-xs font-semibold text-slate-600 mb-1">Descrição:</label>
+<textarea class="w-full text-xs p-2 border border-slate-200 rounded-lg bg-slate-50 focus:border-[#74b816] focus:outline-none" placeholder="Indique resumidamente a situação..." rows="3"></textarea>
+</div>
+<button class="w-full py-2 bg-[#74b816] text-white text-xs font-bold rounded-lg hover:bg-[#3f6900] shadow-sm shadow-[#74b816]/30" onclick="document.getElementById('modal-ticket').classList.add('hidden'); mostrarToast('Ocorrência registada nos SAS-IPT com sucesso!');">
+        Submeter aos SAS-IPT
+      </button>
+</div>
+</div>
+<!-- TOAST NOTIFICATION -->
+<div class="fixed bottom-6 right-6 z-50 hidden bg-slate-900 text-white px-4 py-3 rounded-xl shadow-2xl flex items-center gap-2.5 text-xs font-medium border border-slate-800" id="toast">
+<span class="material-symbols-outlined text-[#74b816] text-[20px]">check_circle</span>
+<span id="toast-message">Operação concluída com sucesso!</span>
+</div>
+<!-- JAVASCRIPT LOGIC -->
+<script>
+    function mostrarToast(msg) {
+      const t = document.getElementById('toast');
+      document.getElementById('toast-message').textContent = msg;
+      t.classList.remove('hidden');
+      setTimeout(() => t.classList.add('hidden'), 3500);
+    }
+
+    function comprarRefeicaoRapida(turno, preco) {
+      if (confirm(`Confirmar reserva de ${turno} por €${preco}? O valor será debitado do seu Saldo Unicard.`)) {
+        mostrarToast(`Refeição (${turno}) reservada com sucesso! Código ativo no seu cartão.`);
+      }
+    }
+
+    function filtrarDieta(dieta, btn) {
+      document.querySelectorAll('#diet-filters .filter-pill').forEach(b => {
+        b.classList.remove('bg-[#74b816]', 'text-white');
+        b.classList.add('bg-slate-100', 'text-slate-700');
+      });
+      btn.classList.add('bg-[#74b816]', 'text-white');
+      btn.classList.remove('bg-slate-100', 'text-slate-700');
+
+      const items = document.querySelectorAll('.diet-item');
+      items.forEach(it => {
+        if (dieta === 'todas') {
+          it.style.display = 'block';
+        } else {
+          const diets = it.getAttribute('data-diet') || '';
+          it.style.display = diets.includes(dieta) ? 'block' : 'none';
+        }
+      });
+    }
+
+    function mudarMetodoCarregamento(metodo, btn) {
+      document.querySelectorAll('.metodo-btn').forEach(b => {
+        b.classList.remove('border-2', 'border-[#74b816]', 'bg-[#74b816]/10', 'text-[#3f6900]', 'font-semibold');
+        b.classList.add('border', 'border-slate-200', 'bg-white', 'text-slate-600', 'font-medium');
+      });
+      btn.classList.add('border-2', 'border-[#74b816]', 'bg-[#74b816]/10', 'text-[#3f6900]', 'font-semibold');
+      btn.classList.remove('border-slate-200', 'bg-white', 'text-slate-600');
+
+      if (metodo === 'mbway') {
+        document.getElementById('form-mbway').classList.remove('hidden');
+        document.getElementById('form-multibanco').classList.add('hidden');
+      } else {
+        document.getElementById('form-mbway').classList.add('hidden');
+        document.getElementById('form-multibanco').classList.remove('hidden');
+      }
+    }
+
+    let montante = 20;
+    function setValor(val, btn) {
+      montante = val;
+      document.querySelectorAll('.val-btn').forEach(b => {
+        b.classList.remove('border-2', 'border-[#74b816]', 'bg-[#74b816]/15', 'text-[#3f6900]');
+        b.classList.add('border', 'border-slate-200', 'text-slate-700');
+      });
+      btn.classList.add('border-2', 'border-[#74b816]', 'bg-[#74b816]/15', 'text-[#3f6900]');
+      btn.classList.remove('border-slate-200', 'text-slate-700');
+
+      document.getElementById('mb-val-display').textContent = `€${val},00`;
+      document.getElementById('previsao-saldo').textContent = `€${(18.5 + val).toFixed(2).replace('.', ',')}`;
+    }
+
+    function finalizarCarregamento() {
+      document.getElementById('modal-carregamento').classList.add('hidden');
+      mostrarToast(`Pedido de carregamento de €${montante},00 iniciado! Valide na app móvel.`);
+    }
+  </script>
+</body></html>
