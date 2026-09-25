@@ -115,7 +115,7 @@
 <aside class="fixed inset-y-0 left-0 z-40 w-64 bg-surface-container-lowest border-r border-outline-variant hidden lg:flex flex-col justify-between p-4 pt-6 shadow-sm select-none" id="appSidebar">
 <div>
 <!-- Brand & Logo -->
-<a class="flex items-center gap-3 px-2 py-3 mb-6 rounded-xl hover:bg-surface-container transition-colors" href="#">
+<a class="flex items-center gap-3 px-2 py-3 mb-4 rounded-xl hover:bg-surface-container transition-colors" href="/hub.html" title="Voltar ao IPT Hub Geral">
 <div class="w-10 h-10 rounded-lg bg-[#74b816] flex items-center justify-center text-white font-bold shadow-sm shrink-0">
 <span class="font-headline-sm tracking-tighter">IPT</span>
 </div>
@@ -124,61 +124,86 @@
 <span class="text-label-sm text-on-surface-variant truncate">Politécnico de Tomar</span>
 </div>
 </a>
+<!-- Ecossistema IPT Links -->
+<div class="text-[11px] font-bold text-[#3f6900] uppercase tracking-wider px-3 mb-1">Ecossistema IPT</div>
+<nav class="space-y-0.5 mb-3 pb-2 border-b border-outline-variant">
+<a class="flex items-center gap-2.5 px-3 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary text-xs font-semibold transition-colors" href="/hub.html">
+<span class="material-symbols-outlined text-[18px] text-[#74b816]">hub</span>
+<span>IPT Hub Geral</span>
+</a>
+<a class="flex items-center gap-2.5 px-3 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary text-xs font-semibold transition-colors" href="/dashboard.html">
+<span class="material-symbols-outlined text-[18px] text-[#0284c7]">dashboard</span>
+<span>NETPA Dashboard</span>
+</a>
+<a class="flex items-center gap-2.5 px-3 py-1.5 rounded-lg bg-[#e11d48]/10 text-[#e11d48] text-xs font-bold border-l-4 border-[#e11d48] transition-colors" href="/balcao-unico.html">
+<span class="material-symbols-outlined text-[18px] text-[#e11d48]">support_agent</span>
+<span>Balcão Único SPOC</span>
+</a>
+<a class="flex items-center gap-2.5 px-3 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary text-xs font-semibold transition-colors" href="/refeitorio.html">
+<span class="material-symbols-outlined text-[18px] text-[#d97706]">restaurant</span>
+<span>Refeitório & SAS</span>
+</a>
+<a class="flex items-center gap-2.5 px-3 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary text-xs font-semibold transition-colors" href="/prova-vida.html">
+<span class="material-symbols-outlined text-[18px] text-[#059669]">fact_check</span>
+<span>Prova de Vida</span>
+</a>
+<a class="flex items-center gap-2.5 px-3 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary text-xs font-semibold transition-colors" href="/diretorio.html">
+<span class="material-symbols-outlined text-[18px] text-[#7c3aed]">contacts</span>
+<span>Diretório</span>
+</a>
+</nav>
 <!-- Navigation Links -->
-<div class="text-label-sm uppercase font-semibold text-outline px-3 mb-2 tracking-wider">Navegação</div>
+<div class="text-label-sm uppercase font-semibold text-outline px-3 mb-1 tracking-wider">Secções Balcão</div>
 <nav class="space-y-1">
-<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-[#74b816]/10 text-primary font-title-sm font-semibold border-l-4 border-[#74b816]" href="#inicio">
-<span class="material-symbols-outlined text-[20px] text-[#74b816]">home</span>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-[#74b816]/10 text-primary font-title-sm font-semibold border-l-4 border-[#74b816]" href="#inicio">
+<span class="material-symbols-outlined text-[18px] text-[#74b816]">home</span>
 <span>Início</span>
 </a>
-<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary font-title-sm transition-colors" href="#sou-estudante">
-<span class="material-symbols-outlined text-[20px]">school</span>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary font-title-sm transition-colors" href="#sou-estudante">
+<span class="material-symbols-outlined text-[18px]">school</span>
 <span>Sou Estudante</span>
 </a>
-<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary font-title-sm transition-colors" href="#quero-candidatar-me">
-<span class="material-symbols-outlined text-[20px]">person_add</span>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary font-title-sm transition-colors" href="#quero-candidatar-me">
+<span class="material-symbols-outlined text-[18px]">person_add</span>
 <span>Quero Candidatar-me</span>
 </a>
-<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary font-title-sm transition-colors" href="#prazos">
-<span class="material-symbols-outlined text-[20px]">calendar_month</span>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary font-title-sm transition-colors" href="#prazos">
+<span class="material-symbols-outlined text-[18px]">calendar_month</span>
 <span>Prazos &amp; Calendário</span>
 </a>
-<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary font-title-sm transition-colors" href="#emolumentos">
-<span class="material-symbols-outlined text-[20px]">payments</span>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary font-title-sm transition-colors" href="#emolumentos">
+<span class="material-symbols-outlined text-[18px]">payments</span>
 <span>Emolumentos</span>
 </a>
-<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary font-title-sm transition-colors" href="#senha-virtual">
-<span class="material-symbols-outlined text-[20px]">confirmation_number</span>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary font-title-sm transition-colors" href="#senha-virtual">
+<span class="material-symbols-outlined text-[18px]">confirmation_number</span>
 <span>Senha &amp; Atendimento</span>
 </a>
-<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary font-title-sm transition-colors" href="#faq">
-<span class="material-symbols-outlined text-[20px]">help</span>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary font-title-sm transition-colors" href="#faq">
+<span class="material-symbols-outlined text-[18px]">help</span>
 <span>Perguntas Frequentes</span>
 </a>
 </nav>
 </div>
 <!-- Sidebar Footer Quick Actions -->
-<div class="border-t border-outline-variant pt-4 space-y-2">
-<div class="bg-surface-container-low rounded-xl p-3 border border-outline-variant text-body-sm">
+<div class="border-t border-outline-variant pt-3 space-y-2">
+<div class="bg-surface-container-low rounded-xl p-2.5 border border-outline-variant text-body-sm">
 <div class="flex items-center justify-between font-label-md text-primary mb-1">
 <span class="flex items-center gap-1.5 font-bold">
-<span class="material-symbols-outlined text-[18px] text-[#74b816]">local_activity</span>
+<span class="material-symbols-outlined text-[16px] text-[#74b816]">local_activity</span>
           Senha Virtual
         </span>
-<span class="px-1.5 py-0.5 rounded bg-[#74b816]/15 text-primary text-[11px] font-bold">3 na fila</span>
+<span class="px-1.5 py-0.5 rounded bg-[#74b816]/15 text-primary text-[10px] font-bold">3 na fila</span>
 </div>
-<p class="text-on-surface-variant text-[12px] mb-2">Espera estimada: ~8 min</p>
-<a class="block text-center py-2 rounded-lg bg-[#74b816] text-white font-label-md text-xs hover:bg-[#3f6900] shadow-sm transition-all font-semibold" href="#senha-virtual">
+<p class="text-on-surface-variant text-[11px] mb-1.5">Espera estimada: ~8 min</p>
+<a class="block text-center py-1.5 rounded-lg bg-[#74b816] text-white font-label-md text-xs hover:bg-[#3f6900] shadow-sm transition-all font-semibold" href="#senha-virtual">
         Tirar Senha Agora
       </a>
 </div>
-<a class="flex items-center justify-between px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container text-body-sm transition-colors" href="tel:+351249328100">
-<span class="flex items-center gap-2">
-<span class="material-symbols-outlined text-[18px]">call</span>
-<span>249 328 100</span>
-</span>
-<span class="text-[11px] text-outline font-mono">Ext. 2101</span>
-</a>
+<button onclick="if(confirm('Tem a certeza de que deseja terminar sessão?')) IPTAuth.logout()" class="w-full flex items-center justify-center gap-2 py-2 px-3 rounded-lg text-error hover:bg-error-container/30 text-xs font-semibold transition-colors">
+<span class="material-symbols-outlined text-[16px]">logout</span>
+<span>Terminar Sessão</span>
+</button>
 </div>
 </aside><header class="lg:pl-64 sticky top-0 z-30 pt-1.5 bg-surface-container-lowest/90 backdrop-blur-md border-b border-outline-variant">
 <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
@@ -196,10 +221,27 @@
 <span class="w-2 h-2 rounded-full bg-[#74b816] animate-pulse"></span>
 <span>Atendimento Balcão: Aberto (09h00 - 16h30)</span>
 </div>
-<a class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-[#74b816] text-white font-label-md hover:bg-[#3f6900] shadow-sm transition-colors" href="https://netpa.ipt.pt" rel="noopener noreferrer" target="_blank">
-<span class="material-symbols-outlined text-[18px]">person</span>
-<span>NETPA Aluno</span>
+<a class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-outline-variant hover:bg-surface-container text-xs font-semibold text-on-surface transition-colors" href="/hub.html">
+<span class="material-symbols-outlined text-[16px] text-[#74b816]">hub</span>
+<span>IPT Hub</span>
 </a>
+<div class="relative group/profile flex items-center gap-2 pl-1 cursor-pointer">
+<img class="w-8 h-8 rounded-full object-cover border border-outline-variant shadow-xs" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80"/>
+<div class="hidden sm:flex flex-col text-left">
+<span class="text-xs font-bold text-on-surface leading-tight">Michelle Matias</span>
+<span class="text-[10px] text-on-surface-variant font-mono">Nº 24891</span>
+</div>
+<div class="hidden group-hover/profile:flex flex-col absolute right-0 top-full mt-2 w-52 p-2 bg-surface-container-lowest border border-outline-variant rounded-xl shadow-xl z-50">
+<a href="/hub.html" class="flex items-center gap-2 p-2 rounded-lg text-slate-700 hover:bg-[#F4F9E9] text-xs font-semibold">
+<span class="material-symbols-outlined text-base text-[#74b816]">hub</span>
+<span>IPT Hub Geral</span>
+</a>
+<button onclick="if(confirm('Tem a certeza de que deseja terminar sessão?')) IPTAuth.logout()" class="flex items-center gap-2 p-2 rounded-lg text-error hover:bg-error-container/30 transition-colors text-xs font-semibold w-full text-left mt-1 border-t border-outline-variant/40 pt-2">
+<span class="material-symbols-outlined text-base">logout</span>
+<span>Terminar Sessão</span>
+</button>
+</div>
+</div>
 </div>
 </div>
 </header>
@@ -561,4 +603,5 @@
       }
     });
   </script>
+  <script src="/auth.js"></script>
 </body></html>

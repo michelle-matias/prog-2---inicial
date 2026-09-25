@@ -140,24 +140,29 @@
 </div>
 <!-- Trailing Actions & User Cluster -->
 <div class="flex items-center gap-3">
-<nav class="hidden xl:flex items-center gap-5 text-sm font-semibold">
-<a class="text-[#74B816] border-b-2 border-[#74B816] pb-1" href="#sec-hub">IPT Hub</a>
-<a class="text-slate-600 hover:text-[#2563eb] transition-colors" href="#sec-netpa">NETPA</a>
-<a class="text-slate-600 hover:text-[#d97706] transition-colors" href="#sec-balcao">Balcão Único</a>
-<a class="text-slate-600 hover:text-[#ea580c] transition-colors" href="#sec-refeitorio">Cantinas</a>
-<a class="text-slate-600 hover:text-[#0d9488] transition-colors" href="#sec-sas">SAS-IPT</a>
+<nav class="hidden xl:flex items-center gap-4 text-xs font-semibold">
+<a class="text-slate-600 hover:text-[#74B816] transition-colors" href="/hub.html">IPT Hub</a>
+<a class="text-slate-600 hover:text-[#2563eb] transition-colors" href="/dashboard.html">NETPA</a>
+<a class="text-slate-600 hover:text-[#d97706] transition-colors" href="/balcao-unico.html">Balcão Único</a>
+<a class="text-slate-600 hover:text-[#ea580c] transition-colors" href="/refeitorio.html">Cantinas</a>
+<a class="text-slate-600 hover:text-[#0d9488] transition-colors" href="/prova-vida.html">SAS-IPT</a>
+<a class="text-[#74B816] border-b-2 border-[#74B816] pb-0.5 font-bold" href="/diretorio.html">Diretório</a>
 </nav>
-<div class="flex items-center gap-1.5 border-l border-slate-200 pl-3">
-<button class="p-2 text-slate-600 hover:text-[#74B816] hover:bg-slate-100 rounded-lg transition-colors" title="Aplicações Federadas (Waffle)">
-<span class="material-symbols-outlined">apps</span>
+<div class="flex items-center gap-2 border-l border-slate-200 pl-3">
+<div class="relative group/profile flex items-center gap-2 cursor-pointer">
+<img class="w-8 h-8 rounded-full object-cover border border-slate-200" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80"/>
+<span class="text-xs font-bold text-slate-800 hidden sm:inline">Michelle Matias</span>
+<div class="hidden group-hover/profile:flex flex-col absolute right-0 top-full mt-2 w-52 p-2 bg-white border border-slate-200 rounded-xl shadow-xl z-50">
+<a href="/hub.html" class="flex items-center gap-2 p-2 rounded-lg text-slate-700 hover:bg-[#f0f9e8] text-xs font-semibold">
+<span class="material-symbols-outlined text-base text-[#74B816]">hub</span>
+<span>IPT Hub Geral</span>
+</a>
+<button onclick="if(confirm('Tem a certeza de que deseja terminar sessão?')) IPTAuth.logout()" class="flex items-center gap-2 p-2 rounded-lg text-red-600 hover:bg-red-50 transition-colors text-xs font-semibold w-full text-left mt-1 border-t border-slate-100 pt-2">
+<span class="material-symbols-outlined text-base">logout</span>
+<span>Terminar Sessão</span>
 </button>
-<button class="p-2 text-slate-600 hover:text-[#74B816] hover:bg-slate-100 rounded-lg transition-colors relative" title="Notificações">
-<span class="material-symbols-outlined">notifications</span>
-<span class="w-2 h-2 rounded-full bg-[#74B816] ring-2 ring-white absolute top-1.5 right-1.5"></span>
-</button>
-<a class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold rounded-lg bg-[#74B816] hover:bg-[#629d12] text-white transition-all shadow-sm shadow-[#74B816]/30 ml-1" href="#docs">
-<span class="material-symbols-outlined text-sm">description</span> Docs
-        </a>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -903,4 +908,5 @@
     }
   });
 </script>
+<script src="/auth.js"></script>
 </body></html>

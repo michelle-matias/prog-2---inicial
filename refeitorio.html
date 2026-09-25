@@ -89,7 +89,7 @@
 <aside class="w-64 fixed inset-y-0 left-0 top-1.5 z-30 flex flex-col justify-between bg-white border-r border-slate-200 shadow-sm p-4 hidden lg:flex">
 <div class="flex flex-col gap-6">
 <!-- Logo SAS-IPT -->
-<div class="flex items-center gap-3 px-2 py-2 border-b border-slate-100">
+<a href="/hub.html" class="flex items-center gap-3 px-2 py-2 border-b border-slate-100 hover:bg-slate-50 rounded-lg transition-colors" title="Voltar ao Hub Geral">
 <div class="w-10 h-10 rounded-xl bg-[#74b816] flex items-center justify-center text-white shadow-md shadow-[#74b816]/20">
 <span class="material-symbols-outlined text-[24px]">school</span>
 </div>
@@ -97,58 +97,81 @@
 <span class="font-headline-sm font-bold text-slate-900 leading-tight text-base">SAS-IPT Unicard</span>
 <span class="text-[11px] text-slate-500 font-medium">Serviços de Ação Social</span>
 </div>
-</div>
+</a>
+<!-- Ecossistema IPT Links -->
+<div class="text-[11px] font-bold text-[#3f6900] uppercase tracking-wider px-3 pt-1 mb-1">Ecossistema IPT</div>
+<nav class="space-y-0.5 mb-2 pb-2 border-b border-slate-100">
+<a class="flex items-center gap-2.5 px-3 py-1.5 rounded-lg text-slate-600 hover:bg-slate-50 hover:text-[#3f6900] text-xs font-semibold transition-colors" href="/hub.html">
+<span class="material-symbols-outlined text-[18px] text-[#74b816]">hub</span>
+<span>IPT Hub Geral</span>
+</a>
+<a class="flex items-center gap-2.5 px-3 py-1.5 rounded-lg text-slate-600 hover:bg-slate-50 hover:text-[#3f6900] text-xs font-semibold transition-colors" href="/dashboard.html">
+<span class="material-symbols-outlined text-[18px] text-[#0284c7]">dashboard</span>
+<span>NETPA Dashboard</span>
+</a>
+<a class="flex items-center gap-2.5 px-3 py-1.5 rounded-lg text-slate-600 hover:bg-slate-50 hover:text-[#3f6900] text-xs font-semibold transition-colors" href="/balcao-unico.html">
+<span class="material-symbols-outlined text-[18px] text-[#e11d48]">support_agent</span>
+<span>Balcão Único</span>
+</a>
+<a class="flex items-center gap-2.5 px-3 py-1.5 rounded-lg bg-[#74b816]/15 text-[#3f6900] text-xs font-bold border-l-4 border-[#74b816] transition-colors" href="/refeitorio.html">
+<span class="material-symbols-outlined text-[18px] text-[#74b816]">restaurant</span>
+<span>Refeitório & SAS</span>
+</a>
+<a class="flex items-center gap-2.5 px-3 py-1.5 rounded-lg text-slate-600 hover:bg-slate-50 hover:text-[#3f6900] text-xs font-semibold transition-colors" href="/prova-vida.html">
+<span class="material-symbols-outlined text-[18px] text-[#059669]">fact_check</span>
+<span>Prova de Vida</span>
+</a>
+<a class="flex items-center gap-2.5 px-3 py-1.5 rounded-lg text-slate-600 hover:bg-slate-50 hover:text-[#3f6900] text-xs font-semibold transition-colors" href="/diretorio.html">
+<span class="material-symbols-outlined text-[18px] text-[#7c3aed]">contacts</span>
+<span>Diretório</span>
+</a>
+</nav>
 <!-- Menu Links -->
-<nav aria-label="Menu Principal" class="flex flex-col gap-1.5">
-<a class="bg-[#74b816]/15 text-[#3f6900] font-bold rounded-lg px-3.5 py-2.5 flex items-center gap-3 transition-colors border-l-4 border-[#74b816]" href="#inicio">
-<span class="material-symbols-outlined text-[20px] text-[#74b816]">dashboard</span>
-<span class="text-sm">Início</span>
+<div class="text-[11px] font-semibold text-slate-400 uppercase tracking-wider px-3 mb-1">Módulo Refeitório</div>
+<nav aria-label="Menu Principal" class="flex flex-col gap-1">
+<a class="bg-slate-100 text-slate-900 font-bold rounded-lg px-3 py-2 flex items-center gap-3 transition-colors" href="#inicio">
+<span class="material-symbols-outlined text-[18px] text-[#74b816]">dashboard</span>
+<span class="text-xs">Início</span>
 </a>
-<a class="text-slate-600 hover:text-[#3f6900] hover:bg-[#74b816]/10 rounded-lg px-3.5 py-2.5 flex items-center gap-3 transition-colors font-medium" href="#ementa">
-<span class="material-symbols-outlined text-[20px]">restaurant</span>
-<span class="text-sm">Ementa &amp; Refeições</span>
+<a class="text-slate-600 hover:text-[#3f6900] hover:bg-[#74b816]/10 rounded-lg px-3 py-2 flex items-center gap-3 transition-colors font-medium" href="#ementa">
+<span class="material-symbols-outlined text-[18px]">restaurant</span>
+<span class="text-xs">Ementa &amp; Refeições</span>
 </a>
-<a class="text-slate-600 hover:text-[#3f6900] hover:bg-[#74b816]/10 rounded-lg px-3.5 py-2.5 flex items-center gap-3 transition-colors font-medium" href="#saldo-movimentos">
-<span class="material-symbols-outlined text-[20px]">payments</span>
-<span class="text-sm">Saldo &amp; Carregamentos</span>
+<a class="text-slate-600 hover:text-[#3f6900] hover:bg-[#74b816]/10 rounded-lg px-3 py-2 flex items-center gap-3 transition-colors font-medium" href="#saldo-movimentos">
+<span class="material-symbols-outlined text-[18px]">payments</span>
+<span class="text-xs">Saldo &amp; Carregamentos</span>
 </a>
-<a class="text-slate-600 hover:text-[#3f6900] hover:bg-[#74b816]/10 rounded-lg px-3.5 py-2.5 flex items-center gap-3 transition-colors font-medium" href="#cartao-virtual">
-<span class="material-symbols-outlined text-[20px]">credit_card</span>
-<span class="text-sm">Cartão Virtual Unicard</span>
+<a class="text-slate-600 hover:text-[#3f6900] hover:bg-[#74b816]/10 rounded-lg px-3 py-2 flex items-center gap-3 transition-colors font-medium" href="#cartao-virtual">
+<span class="material-symbols-outlined text-[18px]">credit_card</span>
+<span class="text-xs">Cartão Virtual Unicard</span>
 </a>
-<a class="text-slate-600 hover:text-[#3f6900] hover:bg-[#74b816]/10 rounded-lg px-3.5 py-2.5 flex items-center gap-3 transition-colors font-medium" href="#espacos-horarios">
-<span class="material-symbols-outlined text-[20px]">schedule</span>
-<span class="text-sm">Espaços &amp; Horários</span>
+<a class="text-slate-600 hover:text-[#3f6900] hover:bg-[#74b816]/10 rounded-lg px-3 py-2 flex items-center gap-3 transition-colors font-medium" href="#espacos-horarios">
+<span class="material-symbols-outlined text-[18px]">schedule</span>
+<span class="text-xs">Espaços &amp; Horários</span>
 </a>
-<a class="text-slate-600 hover:text-[#3f6900] hover:bg-[#74b816]/10 rounded-lg px-3.5 py-2.5 flex items-center justify-between transition-colors font-medium" href="#notificacoes">
+<a class="text-slate-600 hover:text-[#3f6900] hover:bg-[#74b816]/10 rounded-lg px-3 py-2 flex items-center justify-between transition-colors font-medium" href="#notificacoes">
 <div class="flex items-center gap-3">
-<span class="material-symbols-outlined text-[20px]">notifications</span>
-<span class="text-sm">Notificações &amp; Avisos</span>
+<span class="material-symbols-outlined text-[18px]">notifications</span>
+<span class="text-xs">Notificações</span>
 </div>
 <span class="w-2 h-2 rounded-full bg-[#74b816]"></span>
 </a>
-<a class="text-slate-600 hover:text-[#3f6900] hover:bg-[#74b816]/10 rounded-lg px-3.5 py-2.5 flex items-center gap-3 transition-colors font-medium" href="#apoio-faq">
-<span class="material-symbols-outlined text-[20px]">support_agent</span>
-<span class="text-sm">Apoio &amp; Feedback SAS</span>
+<a class="text-slate-600 hover:text-[#3f6900] hover:bg-[#74b816]/10 rounded-lg px-3 py-2 flex items-center gap-3 transition-colors font-medium" href="#apoio-faq">
+<span class="material-symbols-outlined text-[18px]">support_agent</span>
+<span class="text-xs">Apoio SAS</span>
 </a>
 </nav>
 </div>
 <!-- Quick Action & Sub-links -->
-<div class="flex flex-col gap-3 pt-3 border-t border-slate-200">
-<button class="w-full bg-[#74b816] hover:bg-[#3f6900] text-white text-sm font-bold py-2.5 px-3 rounded-lg shadow-sm shadow-[#74b816]/30 flex items-center justify-center gap-2 transition-all" onclick="document.getElementById('modal-carregamento').classList.remove('hidden')">
-<span class="material-symbols-outlined text-[18px]">add_card</span>
+<div class="flex flex-col gap-2.5 pt-3 border-t border-slate-200">
+<button class="w-full bg-[#74b816] hover:bg-[#3f6900] text-white text-xs font-bold py-2.5 px-3 rounded-lg shadow-sm shadow-[#74b816]/30 flex items-center justify-center gap-2 transition-all" onclick="document.getElementById('modal-carregamento').classList.remove('hidden')">
+<span class="material-symbols-outlined text-[16px]">add_card</span>
 <span>Carregar Saldo</span>
 </button>
-<div class="flex flex-col gap-1 text-xs text-slate-500 font-medium">
-<a class="flex items-center gap-2 px-2 py-1.5 rounded hover:bg-slate-50 hover:text-slate-700" href="#definicoes">
-<span class="material-symbols-outlined text-[18px]">settings</span>
-<span>Definições</span>
-</a>
-<a class="flex items-center gap-2 px-2 py-1.5 rounded hover:bg-red-50 text-red-600 font-medium" href="#logout">
-<span class="material-symbols-outlined text-[18px]">logout</span>
+<button onclick="if(confirm('Tem a certeza de que deseja terminar sessão?')) IPTAuth.logout()" class="w-full flex items-center justify-center gap-2 py-2 px-3 rounded-lg text-red-600 hover:bg-red-50 text-xs font-semibold transition-colors">
+<span class="material-symbols-outlined text-[16px]">logout</span>
 <span>Terminar Sessão</span>
-</a>
-</div>
+</button>
 </div>
 </aside>
 <!-- ========================================================================= -->
@@ -193,10 +216,21 @@
 <span class="material-symbols-outlined text-[#74b816] text-[18px]">account_balance_wallet</span>
 <span>€18,50</span>
 </button>
-<!-- Profile Avatar -->
-<div class="flex items-center gap-2 pl-1 border-l border-slate-200">
+<!-- Profile Avatar & Actions -->
+<div class="relative group/profile flex items-center gap-2 pl-2 border-l border-slate-200 cursor-pointer">
 <div class="relative w-8 h-8 rounded-full overflow-hidden border border-slate-200">
-<img alt="Perfil Michelle" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFhBHvdZ1_J8msYNaL3kcRe8jHYfbrZcwkhpEfVIbumNsnptDp0AapI4aHZGfwS_Tym1xXx6WSw49Mr4tYCDbxBrcVpUMn7GiLpBjyAlTh8IlFUGJVel-mfK1UH6kAlXVM5vFT3N4E6_XEz0c4CJF3mulWsxJFggY2ttMIKHsf2O4ly1EIgGIHp_BWr6GIO0UDINx7Nzbtj7R_PLecrSjY_NDHXq0xCH75X6K52x3RAMvzX74YHKrpVg"/>
+<img alt="Perfil Michelle Matias" class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80"/>
+</div>
+<span class="text-xs font-bold text-slate-800 hidden sm:inline">Michelle Matias</span>
+<div class="hidden group-hover/profile:flex flex-col absolute right-0 top-full mt-2 w-52 p-2 bg-white border border-slate-200 rounded-xl shadow-xl z-50">
+<a href="/hub.html" class="flex items-center gap-2 p-2 rounded-lg text-slate-700 hover:bg-[#F4F9E9] text-xs font-semibold">
+<span class="material-symbols-outlined text-base text-[#74b816]">hub</span>
+<span>IPT Hub Geral</span>
+</a>
+<button onclick="if(confirm('Tem a certeza de que deseja terminar sessão?')) IPTAuth.logout()" class="flex items-center gap-2 p-2 rounded-lg text-red-600 hover:bg-red-50 transition-colors text-xs font-semibold w-full text-left mt-1 border-t border-slate-100 pt-2">
+<span class="material-symbols-outlined text-base">logout</span>
+<span>Terminar Sessão</span>
+</button>
 </div>
 </div>
 </div>
@@ -990,4 +1024,5 @@
       mostrarToast(`Pedido de carregamento de €${montante},00 iniciado! Valide na app móvel.`);
     }
   </script>
+  <script src="/auth.js"></script>
 </body></html>

@@ -8,7 +8,7 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect"/>
   <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
   
   <!-- Tailwind CSS -->
@@ -20,18 +20,11 @@
           colors: {
             "primary": "#3f6900",
             "primary-container": "#74b816",
+            "primary-dark": "#2d4b00",
             "on-primary": "#ffffff",
-            "on-primary-container": "#264300",
-            "primary-fixed": "#aef756",
             "secondary": "#182230",
-            "secondary-container": "#d6e0f3",
-            "tertiary": "#006398",
-            "tertiary-container": "#4eadf3",
             "background": "#f4f6f8",
             "surface": "#ffffff",
-            "on-background": "#191c1e",
-            "on-surface": "#191c1e",
-            "outline": "#727a65",
             "ipt-red": "#E11D48",
             "ipt-green": "#059669",
             "ipt-blue": "#0284C7",
@@ -41,11 +34,12 @@
           },
           fontFamily: {
             "headline": ["Plus Jakarta Sans", "sans-serif"],
-            "body": ["Public Sans", "sans-serif"]
+            "body": ["Public Sans", "sans-serif"],
+            "mono": ["JetBrains Mono", "monospace"]
           },
           boxShadow: {
-            "card": "0 1px 3px rgba(24, 34, 48, 0.05)",
-            "card-hover": "0 12px 32px -4px rgba(24, 34, 48, 0.12)"
+            "card": "0 4px 20px -2px rgba(24, 34, 48, 0.08)",
+            "elevated": "0 20px 40px -15px rgba(24, 34, 48, 0.15)"
           }
         }
       }
@@ -55,163 +49,522 @@
     .material-symbols-outlined {
       font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
     }
-    
     body {
-      background-image: radial-gradient(circle at 100% 0%, #f4fce8 0%, #f4f6f8 30%);
+      background: radial-gradient(circle at 10% 20%, #f7fdf0 0%, #f4f6f8 60%, #eef2f6 100%);
     }
-
     .service-card {
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     }
     .service-card:hover {
       transform: translateY(-4px);
     }
-    .service-card:hover .service-icon {
-      transform: scale(1.1) rotate(5deg);
-    }
-    .service-icon {
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
   </style>
 </head>
-<body class="bg-background text-on-surface font-body antialiased min-h-screen flex flex-col selection:bg-ipt-lime selection:text-white">
+<body class="text-slate-800 font-body antialiased min-h-screen flex flex-col selection:bg-primary-container selection:text-white">
 
-  <!-- IPT Brand Strip -->
-  <div aria-hidden="true" class="h-[4px] w-full grid grid-cols-6 sticky top-0 z-50">
-    <div class="bg-ipt-red"></div>
-    <div class="bg-ipt-green"></div>
-    <div class="bg-ipt-blue"></div>
-    <div class="bg-ipt-amber"></div>
-    <div class="bg-ipt-lime"></div>
-    <div class="bg-ipt-violet"></div>
+  <!-- IPT Ribbon Multicolor Strip -->
+  <div aria-hidden="true" class="h-1.5 w-full flex overflow-hidden sticky top-0 z-50 shadow-xs">
+    <div class="flex-1 bg-[#d81b60]"></div>
+    <div class="flex-1 bg-[#74b816]"></div>
+    <div class="flex-1 bg-[#00897b]"></div>
+    <div class="flex-1 bg-[#0288d1]"></div>
+    <div class="flex-1 bg-[#1e88e5]"></div>
+    <div class="flex-1 bg-[#3949ab]"></div>
+    <div class="flex-1 bg-[#8e24aa]"></div>
+    <div class="flex-1 bg-[#fb8c00]"></div>
+    <div class="flex-1 bg-[#74b816]"></div>
   </div>
 
-  <main class="flex-1 max-w-[1320px] w-full mx-auto px-4 sm:px-8 py-12 flex flex-col items-center">
-    
-    <!-- Hero Section -->
-    <div class="text-center mb-16 max-w-2xl mt-8">
-      <div class="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-white shadow-card mb-6 border border-slate-100">
-        <span class="material-symbols-outlined text-[40px] text-primary-container">account_balance</span>
+  <!-- Top Institutional Bar -->
+  <header class="bg-white/80 backdrop-blur-md border-b border-slate-200/80 sticky top-1.5 z-40">
+    <div class="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#74b816] to-[#3f6900] flex items-center justify-center text-white shadow-md shadow-[#74b816]/30">
+          <span class="material-symbols-outlined text-[24px]">school</span>
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="font-headline font-extrabold text-slate-900 text-lg tracking-tight">Portal Académico</span>
+            <span class="text-[10px] font-bold tracking-wider uppercase px-2 py-0.5 bg-[#f0f9e8] text-[#3f6900] border border-[#74b816]/30 rounded">IPT Oficial</span>
+          </div>
+          <p class="text-xs text-slate-500 font-medium leading-none">Instituto Politécnico de Tomar • Ano Letivo 2025/2026</p>
+        </div>
       </div>
-      <h1 class="font-headline font-extrabold text-4xl sm:text-5xl tracking-tight text-secondary mb-4">
-        Portal Académico
-      </h1>
-      <p class="text-lg text-slate-500">
-        Bem-vindo ao seu ecossistema digital do Instituto Politécnico de Tomar. Aceda rapidamente a todos os serviços essenciais num único local.
-      </p>
+
+      <div class="flex items-center gap-3 text-xs">
+        <div class="hidden sm:flex items-center gap-2 text-slate-500">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          <span>Sistemas Operacionais</span>
+        </div>
+        <a href="#ajuda" onclick="document.getElementById('modal-ajuda').classList.remove('hidden')" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-slate-200 hover:bg-slate-50 text-slate-600 font-medium transition-colors">
+          <span class="material-symbols-outlined text-[16px]">help_outline</span>
+          <span>Suporte SPOC</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="flex-1 max-w-[1360px] w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 flex flex-col justify-center">
+
+    <!-- Alert / Toast Messages -->
+    <div id="auth-alert" class="hidden mb-6 max-w-2xl mx-auto w-full p-4 rounded-2xl border text-sm flex items-start gap-3 shadow-card animate-in fade-in slide-in-from-top-4">
+      <span id="auth-alert-icon" class="material-symbols-outlined text-xl shrink-0 mt-0.5">info</span>
+      <div class="flex-1">
+        <h4 id="auth-alert-title" class="font-bold">Aviso de Segurança</h4>
+        <p id="auth-alert-msg" class="text-xs mt-0.5"></p>
+      </div>
+      <button onclick="document.getElementById('auth-alert').classList.add('hidden')" class="text-slate-400 hover:text-slate-600">
+        <span class="material-symbols-outlined text-base">close</span>
+      </button>
     </div>
 
-    <!-- Grid of Services -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
       
-      <!-- 1. Hub -->
-      <a href="/hub.html" class="service-card group bg-surface rounded-xl p-6 border border-slate-200 shadow-card hover:shadow-card-hover flex flex-col gap-4 relative overflow-hidden">
-        <div class="absolute top-0 left-0 w-full h-1 bg-ipt-lime transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
-        <div class="w-12 h-12 rounded-lg bg-ipt-lime/10 flex items-center justify-center text-primary-container service-icon">
-          <span class="material-symbols-outlined text-[28px]">hub</span>
-        </div>
-        <div>
-          <h2 class="font-headline font-bold text-xl text-secondary mb-1">IPT Hub</h2>
-          <p class="text-sm text-slate-500">O seu ponto central para integração de serviços e visão global do ecossistema.</p>
-        </div>
-        <div class="mt-auto flex items-center text-sm font-semibold text-primary-container group-hover:text-primary transition-colors">
-          <span>Aceder ao Hub</span>
-          <span class="material-symbols-outlined text-[18px] ml-1 group-hover:translate-x-1 transition-transform">arrow_forward</span>
-        </div>
-      </a>
+      <!-- LEFT COLUMN: LOGIN / AUTHENTICATION CARD -->
+      <div class="lg:col-span-5 w-full">
+        
+        <!-- CARD QUANDO NÃO AUTENTICADO -->
+        <div id="login-card" class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/90 shadow-elevated relative overflow-hidden">
+          
+          <!-- Accent decoration top line -->
+          <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#74b816] via-[#0284c7] to-[#e11d48]"></div>
 
-      <!-- 2. Dashboard NETPA -->
-      <a href="/dashboard.html" class="service-card group bg-surface rounded-xl p-6 border border-slate-200 shadow-card hover:shadow-card-hover flex flex-col gap-4 relative overflow-hidden">
-        <div class="absolute top-0 left-0 w-full h-1 bg-ipt-blue transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
-        <div class="w-12 h-12 rounded-lg bg-ipt-blue/10 flex items-center justify-center text-ipt-blue service-icon">
-          <span class="material-symbols-outlined text-[28px]">dashboard</span>
-        </div>
-        <div>
-          <h2 class="font-headline font-bold text-xl text-secondary mb-1">NETPA Dashboard</h2>
-          <p class="text-sm text-slate-500">Gestão académica, pautas, inscrições e documentação administrativa.</p>
-        </div>
-        <div class="mt-auto flex items-center text-sm font-semibold text-ipt-blue group-hover:text-blue-700 transition-colors">
-          <span>Aceder ao NETPA</span>
-          <span class="material-symbols-outlined text-[18px] ml-1 group-hover:translate-x-1 transition-transform">arrow_forward</span>
-        </div>
-      </a>
+          <div class="mb-6">
+            <span class="text-xs font-mono font-bold text-[#3f6900] bg-[#f0f9e8] px-2.5 py-1 rounded-md inline-block uppercase tracking-wider mb-2">Autenticação Centralizada CAS</span>
+            <h2 class="font-headline font-extrabold text-2xl sm:text-3xl text-slate-900 tracking-tight">Iniciar Sessão</h2>
+            <p class="text-xs sm:text-sm text-slate-500 mt-1">Aceda ao seu ecossistema académico com a conta institucional.</p>
+          </div>
 
-      <!-- 3. Balcão Único -->
-      <a href="/balcao-unico.html" class="service-card group bg-surface rounded-xl p-6 border border-slate-200 shadow-card hover:shadow-card-hover flex flex-col gap-4 relative overflow-hidden">
-        <div class="absolute top-0 left-0 w-full h-1 bg-ipt-red transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
-        <div class="w-12 h-12 rounded-lg bg-ipt-red/10 flex items-center justify-center text-ipt-red service-icon">
-          <span class="material-symbols-outlined text-[28px]">support_agent</span>
-        </div>
-        <div>
-          <h2 class="font-headline font-bold text-xl text-secondary mb-1">Balcão Único</h2>
-          <p class="text-sm text-slate-500">Atendimento simplificado, submissão de requerimentos e pedidos de suporte.</p>
-        </div>
-        <div class="mt-auto flex items-center text-sm font-semibold text-ipt-red group-hover:text-red-700 transition-colors">
-          <span>Abrir Balcão</span>
-          <span class="material-symbols-outlined text-[18px] ml-1 group-hover:translate-x-1 transition-transform">arrow_forward</span>
-        </div>
-      </a>
+          <!-- Quick Demo Access Highlight (For Report Cards & Grading) -->
+          <div class="mb-6 p-3.5 rounded-2xl bg-gradient-to-r from-[#f0f9e8] to-[#e8f5d3] border-2 border-[#74b816]/40 shadow-xs">
+            <div class="flex items-center justify-between mb-1.5">
+              <span class="text-[11px] font-bold uppercase text-[#3f6900] flex items-center gap-1">
+                <span class="material-symbols-outlined text-[16px]">bolt</span>
+                Acesso de Avaliação / Demonstração
+              </span>
+              <span class="text-[10px] font-bold bg-[#74b816] text-white px-2 py-0.5 rounded-full">1 Clique</span>
+            </div>
+            <p class="text-xs text-slate-600 mb-2.5">
+              Entrar diretamente com o perfil oficial do aluno (<span class="font-semibold text-slate-900">Michelle Matias</span> • Eng. Informática) para aceder a todas as funcionalidades do projeto.
+            </p>
+            <button id="btn-quick-demo" type="button" class="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-[#74b816] hover:bg-[#3f6900] text-white font-headline font-bold text-xs sm:text-sm transition-all shadow-md shadow-[#74b816]/30 active:scale-[0.98]">
+              <span class="material-symbols-outlined text-[18px]">verified_user</span>
+              <span>Entrar como Michelle Matias (Demo)</span>
+              <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+            </button>
+          </div>
 
-      <!-- 4. Diretório -->
-      <a href="/diretorio.html" class="service-card group bg-surface rounded-xl p-6 border border-slate-200 shadow-card hover:shadow-card-hover flex flex-col gap-4 relative overflow-hidden">
-        <div class="absolute top-0 left-0 w-full h-1 bg-ipt-violet transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
-        <div class="w-12 h-12 rounded-lg bg-ipt-violet/10 flex items-center justify-center text-ipt-violet service-icon">
-          <span class="material-symbols-outlined text-[28px]">contacts</span>
-        </div>
-        <div>
-          <h2 class="font-headline font-bold text-xl text-secondary mb-1">Diretório</h2>
-          <p class="text-sm text-slate-500">Pesquisa de contactos institucionais, docentes e funcionários do ecossistema.</p>
-        </div>
-        <div class="mt-auto flex items-center text-sm font-semibold text-ipt-violet group-hover:text-violet-700 transition-colors">
-          <span>Pesquisar Contactos</span>
-          <span class="material-symbols-outlined text-[18px] ml-1 group-hover:translate-x-1 transition-transform">arrow_forward</span>
-        </div>
-      </a>
+          <!-- Divider -->
+          <div class="flex items-center gap-3 my-4">
+            <div class="h-px bg-slate-200 flex-1"></div>
+            <span class="text-[11px] text-slate-400 font-semibold uppercase tracking-wider">ou introduza os dados</span>
+            <div class="h-px bg-slate-200 flex-1"></div>
+          </div>
 
-      <!-- 5. Refeitório -->
-      <a href="/refeitorio.html" class="service-card group bg-surface rounded-xl p-6 border border-slate-200 shadow-card hover:shadow-card-hover flex flex-col gap-4 relative overflow-hidden">
-        <div class="absolute top-0 left-0 w-full h-1 bg-ipt-amber transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
-        <div class="w-12 h-12 rounded-lg bg-ipt-amber/10 flex items-center justify-center text-ipt-amber service-icon">
-          <span class="material-symbols-outlined text-[28px]">restaurant</span>
-        </div>
-        <div>
-          <h2 class="font-headline font-bold text-xl text-secondary mb-1">SAS Alimentação</h2>
-          <p class="text-sm text-slate-500">Portal Unicard SIGE para ementas, carregamentos e gestão de refeições.</p>
-        </div>
-        <div class="mt-auto flex items-center text-sm font-semibold text-ipt-amber group-hover:text-amber-700 transition-colors">
-          <span>Ver Ementas</span>
-          <span class="material-symbols-outlined text-[18px] ml-1 group-hover:translate-x-1 transition-transform">arrow_forward</span>
-        </div>
-      </a>
+          <!-- Role Tabs -->
+          <div class="grid grid-cols-3 gap-1 bg-slate-100 p-1 rounded-xl mb-4 text-xs font-semibold">
+            <button type="button" class="role-tab py-1.5 rounded-lg bg-white text-slate-800 shadow-xs font-bold" data-role="Estudante">Estudante</button>
+            <button type="button" class="role-tab py-1.5 rounded-lg text-slate-500 hover:text-slate-800" data-role="Docente">Docente</button>
+            <button type="button" class="role-tab py-1.5 rounded-lg text-slate-500 hover:text-slate-800" data-role="Funcionário">Funcionário</button>
+          </div>
 
-      <!-- 6. Prova de Vida -->
-      <a href="/prova-vida.html" class="service-card group bg-surface rounded-xl p-6 border border-slate-200 shadow-card hover:shadow-card-hover flex flex-col gap-4 relative overflow-hidden">
-        <div class="absolute top-0 left-0 w-full h-1 bg-ipt-green transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
-        <div class="w-12 h-12 rounded-lg bg-ipt-green/10 flex items-center justify-center text-ipt-green service-icon">
-          <span class="material-symbols-outlined text-[28px]">fact_check</span>
+          <!-- Login Form -->
+          <form id="form-login" class="space-y-4">
+            <div>
+              <label for="username" class="block text-xs font-bold text-slate-700 mb-1">Nº Mecanográfico ou E-mail Institucional</label>
+              <div class="relative">
+                <span class="material-symbols-outlined absolute left-3 top-2.5 text-slate-400 text-[18px]">person</span>
+                <input type="text" id="username" value="24891" required
+                       class="w-full pl-9 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:border-[#74b816] focus:ring-2 focus:ring-[#74b816]/20 transition-all font-medium"
+                       placeholder="Ex: 24891 ou michellermatias@ipt.pt"/>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex items-center justify-between mb-1">
+                <label for="password" class="block text-xs font-bold text-slate-700">Palavra-passe</label>
+                <a href="#recuperar" onclick="alert('Instruções de recuperação foram enviadas para o endereço institucional associado.')" class="text-xs text-[#3f6900] hover:underline font-semibold">Recuperar?</a>
+              </div>
+              <div class="relative">
+                <span class="material-symbols-outlined absolute left-3 top-2.5 text-slate-400 text-[18px]">lock</span>
+                <input type="password" id="password" value="••••••••" required
+                       class="w-full pl-9 pr-10 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:border-[#74b816] focus:ring-2 focus:ring-[#74b816]/20 transition-all font-medium"
+                       placeholder="Introduza a sua palavra-passe"/>
+                <button type="button" id="btn-toggle-pwd" class="absolute right-3 top-2.5 text-slate-400 hover:text-slate-600">
+                  <span class="material-symbols-outlined text-[18px]">visibility</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between text-xs pt-1">
+              <label class="flex items-center gap-2 cursor-pointer select-none text-slate-600">
+                <input type="checkbox" id="remember-me" checked class="rounded text-[#74b816] focus:ring-[#74b816] border-slate-300 w-4 h-4"/>
+                <span>Manter sessão iniciada</span>
+              </label>
+              <span class="text-slate-400 text-[11px]">Ligação SSL Segura</span>
+            </div>
+
+            <button type="submit" id="btn-submit-login" class="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-slate-900 hover:bg-black text-white font-headline font-bold text-sm transition-all shadow-md active:scale-[0.98] mt-2">
+              <span class="material-symbols-outlined text-[18px]">login</span>
+              <span>Iniciar Sessão no Portal</span>
+            </button>
+          </form>
+
+          <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-400">
+            <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">shield</span> CAS IPT v4.2</span>
+            <span class="font-mono text-[11px]">IP: 193.136.216.*</span>
+          </div>
+
         </div>
+
+        <!-- CARD QUANDO JÁ AUTENTICADO -->
+        <div id="authenticated-card" class="hidden bg-white rounded-3xl p-6 sm:p-8 border border-[#74b816]/40 shadow-elevated relative overflow-hidden">
+          <div class="absolute top-0 left-0 right-0 h-2 bg-[#74b816]"></div>
+          
+          <div class="flex items-center gap-4 mb-6">
+            <img id="user-display-avatar" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80" 
+                 alt="Foto Perfil" class="w-16 h-16 rounded-2xl object-cover border-2 border-[#74b816] shadow-sm"/>
+            <div>
+              <div class="flex items-center gap-1.5">
+                <span class="text-[11px] font-bold uppercase tracking-wider px-2 py-0.5 bg-[#f0f9e8] text-[#3f6900] border border-[#74b816]/30 rounded">Sessão Ativa</span>
+                <span class="w-2 h-2 rounded-full bg-[#74b816]"></span>
+              </div>
+              <h3 id="user-display-name" class="font-headline font-bold text-xl text-slate-900 leading-snug">Michelle Matias</h3>
+              <p id="user-display-role" class="text-xs text-slate-500 font-mono">Nº 24891 • Eng. Informática</p>
+            </div>
+          </div>
+
+          <div class="p-3.5 bg-slate-50 rounded-2xl border border-slate-100 mb-6 text-xs space-y-1.5">
+            <div class="flex justify-between"><span class="text-slate-500">Curso:</span><span class="font-semibold text-slate-800">Licenciatura em Engenharia Informática</span></div>
+            <div class="flex justify-between"><span class="text-slate-500">Escola:</span><span class="font-semibold text-slate-800">ESTT • Campus de Tomar</span></div>
+            <div class="flex justify-between"><span class="text-slate-500">Saldo Refeitório:</span><span class="font-bold text-[#3f6900]">24,50 €</span></div>
+          </div>
+
+          <div class="space-y-2">
+            <a href="/hub.html" class="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-[#74b816] hover:bg-[#3f6900] text-white font-headline font-bold text-sm transition-all shadow-md shadow-[#74b816]/30">
+              <span class="material-symbols-outlined text-[20px]">hub</span>
+              <span>Abrir o IPT Hub Geral</span>
+              <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+            </a>
+
+            <div class="grid grid-cols-2 gap-2">
+              <a href="/dashboard.html" class="flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold transition-colors">
+                <span class="material-symbols-outlined text-sm">dashboard</span>
+                <span>NETPA</span>
+              </a>
+              <a href="/refeitorio.html" class="flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold transition-colors">
+                <span class="material-symbols-outlined text-sm">restaurant</span>
+                <span>Refeitório SAS</span>
+              </a>
+            </div>
+
+            <button id="btn-logout-homepage" type="button" class="w-full flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl text-rose-600 hover:bg-rose-50 text-xs font-bold transition-colors mt-2">
+              <span class="material-symbols-outlined text-base">logout</span>
+              <span>Terminar Sessão</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- RIGHT COLUMN: ECOSYSTEM SERVICES SHOWCASE & NAVIGATION PREVIEW -->
+      <div class="lg:col-span-7 w-full flex flex-col gap-6">
+        
         <div>
-          <h2 class="font-headline font-bold text-xl text-secondary mb-1">Prova de Vida SAS</h2>
-          <p class="text-sm text-slate-500">Validação e renovação de estatutos para os Serviços de Ação Social.</p>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#f0f9e8] text-[#3f6900] border border-[#74b816]/30 text-xs font-bold mb-3">
+            <span class="material-symbols-outlined text-[16px]">category</span>
+            Ecossistema Digital Integrado
+          </div>
+          <h1 class="font-headline font-extrabold text-3xl sm:text-4xl text-slate-900 tracking-tight leading-tight">
+            Todas as ferramentas académicas do IPT reunidas num único portal.
+          </h1>
+          <p class="text-sm sm:text-base text-slate-600 mt-2">
+            Inicie sessão para desbloquear o acesso total aos 6 grandes módulos federados de gestão académica, serviços sociais e suporte.
+          </p>
         </div>
-        <div class="mt-auto flex items-center text-sm font-semibold text-ipt-green group-hover:text-green-700 transition-colors">
-          <span>Realizar Prova</span>
-          <span class="material-symbols-outlined text-[18px] ml-1 group-hover:translate-x-1 transition-transform">arrow_forward</span>
+
+        <!-- Grid of the 6 Integrated Services -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          
+          <!-- 1. Hub -->
+          <a href="/hub.html" class="service-card group bg-white rounded-2xl p-5 border border-slate-200/80 shadow-card hover:shadow-elevated flex flex-col justify-between relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-1 bg-[#74b816] transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <div class="w-10 h-10 rounded-xl bg-[#74b816]/10 flex items-center justify-center text-[#74b816] group-hover:bg-[#74b816] group-hover:text-white transition-colors">
+                  <span class="material-symbols-outlined text-[22px]">hub</span>
+                </div>
+                <span class="text-[11px] font-bold text-slate-400 group-hover:text-[#74b816] flex items-center gap-0.5">
+                  Aceder <span class="material-symbols-outlined text-sm">chevron_right</span>
+                </span>
+              </div>
+              <h3 class="font-headline font-bold text-base text-slate-900 group-hover:text-[#3f6900] transition-colors">IPT Hub Geral</h3>
+              <p class="text-xs text-slate-500 mt-1">O seu ponto central para visão global do ecossistema e atalhos rápidos.</p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-100 flex items-center gap-1.5 text-[11px] font-semibold text-[#74b816]">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#74b816]"></span>
+              <span>Painel Central</span>
+            </div>
+          </a>
+
+          <!-- 2. NETPA Dashboard -->
+          <a href="/dashboard.html" class="service-card group bg-white rounded-2xl p-5 border border-slate-200/80 shadow-card hover:shadow-elevated flex flex-col justify-between relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-1 bg-[#0284c7] transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <div class="w-10 h-10 rounded-xl bg-[#0284c7]/10 flex items-center justify-center text-[#0284c7] group-hover:bg-[#0284c7] group-hover:text-white transition-colors">
+                  <span class="material-symbols-outlined text-[22px]">dashboard</span>
+                </div>
+                <span class="text-[11px] font-bold text-slate-400 group-hover:text-[#0284c7] flex items-center gap-0.5">
+                  Aceder <span class="material-symbols-outlined text-sm">chevron_right</span>
+                </span>
+              </div>
+              <h3 class="font-headline font-bold text-base text-slate-900 group-hover:text-[#0284c7] transition-colors">NETPA Dashboard</h3>
+              <p class="text-xs text-slate-500 mt-1">Pautas, notas, inscrições em exames, horários de aulas e propinas.</p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-100 flex items-center gap-1.5 text-[11px] font-semibold text-[#0284c7]">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#0284c7]"></span>
+              <span>Gestão Curricular</span>
+            </div>
+          </a>
+
+          <!-- 3. Balcão Único -->
+          <a href="/balcao-unico.html" class="service-card group bg-white rounded-2xl p-5 border border-slate-200/80 shadow-card hover:shadow-elevated flex flex-col justify-between relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-1 bg-[#e11d48] transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <div class="w-10 h-10 rounded-xl bg-[#e11d48]/10 flex items-center justify-center text-[#e11d48] group-hover:bg-[#e11d48] group-hover:text-white transition-colors">
+                  <span class="material-symbols-outlined text-[22px]">support_agent</span>
+                </div>
+                <span class="text-[11px] font-bold text-slate-400 group-hover:text-[#e11d48] flex items-center gap-0.5">
+                  Aceder <span class="material-symbols-outlined text-sm">chevron_right</span>
+                </span>
+              </div>
+              <h3 class="font-headline font-bold text-base text-slate-900 group-hover:text-[#e11d48] transition-colors">Balcão Único SPOC</h3>
+              <p class="text-xs text-slate-500 mt-1">Secretaria digital, emissão de certidões e requerimentos online.</p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-100 flex items-center gap-1.5 text-[11px] font-semibold text-[#e11d48]">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#e11d48]"></span>
+              <span>Atendimento Virtual</span>
+            </div>
+          </a>
+
+          <!-- 4. Refeitório & Unicard -->
+          <a href="/refeitorio.html" class="service-card group bg-white rounded-2xl p-5 border border-slate-200/80 shadow-card hover:shadow-elevated flex flex-col justify-between relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-1 bg-[#d97706] transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <div class="w-10 h-10 rounded-xl bg-[#d97706]/10 flex items-center justify-center text-[#d97706] group-hover:bg-[#d97706] group-hover:text-white transition-colors">
+                  <span class="material-symbols-outlined text-[22px]">restaurant</span>
+                </div>
+                <span class="text-[11px] font-bold text-slate-400 group-hover:text-[#d97706] flex items-center gap-0.5">
+                  Aceder <span class="material-symbols-outlined text-sm">chevron_right</span>
+                </span>
+              </div>
+              <h3 class="font-headline font-bold text-base text-slate-900 group-hover:text-[#d97706] transition-colors">SAS Refeitório</h3>
+              <p class="text-xs text-slate-500 mt-1">Ementas diárias das cantinas, marcação de refeições e saldo Unicard SIGE.</p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-100 flex items-center gap-1.5 text-[11px] font-semibold text-[#d97706]">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#d97706]"></span>
+              <span>Alimentação SAS</span>
+            </div>
+          </a>
+
+          <!-- 5. Prova de Vida -->
+          <a href="/prova-vida.html" class="service-card group bg-white rounded-2xl p-5 border border-slate-200/80 shadow-card hover:shadow-elevated flex flex-col justify-between relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-1 bg-[#059669] transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <div class="w-10 h-10 rounded-xl bg-[#059669]/10 flex items-center justify-center text-[#059669] group-hover:bg-[#059669] group-hover:text-white transition-colors">
+                  <span class="material-symbols-outlined text-[22px]">fact_check</span>
+                </div>
+                <span class="text-[11px] font-bold text-slate-400 group-hover:text-[#059669] flex items-center gap-0.5">
+                  Aceder <span class="material-symbols-outlined text-sm">chevron_right</span>
+                </span>
+              </div>
+              <h3 class="font-headline font-bold text-base text-slate-900 group-hover:text-[#059669] transition-colors">Prova de Vida SAS</h3>
+              <p class="text-xs text-slate-500 mt-1">Validação e renovação de estatutos sociais e bolsas de estudo.</p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-100 flex items-center gap-1.5 text-[11px] font-semibold text-[#059669]">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#059669]"></span>
+              <span>Ação Social</span>
+            </div>
+          </a>
+
+          <!-- 6. Diretório -->
+          <a href="/diretorio.html" class="service-card group bg-white rounded-2xl p-5 border border-slate-200/80 shadow-card hover:shadow-elevated flex flex-col justify-between relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-1 bg-[#7c3aed] transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <div class="w-10 h-10 rounded-xl bg-[#7c3aed]/10 flex items-center justify-center text-[#7c3aed] group-hover:bg-[#7c3aed] group-hover:text-white transition-colors">
+                  <span class="material-symbols-outlined text-[22px]">contacts</span>
+                </div>
+                <span class="text-[11px] font-bold text-slate-400 group-hover:text-[#7c3aed] flex items-center gap-0.5">
+                  Aceder <span class="material-symbols-outlined text-sm">chevron_right</span>
+                </span>
+              </div>
+              <h3 class="font-headline font-bold text-base text-slate-900 group-hover:text-[#7c3aed] transition-colors">Diretório IPT</h3>
+              <p class="text-xs text-slate-500 mt-1">Pesquisa de contactos institucionais, docentes, departamentos e gabinetes.</p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-100 flex items-center gap-1.5 text-[11px] font-semibold text-[#7c3aed]">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#7c3aed]"></span>
+              <span>Contactos & Campus</span>
+            </div>
+          </a>
+
         </div>
-      </a>
-      
+
+      </div>
+
     </div>
+
   </main>
 
+  <!-- Help / Info Modal -->
+  <div id="modal-ajuda" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-xs p-4 animate-in fade-in">
+    <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-elevated border border-slate-200">
+      <div class="flex items-center justify-between mb-4">
+        <h3 class="font-headline font-bold text-lg text-slate-900 flex items-center gap-2">
+          <span class="material-symbols-outlined text-[#74b816]">support_agent</span>
+          Apoio ao Estudante IPT
+        </h3>
+        <button onclick="document.getElementById('modal-ajuda').classList.add('hidden')" class="p-1 rounded-lg text-slate-400 hover:text-slate-600">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+      <p class="text-xs text-slate-600 leading-relaxed mb-4">
+        Em caso de dificuldades no acesso às credenciais institucionais, contacte os Serviços de Informática do Instituto Politécnico de Tomar através do Balcão Virtual ou presencialmente na ESTT.
+      </p>
+      <div class="space-y-2 text-xs mb-6">
+        <div class="p-2.5 rounded-xl bg-slate-50 flex items-center justify-between">
+          <span class="text-slate-500">E-mail de Suporte:</span>
+          <span class="font-mono font-bold text-[#3f6900]">ci@ipt.pt</span>
+        </div>
+        <div class="p-2.5 rounded-xl bg-slate-50 flex items-center justify-between">
+          <span class="text-slate-500">Horário Atendimento:</span>
+          <span class="font-semibold text-slate-700">09h00 – 17h30 (Dias úteis)</span>
+        </div>
+      </div>
+      <button onclick="document.getElementById('modal-ajuda').classList.add('hidden')" class="w-full py-2.5 rounded-xl bg-slate-900 text-white font-bold text-xs">
+        Fechar Janela
+      </button>
+    </div>
+  </div>
+
+  <!-- Footer -->
   <footer class="mt-auto border-t border-slate-200 bg-white py-6">
-    <div class="max-w-[1320px] mx-auto px-4 sm:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-500">
+    <div class="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
       <div class="flex items-center gap-2">
-        <span class="material-symbols-outlined text-[20px] text-primary-container">school</span>
-        <span class="font-semibold text-secondary">Instituto Politécnico de Tomar</span>
+        <span class="material-symbols-outlined text-[18px] text-[#74b816]">school</span>
+        <span class="font-bold text-slate-700">Instituto Politécnico de Tomar</span>
+        <span>•</span>
+        <span>ESTT • ESGT • ESTA</span>
       </div>
       <p>© 2026 Serviços de Informática do IPT. Todos os direitos reservados.</p>
     </div>
   </footer>
 
+  <!-- Scripts -->
+  <script src="/auth.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const urlParams = new URLSearchParams(window.location.search);
+      const authAlert = document.getElementById("auth-alert");
+      const authAlertMsg = document.getElementById("auth-alert-msg");
+      const authAlertTitle = document.getElementById("auth-alert-title");
+      const authAlertIcon = document.getElementById("auth-alert-icon");
+      
+      const loginCard = document.getElementById("login-card");
+      const authenticatedCard = document.getElementById("authenticated-card");
+      const userDisplayAvatar = document.getElementById("user-display-avatar");
+      const userDisplayName = document.getElementById("user-display-name");
+      const userDisplayRole = document.getElementById("user-display-role");
+      
+      // Checar se já tem sessão
+      function updateSessionView() {
+        const user = window.IPTAuth ? window.IPTAuth.getUser() : null;
+        if (user) {
+          loginCard.classList.add("hidden");
+          authenticatedCard.classList.remove("hidden");
+          userDisplayName.textContent = user.name;
+          userDisplayRole.textContent = `Nº ${user.id} • ${user.course}`;
+          if (user.avatar) userDisplayAvatar.src = user.avatar;
+        } else {
+          loginCard.classList.remove("hidden");
+          authenticatedCard.classList.add("hidden");
+        }
+      }
+
+      // Alertas de redirecionamento ou logout
+      if (urlParams.has("auth_required")) {
+        authAlert.className = "mb-6 max-w-2xl mx-auto w-full p-4 rounded-2xl border text-sm flex items-start gap-3 shadow-card bg-amber-50 border-amber-200 text-amber-900";
+        authAlertIcon.textContent = "lock";
+        authAlertTitle.textContent = "Acesso Restrito ao Portal";
+        authAlertMsg.textContent = "Por favor, inicie sessão com as suas credenciais para aceder a esta funcionalidade do ecossistema académico.";
+        authAlert.classList.remove("hidden");
+      } else if (urlParams.has("logged_out")) {
+        authAlert.className = "mb-6 max-w-2xl mx-auto w-full p-4 rounded-2xl border text-sm flex items-start gap-3 shadow-card bg-emerald-50 border-emerald-200 text-emerald-900";
+        authAlertIcon.textContent = "check_circle";
+        authAlertTitle.textContent = "Sessão Terminada";
+        authAlertMsg.textContent = "A sua sessão foi encerrada com sucesso e em segurança. Até breve!";
+        authAlert.classList.remove("hidden");
+      }
+
+      updateSessionView();
+
+      // Botão de Demo Rápido
+      document.getElementById("btn-quick-demo").addEventListener("click", function () {
+        if (window.IPTAuth) {
+          window.IPTAuth.demoLogin();
+          const redirect = urlParams.get("redirect") || "/hub.html";
+          window.location.href = redirect;
+        }
+      });
+
+      // Submissão do Formulário de Login
+      document.getElementById("form-login").addEventListener("submit", function (e) {
+        e.preventDefault();
+        const username = document.getElementById("username").value.trim();
+        const remember = document.getElementById("remember-me").checked;
+        
+        if (window.IPTAuth) {
+          window.IPTAuth.login(username, null, remember);
+          const redirect = urlParams.get("redirect") || "/hub.html";
+          window.location.href = redirect;
+        }
+      });
+
+      // Botão de Logout na página inicial
+      const logoutBtn = document.getElementById("btn-logout-homepage");
+      if (logoutBtn) {
+        logoutBtn.addEventListener("click", function () {
+          if (window.IPTAuth) {
+            window.IPTAuth.logout();
+            updateSessionView();
+          }
+        });
+      }
+
+      // Alternar visualização da senha
+      const togglePwd = document.getElementById("btn-toggle-pwd");
+      const pwdInput = document.getElementById("password");
+      togglePwd.addEventListener("click", function () {
+        const isPassword = pwdInput.type === "password";
+        pwdInput.type = isPassword ? "text" : "password";
+        togglePwd.querySelector("span").textContent = isPassword ? "visibility_off" : "visibility";
+      });
+
+      // Alternar separadores de funções
+      document.querySelectorAll(".role-tab").forEach(tab => {
+        tab.addEventListener("click", function () {
+          document.querySelectorAll(".role-tab").forEach(t => {
+            t.className = "role-tab py-1.5 rounded-lg text-slate-500 hover:text-slate-800";
+          });
+          this.className = "role-tab py-1.5 rounded-lg bg-white text-slate-800 shadow-xs font-bold";
+        });
+      });
+    });
+  </script>
 </body>
 </html>
